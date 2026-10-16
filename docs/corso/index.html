@@ -171,25 +171,10 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .mbox .who .av{width:64px;height:64px;border-radius:50%;border:3px solid var(--black);background:var(--pink);overflow:hidden;display:grid;place-items:center;font-weight:800;flex:0 0 auto}
 .mbox .who img{width:100%;height:100%;object-fit:cover}
 .mbox video{width:100%;border-radius:16px;margin-top:14px;display:block;background:#000}
+.ba{margin-bottom:12px;padding:12px 14px;border-radius:14px;background:#f4f4f4;font-size:.93rem;line-height:1.5}.ba span{display:inline-block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}.ba p{margin:0}.ba.dopo{background:var(--pink)}
 .mbox .q2{font-size:1.05rem;font-weight:500;line-height:1.55}
 @media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bub:nth-child(3n){width:118px!important;height:118px!important}.bubbles{gap:18px 20px}}
 
-.chat{max-width:440px;margin:44px auto 0;border:3px solid var(--black);border-radius:26px;box-shadow:8px 10px 0 var(--black);overflow:hidden;background:#efeae2}
-.chat .ch{background:#075e54;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem}
-.chat .ch i{width:34px;height:34px;border-radius:50%;background:var(--pink);color:var(--black);display:grid;place-items:center;font-style:normal;font-weight:800}
-.chat .ch small{display:block;font-weight:500;opacity:.8;font-size:.72rem}
-.cbody{padding:16px 12px 20px;min-height:340px;display:flex;flex-direction:column;gap:8px}
-.msg{max-width:84%;background:#fff;border-radius:4px 14px 14px 14px;padding:8px 12px 6px;font-size:.93rem;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.15);align-self:flex-start;opacity:0;transform:translateY(10px) scale(.96);transition:opacity .35s,transform .35s}
-.msg.me{align-self:flex-end;background:#dcf8c6;border-radius:14px 4px 14px 14px}
-.msg.in{opacity:1;transform:none}
-.msg b{display:block;font-size:.76rem;color:#c2185b;margin-bottom:2px}
-.msg em{display:block;text-align:right;font-style:normal;font-size:.66rem;color:#8a8a8a;margin-top:2px}
-.msg.me em{color:#4a9d5b}
-.typ{align-self:flex-start;background:#fff;border-radius:14px;padding:11px 14px;display:none;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.15)}
-.typ.on{display:flex}
-.typ span{width:7px;height:7px;border-radius:50%;background:#9a9a9a;animation:tp 1s infinite}
-.typ span:nth-child(2){animation-delay:.15s}.typ span:nth-child(3){animation-delay:.3s}
-@keyframes tp{50%{transform:translateY(-4px);opacity:.5}}
 /* faq */
 .faq{margin-top:34px;border-top:2.5px solid var(--black)}
 .q{border-bottom:2.5px solid var(--black)}
@@ -309,7 +294,6 @@ footer a{color:var(--black);margin-right:16px}
   <div class="bubbles" id="bubbles"></div>
   <p class="hint">Tocca una foto per leggere la recensione</p>
   <div class="vrev" id="vrev"></div>
-  <div class="chat rv"><div class="ch"><i>C</i><div>Messaggi delle creator<small>online</small></div></div><div class="cbody" id="cbody"><div class="typ" id="typ"><span></span><span></span><span></span></div></div></div>
 </div></section>
 
 <div class="modal" id="modal"><div class="mbox" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Chiudi">×</button><div id="mc"></div></div></div>
@@ -361,19 +345,15 @@ var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "3933312345
 var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
-  {name:"Creator 1", photo:"", text:"Qui andrà la recensione.", video:""},
+  {name:"Lucia Ciciliani", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator",
+   before:"Venivo da circa 5 anni di network marketing: mi aveva permesso di lavorare da casa ed esserci per le mie bambine, ma non rispecchiava più i miei valori. Volevo un lavoro online in cui i risultati dipendessero da me. Sono partita da zero, senza sapere come propormi ai brand o creare un portfolio.",
+   after:"Con la formazione e i due mesi di affiancamento ho iniziato le prime collab: dalla terza ho chiesto un compenso. Oggi i brand mi contattano, ho collaborazioni continuative con una base di circa 1.800€ al mese più progetti occasionali, e sono il volto di un importante centro commerciale della mia zona.",
+   text:"Carlotta è stata un punto di riferimento fondamentale: sempre presente, e lo è ancora oggi. Non mi sono mai sentita sola. Oggi faccio un lavoro che amo davvero, e sono solo all'inizio!", video:""},
   {name:"Creator 2", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 3", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 4", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 5", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 6", photo:"", text:"Qui andrà la recensione.", video:""}
-];
-/* MESSAGGI stile WhatsApp: from = nome creator, me:true = risposta di Carlotta */
-var CHAT = [
-  {from:"Creator 1", text:"Qui andrà il messaggio di una creator."},
-  {me:true, text:"Qui la tua risposta."},
-  {from:"Creator 2", text:"Qui andrà un altro messaggio."},
-  {from:"Creator 3", text:"Qui andrà un altro messaggio."}
 ];
 var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
@@ -398,7 +378,7 @@ document.documentElement.classList.add("js");
   function openM(r,vsrc){
     var av=r.photo?'<img src="'+esc(r.photo)+'" alt="">':ini(r.name);
     var v=vsrc||r.video;
-    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><b>'+esc(r.name)+'</b></div>'+(r.text?'<p class="q2">“'+esc(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
+    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.before?'<div class="ba"><span>Prima</span><p>'+esc(r.before)+'</p></div><div class="ba dopo"><span>Dopo</span><p>'+esc(r.after)+'</p></div>':'')+(r.text?'<p class="q2">“'+esc(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
     md.classList.add("on")}
   function closeM(){md.classList.remove("on");mc.innerHTML=""}
   document.getElementById("mx").onclick=closeM;
@@ -413,17 +393,6 @@ document.documentElement.classList.add("js");
   VIDEO_REVIEWS.forEach(function(v){var c=document.createElement("button");c.className="vcard";
     c.innerHTML=(v.poster?'<img src="'+esc(v.poster)+'" style="width:100%;height:100%;object-fit:cover" alt="">':'')+'<span class="pl2"><i>▶</i><b>'+esc(v.name)+'</b></span>';
     c.onclick=function(){openM({name:v.name,text:""},v.src)};vr.appendChild(c)});
-  /* chat whatsapp */
-  var cb=document.getElementById("cbody"),ty=document.getElementById("typ"),played=false;
-  function play(){if(played)return;played=true;var i=0;
-    (function next(){if(i>=CHAT.length){ty.classList.remove("on");return}
-      var m=CHAT[i++];ty.classList.add("on");cb.appendChild(ty);
-      setTimeout(function(){ty.classList.remove("on");
-        var d=document.createElement("div");d.className="msg"+(m.me?" me":"");
-        d.innerHTML=(m.from?"<b>"+esc(m.from)+"</b>":"")+esc(m.text)+"<em>"+(m.me?"12:4"+i+" ✓✓":"12:3"+i)+"</em>";
-        cb.insertBefore(d,ty);requestAnimationFrame(function(){d.classList.add("in")});
-        setTimeout(next,700)},m.me?900:1300)})()}
-  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();play()}},{threshold:.4}).observe(cb);
   /* reveal + livelli */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
   [].forEach.call(document.querySelectorAll(".rv,.big,#levels"),function(el){io.observe(el)});
