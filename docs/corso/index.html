@@ -427,15 +427,15 @@ footer a{color:var(--black);margin-right:16px}
     <div class="q"><button aria-expanded="false">Servono tanti follower?<span class="pl">+</span></button><div class="a"><div><p>No. L’UGC si basa sui contenuti che crei, non sulla grandezza del tuo pubblico.</p></div></div></div>
     <div class="q"><button aria-expanded="false">Quanto tempo devo dedicarci?<span class="pl">+</span></button><div class="a"><div><p>Dipende dai tuoi obiettivi. Le lezioni sono registrate, quindi organizzi il tempo come preferisci.</p></div></div></div>
     <div class="q"><button aria-expanded="false">Guadagnerò di sicuro?<span class="pl">+</span></button><div class="a"><div><p>I guadagni sono possibili ma non automatici: servono pratica e costanza.</p></div></div></div>
-    <div class="q"><button aria-expanded="false">Cos’è l’analisi gratuita?<span class="pl">+</span></button><div class="a"><div><p>È un’analisi della tua situazione, senza obbligo di acquisto.</p></div></div></div>
+    <div class="q"><button aria-expanded="false">Cos’è la call gratuita?<span class="pl">+</span></button><div class="a"><div><p>È una chiamata per analizzare la tua situazione, senza obbligo di acquisto.</p></div></div></div>
   </div>
 </div></section>
 
 <section class="cta" id="analisi"><div class="wrap">
   <h2 class="rv">Pronta a fare il <span class="mark y">level up</span>?</h2>
-  <p class="lead rv d1">Scrivici su WhatsApp per l’analisi gratuita: ne parliamo insieme, senza impegno.</p>
+  <p class="lead rv d1">Scrivici su WhatsApp per prenotare una call gratuita: ne parliamo insieme, senza impegno.</p>
   <div class="row rv d2"><a class="btn book wa" href="#">Scrivici su WhatsApp</a></div>
-  <p class="gate rv d3" id="gate">🔒 Puoi richiedere l’analisi gratuita su WhatsApp: guarda prima il video di presentazione e il bottone si sblocca.</p>
+  <p class="gate rv d3" id="gate">🔒 Puoi scriverci su WhatsApp per prenotare una call gratuita: guarda prima il video di presentazione e il bottone si sblocca.</p>
 </div></section>
 
 <footer><div class="wrap"><div><a href="https://www.carlottaspinelli.com/privacy-policy">Privacy e Cookie</a><a href="https://www.carlottaspinelli.com/terms">Termini e condizioni</a><a href="https://www.carlottaspinelli.com/refund-policy">Rimborsi</a></div><div>© Carlotta Spinelli</div></div></footer>
@@ -496,7 +496,7 @@ var BOOKING_URL = "https://www.carlottaspinelli.com/call-ugc-level-up";
 // Se in Wix crei due servizi diversi, metti qui i due link e le prenotazioni si dividono da sole:
 var BOOKING_BY_SRC = { bio: "https://www.carlottaspinelli.com/call-ugc-level-up", adv: "https://www.carlottaspinelli.com/call-ugc-level-up1" };
 var SRC_LABEL = { bio: "Instagram (link in bio)", adv: "Video adv" };   // link pagina prenotazioni Wix (quando pronto). Se vuoto, il bottone apre WhatsApp
-var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Analisi gratuita UGC Level Up");
+var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Call gratuita UGC Level Up");
 /* ======================== */
 document.documentElement.classList.add("js");
 (function(){
@@ -520,8 +520,8 @@ document.documentElement.classList.add("js");
     if(seen){a.classList.remove("locked");a.firstChild.textContent=a.dataset.label;
       a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}
     else{a.classList.add("locked");a.firstChild.textContent="🔒 Guarda prima il video ";a.href="#top";a.removeAttribute("target")}});
-    if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi scriverci su WhatsApp per l’analisi gratuita.":"🔒 Puoi richiedere l’analisi gratuita su WhatsApp: guarda prima il video di presentazione e il bottone si sblocca."}
-    var vn=document.getElementById("vnote");if(vn){vn.classList.toggle("ok",seen);vn.textContent=seen?"✓ Video visto: ora puoi scriverci su WhatsApp per l’analisi gratuita.":"🔒 Puoi richiedere l’analisi gratuita su WhatsApp: guarda prima il video di presentazione e il bottone si sblocca."}}
+    if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi scriverci su WhatsApp per prenotare la call gratuita.":"🔒 Puoi scriverci su WhatsApp per prenotare una call gratuita: guarda prima il video di presentazione e il bottone si sblocca."}
+    var vn=document.getElementById("vnote");if(vn){vn.classList.toggle("ok",seen);vn.textContent=seen?"✓ Video visto: ora puoi scriverci su WhatsApp per prenotare la call gratuita.":"🔒 Puoi scriverci su WhatsApp per prenotare una call gratuita: guarda prima il video di presentazione e il bottone si sblocca."}}
   function unlock(){if(seen)return;seen=true;if(VIDEO_SRC){try{localStorage.setItem("ulu_seen2","1")}catch(e){}}paint()}
   books.forEach(function(a){a.addEventListener("click",function(e){if(!seen){e.preventDefault();vf.scrollIntoView({behavior:"smooth",block:"center"});vf.classList.remove("shake");void vf.offsetWidth;vf.classList.add("shake")}})});
   paint();
