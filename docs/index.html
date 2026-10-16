@@ -275,7 +275,7 @@ body.editing .more-btn{display:none}
 .evt-cursor{position:absolute;z-index:8;left:30%;top:46%;width:54px;height:auto;image-rendering:pixelated;pointer-events:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3));animation:evc 3.2s ease-in-out infinite}
 .evt.open .evt-cursor{display:none}
 @keyframes evc{0%{transform:translate(0,0) scale(1)}25%{transform:translate(90px,-60px) scale(1)}45%{transform:translate(90px,-60px) scale(.82)}55%{transform:translate(90px,-60px) scale(1)}80%{transform:translate(-30px,40px) scale(1)}100%{transform:translate(0,0) scale(1)}}.evt-hint{font-size:.85rem;color:var(--muted);margin:14px 0 0}
-@media(max-width:900px){.evt .wrap{grid-template-columns:1fr}.evt-vids .pvin{overflow-x:auto}.evt-vids .pt{flex:0 0 90px}}
+@media(max-width:900px){.plist .pvin{flex-wrap:nowrap;overflow-x:auto;padding-left:4px;padding-bottom:22px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;overscroll-behavior-x:contain}.plist .pt{flex:0 0 118px;scroll-snap-align:start}.plist .pvin .ed.add{flex:0 0 118px}.pi:hover .pvids,.pi.open .pvids{max-height:290px}.evt .wrap{grid-template-columns:1fr}.evt-vids .pvin{overflow-x:auto}.evt-vids .pt{flex:0 0 90px}}
 .rec h2{font-size:clamp(2.1rem,5vw,4rem);margin:14px 0 22px;max-width:14em}
 .rec p.big{font-size:1.05rem;max-width:40em}
 .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
