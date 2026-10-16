@@ -473,7 +473,7 @@ var REVIEWS = [
    text:"Grazie a Carlotta sono riuscita a **vivere solo di creatività**, mantenendomi completamente con le collaborazioni da creator e il lavoro da attrice. **Eternamente grata.**", video:""}
 ];
 var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
-var WATCH_PCT = 0.9; // quota di video da guardare per sbloccare la prenotazione
+var WATCH_PCT = 0.5; // quota di video da guardare per sbloccare la prenotazione
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
 var WA_TEXT = " Ciao, ho visto il video! Vorrei saperne di più su UGC Level Up";   // dopo il video
 var WA_TEXT_PRE = "Ciao! Vorrei saperne di più su UGC Level Up";   // prima del video
@@ -499,7 +499,7 @@ document.documentElement.classList.add("js");
   if(CAMPUS_URL){cb2.href=CAMPUS_URL;cb2.target="_blank";cb2.rel="noopener"}else{cb2.textContent="Anteprima in arrivo"}
   if(CAMPUS_NOTE)document.getElementById("campusNote").textContent=CAMPUS_NOTE;
   /* sblocco prenotazione dopo il video */
-  var seen=false;try{seen=localStorage.getItem("ulu_seen")==="1"}catch(e){}
+  var seen=false;try{seen=localStorage.getItem("ulu_seen2")==="1"}catch(e){}
   var books=[].slice.call(document.querySelectorAll(".book")),gate=document.getElementById("gate");
   books.forEach(function(a){a.dataset.label=a.firstChild.textContent});
   function bookUrl(){var u=BOOKING_BY_SRC[SRC]||BOOKING_URL;if(SRC)u+=(u.indexOf("?")<0?"?":"&")+"utm_source="+encodeURIComponent(SRC)+"&utm_medium="+(SRC==="adv"?"paid":"organic")+"&utm_campaign=ugc-level-up";return u}
@@ -509,7 +509,7 @@ document.documentElement.classList.add("js");
       if(BOOKING_URL){a.href=bookUrl();a.target="_blank";a.rel="noopener"}else{a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}}
     else{a.classList.add("locked");a.firstChild.textContent="🔒 Guarda prima il video ";a.href="#top";a.removeAttribute("target")}});
     if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi prenotare la chiamata.":"🔒 La prenotazione si sblocca dopo aver guardato il video di presentazione."}}
-  function unlock(){if(seen)return;seen=true;try{localStorage.setItem("ulu_seen","1")}catch(e){}paint()}
+  function unlock(){if(seen)return;seen=true;if(VIDEO_SRC){try{localStorage.setItem("ulu_seen2","1")}catch(e){}}paint()}
   books.forEach(function(a){a.addEventListener("click",function(e){if(!seen){e.preventDefault();vf.scrollIntoView({behavior:"smooth",block:"center"});vf.classList.remove("shake");void vf.offsetWidth;vf.classList.add("shake")}})});
   paint();
   document.getElementById("play").addEventListener("click",function(){
