@@ -213,6 +213,28 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .mbox .q2{font-size:1.05rem;font-weight:500;line-height:1.55}
 @media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bw:nth-child(3n) .bub{width:118px!important;height:118px!important}.bubbles{gap:52px 30px;padding:18px 0}.bw{width:42%;min-width:140px}.bw:nth-child(2n){margin-top:0}}
 
+
+/* campus */
+.campus{background:#fff}
+.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center}
+.cmock{border:3px solid var(--black);border-radius:22px;background:#fff;box-shadow:8px 10px 0 var(--black);overflow:hidden;transform:rotate(-1.5deg);transition:transform .4s}
+.cmock:hover{transform:rotate(0)}
+.cbar{display:flex;gap:6px;align-items:center;padding:10px 14px;border-bottom:3px solid var(--black);background:var(--yellow)}
+.cbar i{width:11px;height:11px;border-radius:50%;border:2px solid var(--black);background:#fff}
+.cbar span{margin-left:10px;font-size:.72rem;font-weight:800;letter-spacing:.06em}
+.cbody2{display:grid;grid-template-columns:120px 1fr;min-height:300px}
+.cside{background:var(--black);color:#fff;padding:14px 12px;display:grid;gap:8px;align-content:start;font-size:.76rem;font-weight:700}
+.cside b{padding:7px 9px;border-radius:9px}.cside b.on{background:var(--pink);color:var(--black)}
+.cmain{padding:16px;display:grid;gap:12px;align-content:start;background:#fff7fb}
+.cc{background:#fff;border:2.5px solid var(--black);border-radius:14px;padding:11px 13px;font-size:.82rem;line-height:1.35}
+.cc b{display:block;font-size:.9rem;margin-bottom:5px}
+.pg{height:9px;border-radius:9px;border:2px solid var(--black);background:#fff;overflow:hidden}
+.pg i{display:block;height:100%;width:0;background:var(--hot);transition:width 1.6s .3s}
+.in .pg i,.cmock.in .pg i{width:62%}
+.pill{display:inline-block;background:var(--yellow);border:2px solid var(--black);border-radius:999px;padding:2px 9px;font-size:.7rem;font-weight:800;margin-right:5px}
+.cmock .cc{animation:bubf 8s ease-in-out infinite}.cmock .cc:nth-child(2){animation-delay:-3s}.cmock .cc:nth-child(3){animation-delay:-5s}
+.cnote{font-size:.85rem;font-weight:600;opacity:.75;margin-top:12px}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}.cbody2{grid-template-columns:100px 1fr}}
 /* faq */
 .faq{margin-top:34px;border-top:2.5px solid var(--black)}
 .q{border-bottom:2.5px solid var(--black)}
@@ -311,6 +333,27 @@ footer a{color:var(--black);margin-right:16px}
     <div class="inc rv d2"><span class="n">Ogni mese</span><h3>Sfide con premi</h3><p>Sfide mensili con premi, come attrezzatura per i tuoi video.</p></div>
   </div>
   <div class="topics rv"><span class="chip">Pagamento rateizzabile</span><span class="chip">Accesso a vita</span><span class="chip">Aggiornamenti inclusi</span><span class="chip">Ti basta il telefono</span></div>
+</div></section>
+
+<section class="campus" id="campus"><div class="wrap cgrid">
+  <div class="rv">
+    <div class="eyebrow">Il campus</div>
+    <h2>Dai un’occhiata <span class="mark">da dentro</span></h2>
+    <p class="lead" style="margin:0 0 22px">Lezioni, community, sfide del mese e proposte di collab sono tutte nello stesso posto. Entra come ospite e guarda come funziona prima di decidere.</p>
+    <div class="row"><a class="btn" id="campusBtn" href="#analisi">Sbircia il campus</a></div>
+    <p class="cnote" id="campusNote"></p>
+  </div>
+  <div class="cmock rv d1" aria-hidden="true">
+    <div class="cbar"><i></i><i></i><i></i><span>CAMPUS · UGC LEVEL UP</span></div>
+    <div class="cbody2">
+      <div class="cside"><b class="on">Lezioni</b><b>Community</b><b>Sfide</b><b>Collab</b><b>Eventi</b><b>Call 1:1</b></div>
+      <div class="cmain">
+        <div class="cc"><b>Le tue lezioni</b><div class="pg"><i></i></div></div>
+        <div class="cc"><b>Sfida del mese</b><span class="pill">Premio</span><span class="pill">Attrezzatura</span></div>
+        <div class="cc"><b>Nuova proposta di collab</b><span class="pill">Pagata</span><span class="pill">Questo mese</span></div>
+      </div>
+    </div>
+  </div>
 </div></section>
 
 <section id="risultati" style="background:#fff7fb"><div class="wrap">
@@ -425,6 +468,8 @@ var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
 var WA_TEXT = " Ciao, ho visto il video! Vorrei saperne di più su UGC Level Up";   // dopo il video
 var WA_TEXT_PRE = "Ciao! Vorrei saperne di più su UGC Level Up";   // prima del video
+var CAMPUS_URL = "";        // link per sbirciare il campus (accesso ospite). Se vuoto, il bottone porta alla prenotazione
+var CAMPUS_NOTE = "";       // es. "Accedi con email: ... e password: ..." se c'è un accesso ospite
 var BOOKING_URL = "https://www.carlottaspinelli.com/call-ugc-level-up";
 // Origine del contatto: dal link ?src=bio (Instagram/link in bio) oppure ?src=adv (video adv).
 // Se in Wix crei due servizi diversi, metti qui i due link e le prenotazioni si dividono da sole:
@@ -438,6 +483,10 @@ document.documentElement.classList.add("js");
   var link="";
   [].forEach.call(document.querySelectorAll(".wa"),function(a){if(WA_NUMBER){a.target="_blank";a.rel="noopener"}});
   var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
+  /* campus */
+  var cb2=document.getElementById("campusBtn");
+  if(CAMPUS_URL){cb2.href=CAMPUS_URL;cb2.target="_blank";cb2.rel="noopener"}else{cb2.textContent="Anteprima in arrivo"}
+  if(CAMPUS_NOTE)document.getElementById("campusNote").textContent=CAMPUS_NOTE;
   /* sblocco prenotazione dopo il video */
   var seen=false;try{seen=localStorage.getItem("ulu_seen")==="1"}catch(e){}
   var books=[].slice.call(document.querySelectorAll(".book")),gate=document.getElementById("gate");
