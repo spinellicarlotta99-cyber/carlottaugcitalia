@@ -63,6 +63,7 @@ nav .btn{padding:10px 20px;font-size:.78rem}
 .hero h1 .acc{display:inline-block;background:var(--yellow);border:2.5px solid var(--black);border-radius:14px;padding:0 .18em;transform:rotate(-2deg);box-shadow:5px 6px 0 var(--black)}
 .hero .lead{color:#2b2b2b}
 .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}a.kw{cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}a.kw:hover{transform:translateY(-3px) rotate(-2deg);box-shadow:3px 4px 0 var(--black);background:var(--pink)}a.kw.hot{background:var(--yellow);animation:kwp 2.4s ease-in-out infinite}h1 a.acc{text-decoration:none;color:inherit;cursor:pointer}h1 a.acc:hover{background:var(--pink)}@keyframes kwp{50%{transform:scale(1.06)}}
 .chip{display:inline-block;padding:8px 14px;background:#fff;border:2.5px solid var(--black);border-radius:999px;font-size:.78rem;font-weight:800}
 .collage{position:relative;aspect-ratio:1/1.05;max-width:480px;margin-inline:auto;width:100%;container-type:inline-size}
 .collage .ring{position:absolute;left:50%;bottom:2%;width:86%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--yellow);border:3px solid var(--black)}
@@ -205,8 +206,9 @@ footer a{color:var(--black);margin-right:16px}
   <div class="wrap hero-grid">
     <div class="h-text">
       <div class="eyebrow">Corso UGC · 100% online · Solo col telefono</div>
-      <h1 style="margin-top:14px">Fai dell’UGC la tua <span class="mark y">professione</span> e chiudi la tua prima collab da <span class="acc">+300€</span> in un mese</h1>
+      <h1 style="margin-top:14px">Fai dell’UGC la tua <span class="mark y">professione</span> e chiudi la tua prima collab da <a class="acc kw" href="#risultati" title="Vedi i risultati">+300€</a> in un mese</h1>
       <p class="lead">Un percorso per imparare a lavorare con i brand, anche se parti da zero. Lezioni video, community, collab pagate ogni mese e call 1:1 direttamente con me.</p>
+      <div class="facts kws"><a class="chip kw hot" href="#risultati">+300€ alla prima collab</a><a class="chip kw" href="#corso">70+ lezioni video</a><a class="chip kw" href="#corso">Community</a><a class="chip kw" href="#corso">Collab pagate ogni mese</a><a class="chip kw" href="#chi">Call 1:1 con me</a></div>
     </div>
     <div class="h-video">
       <div class="vframe" id="vframe">
@@ -218,7 +220,6 @@ footer a{color:var(--black);margin-right:16px}
         <a class="btn wa" href="#analisi">Prenota l’analisi gratuita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn alt" href="#corso">Scopri il corso</a>
       </div>
-      <div class="facts"><span class="chip">70+ lezioni video</span><span class="chip">Community</span><span class="chip">Collab pagate ogni mese</span></div>
     </div>
   </div>
 </header>
