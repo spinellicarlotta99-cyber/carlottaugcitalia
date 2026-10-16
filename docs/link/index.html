@@ -34,25 +34,27 @@ footer{margin-top:14px;font-size:.75rem;font-weight:700;opacity:.8}
 @media(min-width:700px){body{align-items:center}.stage{height:600px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-body{background:var(--hot)}
-.bg{position:fixed;inset:0;z-index:0;background:radial-gradient(60% 40% at 85% 10%,#fcd3ea 0,transparent 70%),radial-gradient(60% 40% at 5% 95%,var(--yellow) 0,transparent 70%),var(--hot)}
+body{background:var(--yellow)}
+.bg{position:fixed;inset:0;z-index:0;background:linear-gradient(165deg,var(--yellow) 0%,#fdf3c4 28%,var(--pink) 62%,var(--hot) 100%)}
 .blob{position:fixed;border-radius:50%;filter:blur(50px);opacity:.7;z-index:0;animation:float 12s ease-in-out infinite}
-.b1{width:300px;height:300px;background:var(--yellow);left:-90px;top:30%}.b2{width:260px;height:260px;background:#fff;right:-80px;bottom:12%;animation-delay:-5s}
+.b1{width:300px;height:300px;background:var(--pink);right:-90px;top:6%;opacity:.8}.b2{width:280px;height:280px;background:var(--yellow);left:-90px;bottom:8%;animation-delay:-5s}
 .top{font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
 h1{font-size:clamp(2.1rem,10vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1;margin:8px 0 4px}
 h1 em{font-style:normal;background:linear-gradient(transparent 55%,var(--yellow) 55%);padding:0 .1em}
 .sub{font-size:.95rem;font-weight:600}
 .photo{bottom:0;width:min(92%,430px);filter:drop-shadow(0 16px 24px rgba(120,20,80,.25))}
-.ring{position:absolute;left:50%;bottom:4%;width:88%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--pink);border:3px solid var(--black)}
+.ring{position:absolute;left:50%;bottom:4%;width:88%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--yellow);border:3px solid var(--black)}
 .dot{position:absolute;border-radius:50%;animation:float2 6s ease-in-out infinite}
-.d1{width:26px;height:26px;background:#fff;left:6%;top:70%}.d2{width:18px;height:18px;background:var(--yellow);right:5%;top:8%;animation-delay:-2s}.d3{width:34px;height:34px;background:var(--black);right:10%;bottom:6%;animation-delay:-4s}
+.d1{width:26px;height:26px;background:#fff;left:6%;top:70%}.d2{width:18px;height:18px;background:var(--hot);right:5%;top:8%;animation-delay:-2s}.d3{width:34px;height:34px;background:var(--black);right:10%;bottom:6%;animation-delay:-4s}
 .star{position:absolute;font-size:2.2rem;line-height:1;animation:spin 9s linear infinite}.s1{left:44%;top:4%}.s2{right:4%;top:48%;font-size:1.6rem;animation-direction:reverse}
+.chip{position:absolute;padding:7px 13px;background:#fff;border:2.5px solid var(--black);border-radius:999px;font-size:.78rem;font-weight:800;animation:float2 5s ease-in-out infinite;z-index:3}.k1{right:2%;top:57%}.k2{left:2%;top:68%;animation-delay:-2s;background:var(--yellow)}.k3{right:8%;top:80%;animation-delay:-3.5s;background:var(--black);color:#fff}.stage[class*="lean-"] .chip{animation-duration:1.6s}
 .arrows{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .arrows path{fill:none;stroke:var(--black);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:6 7;animation:dash 1.4s linear infinite}
+.arrows .hd{stroke-dasharray:none;animation:none;stroke-width:2.6;stroke-linejoin:round}
 .card{width:47%;padding:12px 14px 11px;background:#fff;border:2.5px solid var(--black);border-radius:22px;text-align:left;box-shadow:5px 6px 0 var(--black);transition:transform .35s cubic-bezier(.2,.9,.3,1.4),background .2s,box-shadow .2s}
 .card b{font-size:1rem}.card span{margin-top:5px;font-size:.76rem;opacity:.75}
 .c1{left:0;top:2%;transform:rotate(-3deg)}.c2{right:0;top:26%;transform:rotate(2.5deg)}
-.card:hover,.card:focus-visible,.card:active{background:var(--yellow);transform:rotate(0) scale(1.07) translateY(-4px);box-shadow:8px 10px 0 var(--black);outline:none}
+.card:hover,.card:focus-visible,.card:active{background:var(--pink);transform:rotate(0) scale(1.07) translateY(-4px);box-shadow:8px 10px 0 var(--black);outline:none}
 .stage.lean-1 .photo{transform:translateX(-56%) rotate(-5deg) scale(1.03)}.stage.lean-2 .photo{transform:translateX(-44%) rotate(5deg) scale(1.03)}
 .stage[class*="lean-"] .dot{animation-duration:2s}.stage[class*="lean-"] .star{animation-duration:3s}.stage[class*="lean-"] .arrows path{animation-duration:.5s}
 </style>
@@ -65,11 +67,13 @@ h1 em{font-style:normal;background:linear-gradient(transparent 55%,var(--yellow)
   <p class="sub">Pick your path</p>
   <div class="stage" id="stage">
     <div class="layer" data-d="10"><div class="ring"></div><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div><div class="star s1">✦</div><div class="star s2">✦</div></div>
-    <svg class="arrows" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M34 14 C 50 18, 56 28, 52 40" vector-effect="non-scaling-stroke"/>
-      <path d="M80 41 C 77 46, 70 49, 62 50" vector-effect="non-scaling-stroke"/>
-    </svg>
     <div class="layer" data-d="-16"><div class="photo" id="photo"><img src="/assets/ac9d713ca22c9f7093f7d01a39e34080.png" alt="Carlotta Spinelli"></div></div>
+    <div class="layer" data-d="-26" style="pointer-events:none"><span class="chip k1">UGC</span><span class="chip k2">Coach</span><span class="chip k3">Recruiter</span></div>
+    <svg class="arrows" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M24 14 C 20 29, 31 41, 42 49" vector-effect="non-scaling-stroke"/>
+      <path d="M80 41 C 77 46, 70 49, 62 50" vector-effect="non-scaling-stroke"/>
+    <path class="hd" d="M40.8 46.5 L42 49 L39.2 48.6" vector-effect="non-scaling-stroke"/><path class="hd" d="M65.8 46.8 L63 47 L64.4 44.6" vector-effect="non-scaling-stroke"/>
+    </svg>
     <a class="card c1" data-lean="1" data-go="brand" href="/"><b>Are you a brand?</b><span>See my portfolio <i>→</i></span></a>
     <a class="card c2" data-lean="2" data-go="creator" href="#"><b>Are you a creator?</b><span>Discover the course <i>→</i></span></a>
   </div>
