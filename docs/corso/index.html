@@ -384,7 +384,7 @@ var REVIEWS = [
      steps:["Ho preso **sicurezza**","Ho capito **come farmi pagare**","Ho creato il mio **personal brand**","Ho trovato la mia **identità**"],
      result:["**~1.800€ al mese** + progetti extra","Una delle ultime collab: **1 video a 360€**","**Volto di un centro commerciale**","**Inbound costanti** dai brand"]},
    text:"Carlotta è sempre presente, ancora oggi. **Sono solo all'inizio!**", video:""},
-  {name:"Alessia Soldati", big:"3.300€", bigl:"fatturato a settembre: UGC, editoria e altre collab", photo:"/assets/alessia-soldati.jpg", role:"UGC Creator", tag:"Da 1.200€ a 3.300€",
+  {name:"Alessia Soldati", stk:"Pacchetti 500€+", big:"3.300€", bigl:"fatturato a settembre: UGC, editoria e altre collab", photo:"/assets/alessia-soldati.jpg", role:"UGC Creator", tag:"3.300€ di fatturato",
    journey:{
      start:["Laurea in **Lettere Moderne** + master in editoria","Collab in P.IVA nell'editoria che **non bastava** a fine mese","Stipendio netto: **1.200€**","Avevo già comprato **altri corsi**"],
      steps:["Ho strutturato il mio **script**","Ho capito le **fasi di contrattazione**, anche dopo un no"],
@@ -461,7 +461,7 @@ document.documentElement.classList.add("js");
     b.innerHTML=r.photo?'<img src="'+esc(r.photo)+'" alt="'+esc(r.name)+'">':ini(r.name);
     b.onclick=function(){openM(r,null,k)};
     var w=document.createElement("div");w.className="bw";var bw=document.createElement("div");bw.className="bwrap";bw.appendChild(b);
-    if(r.big){var st=document.createElement("span");st.className="stk";st.textContent=r.big;bw.appendChild(st)}
+    if(r.big){var st=document.createElement("span");st.className="stk";st.textContent=r.stk||r.big;bw.appendChild(st)}
     w.appendChild(bw);var nm=document.createElement("span");nm.className="bnm";nm.textContent=r.name;w.appendChild(nm);
     if(r.tag){var t=document.createElement("span");t.className="btag";t.textContent=r.tag;w.appendChild(t)}bb.appendChild(w)});
   var vr=document.getElementById("vrev");
