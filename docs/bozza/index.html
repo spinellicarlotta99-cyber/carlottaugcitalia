@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Bozza home | Carlotta Spinelli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#fcfcc6;--pink:#fcbce1;--hot:#f58ec3;--black:#0b0b0b}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{font-size:112.5%;scroll-behavior:smooth}
+body{font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;color:var(--black);background:#fff;overflow-x:hidden;line-height:1.5}
+.wrap{width:min(560px,92%);margin-inline:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.12)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{text-decoration:none;color:var(--black);font-weight:800;font-size:1.05rem;letter-spacing:-.02em}.logo em{font-style:normal;font-weight:500}
+.nr{display:flex;gap:8px;align-items:center}
+.lang{font-size:.75rem;font-weight:800;padding:7px 10px;border:2px solid var(--black);border-radius:999px;background:#fff}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;border:2.5px solid var(--black);background:var(--black);color:#fff;font-weight:800;font-size:.9rem;text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.btn.alt{background:#fff;color:var(--black)}.btn.pk{background:var(--pink);color:var(--black)}
+.btn:active,.btn:hover{transform:translateY(-3px) rotate(-1deg)}
+.btn.sm{padding:8px 14px;font-size:.78rem}
+/* hero */
+.hero{position:relative;background:linear-gradient(180deg,var(--hot) 0%,var(--pink) 70%,#fff 100%);padding:34px 0 10px;text-align:center;overflow:hidden}
+.eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+h1{font-size:2.35rem;line-height:1;font-weight:800;letter-spacing:-.04em;margin:12px 0}
+h1 em{font-style:normal;background:linear-gradient(transparent 55%,var(--yellow) 55%);padding:0 .1em}
+.lead{font-size:.95rem;font-weight:500;max-width:30ch;margin:0 auto}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0 0}
+.path{display:block;text-align:left;text-decoration:none;color:var(--black);background:#fff;border:2.5px solid var(--black);border-radius:22px;padding:14px;box-shadow:5px 6px 0 var(--black);transition:transform .25s,background .2s}
+.path:active,.path:hover{transform:translateY(-4px) rotate(-1.5deg);background:var(--yellow)}
+.path small{display:block;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.path b{display:block;font-size:1.02rem;line-height:1.15;margin:4px 0 8px;letter-spacing:-.01em}
+.path span{font-size:.75rem;font-weight:700}
+.heroimg{position:relative;width:78%;margin:6px auto 0;display:block}
+.heroimg img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 20px rgba(120,20,80,.25))}
+.chip{position:absolute;padding:6px 12px;background:#fff;border:2.5px solid var(--black);border-radius:999px;font-size:.72rem;font-weight:800;animation:fl 5s ease-in-out infinite}
+.chip.a{left:-6%;top:28%}.chip.b{right:-4%;top:48%;background:var(--black);color:#fff;animation-delay:-2s}.chip.c{left:-2%;top:62%;background:var(--yellow);animation-delay:-3.5s}
+@keyframes fl{50%{transform:translateY(-10px)}}
+/* numeri */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:22px 0;text-align:center}
+.stats b{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.stats span{display:block;font-size:.62rem;font-weight:700;margin-top:4px;line-height:1.2}
+/* brand */
+.brands{background:var(--yellow);border-block:2.5px solid var(--black);padding:16px 0;overflow:hidden;white-space:nowrap}
+.track{display:inline-flex;gap:46px;align-items:center;animation:mq 30s linear infinite}
+.track img{height:36px;width:auto;filter:grayscale(1)}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:46px 0}
+h2{font-size:1.75rem;line-height:1.05;letter-spacing:-.035em;font-weight:800;margin:8px 0 10px}
+h2 em{font-style:normal;background:linear-gradient(transparent 55%,var(--pink) 55%);padding:0 .08em}
+p.t{font-size:.95rem;font-weight:500;color:#333}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 4% 6px;margin-top:6px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.tile{position:relative;flex:0 0 46%;aspect-ratio:9/16;border-radius:20px;overflow:hidden;border:2.5px solid var(--black);background:var(--pink);scroll-snap-align:start}
+.tile video{width:100%;height:100%;object-fit:cover;display:block}
+.tile span{position:absolute;left:10px;bottom:10px;background:#fff;border:2px solid var(--black);border-radius:999px;padding:3px 10px;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.center{text-align:center;margin-top:18px}
+/* creator */
+.cr{background:var(--black);color:#fff}
+.cr h2 em{color:var(--black)}
+.cr p.t{color:#d8d8d8}
+.cr .card{margin-top:20px;background:var(--pink);color:var(--black);border-radius:28px;padding:22px 20px 0;overflow:hidden;position:relative;border:2.5px solid #fff}
+.cr .card ul{list-style:none;padding:0;margin:0 0 14px;position:relative;z-index:2;width:62%}
+.cr .card li{font-size:.85rem;font-weight:700;padding:5px 0 5px 22px;position:relative;line-height:1.25}
+.cr .card li::before{content:"✦";position:absolute;left:0;top:4px}
+.cr .card img{display:block;width:64%;margin:-30px -8% 0 auto;position:relative;z-index:1}
+.cr .card .btn{position:relative;z-index:3;margin-bottom:22px}
+/* about */
+.ab{background:var(--yellow);text-align:center}
+.ab p{font-size:.98rem;font-weight:500;margin-bottom:12px}
+.ab strong{font-weight:800}
+.facts{display:flex;justify-content:center;gap:26px;font-size:.9rem;font-weight:700;margin-top:14px}
+.facts div b{display:block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;opacity:.6}
+/* cta */
+.cta{background:var(--hot);text-align:center}
+.cta .row{display:flex;flex-direction:column;gap:12px;margin-top:18px;align-items:center}
+footer{padding:20px 0 30px;text-align:center;font-size:.72rem;font-weight:600;opacity:.7}
+.tag{position:fixed;left:10px;bottom:10px;z-index:50;background:var(--black);color:#fff;font-size:.65rem;font-weight:800;padding:5px 10px;border-radius:999px;letter-spacing:.1em}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="tag">BOZZA</div>
+<nav><div class="wrap">
+  <a class="logo" href="#">Carlotta <em>Spinelli</em></a>
+  <div class="nr"><span class="lang">IT · EN</span><a class="btn sm" href="#contatti">Scrivimi</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Creator UGC &amp; coach · Milano</div>
+  <h1>UGC che <em>converte</em>, non solo bello da vedere.</h1>
+  <p class="lead">Video brevi pensati con una strategia, per ads, siti e social.</p>
+  <div class="paths">
+    <a class="path" href="#brand"><small>Per i brand</small><b>Sei un brand?</b><span>Guarda il portfolio →</span></a>
+    <a class="path" href="#creator"><small>Per le creator</small><b>Sei una creator?</b><span>Scopri il corso →</span></a>
+  </div>
+  <div class="heroimg">
+    <img src="/assets/ac9d713ca22c9f7093f7d01a39e34080.png" alt="Carlotta Spinelli">
+    <span class="chip a">UGC</span><span class="chip b">Coach</span><span class="chip c">Recruiter</span>
+  </div>
+</div></header>
+
+<div class="wrap stats">
+  <div><b>900+</b><span>video creati</span></div>
+  <div><b>400+</b><span>brand clienti</span></div>
+  <div><b>150+</b><span>creator formate</span></div>
+  <div><b>4+</b><span>anni di UGC</span></div>
+</div>
+
+<div class="brands"><div class="track"><img src="/assets/842f9fc081161dc5e579ec8bf5c1463e.png" alt=""><img src="/assets/2ed63393a7ee01ceb2bfc3dc5132bc24.png" alt=""><img src="/assets/ad9afdc819d39725912a8f499fdf5fab.png" alt=""><img src="/assets/8ca157d5f2d7ad1ba2d9651705bcdfbe.png" alt=""><img src="/assets/15948addf53517a06cf212a835b4600e.png" alt=""><img src="/assets/3e3718f3d2272f4a409bc01ef3a1eede.png" alt=""><img src="/assets/e9e5acb1b933240044765b8d3148493f.png" alt=""><img src="/assets/f8590cd3cd30191855bf28d9fa4c3668.png" alt=""><img src="/assets/a5b87c66ce0a2f17dbe3a7c71b20f9ec.png" alt=""><img src="/assets/62ec9805ef5140a57ee7d298bd557842.png" alt=""><img src="/assets/842f9fc081161dc5e579ec8bf5c1463e.png" alt=""><img src="/assets/2ed63393a7ee01ceb2bfc3dc5132bc24.png" alt=""><img src="/assets/ad9afdc819d39725912a8f499fdf5fab.png" alt=""><img src="/assets/8ca157d5f2d7ad1ba2d9651705bcdfbe.png" alt=""><img src="/assets/15948addf53517a06cf212a835b4600e.png" alt=""><img src="/assets/3e3718f3d2272f4a409bc01ef3a1eede.png" alt=""><img src="/assets/e9e5acb1b933240044765b8d3148493f.png" alt=""><img src="/assets/f8590cd3cd30191855bf28d9fa4c3668.png" alt=""><img src="/assets/a5b87c66ce0a2f17dbe3a7c71b20f9ec.png" alt=""><img src="/assets/62ec9805ef5140a57ee7d298bd557842.png" alt=""></div></div>
+
+<section id="brand"><div class="wrap">
+  <div class="eyebrow">Per i brand</div>
+  <h2>Video che <em>vendono</em>, fatti da chi li usa davvero.</h2>
+  <p class="t">Creo contenuti per ads, siti e social, e gestisco campagne e creator per brand e agenzie.</p>
+</div>
+<div class="rail"><div class="tile"><video src="/assets/b8a8bd3499be8c4382657e546da60c62.mp4" muted loop playsinline preload="metadata" data-auto></video><span>Beauty</span></div><div class="tile"><video src="/assets/b715efba7be621363c1f5349bac1f956.mp4" muted loop playsinline preload="metadata" data-auto></video><span>App</span></div><div class="tile"><video src="/assets/434edeec32ff947e0e2e52fc3ac54bfa.mp4" muted loop playsinline preload="metadata" data-auto></video><span>Christmas</span></div><div class="tile"><video src="/assets/3c255c65e1e1ab978b14787014df50c4.mp4" muted loop playsinline preload="metadata" data-auto></video><span>Skincare</span></div><div class="tile"><video src="/assets/507bdd8e5f6d635ef7f77aa9e1408211.mp4" muted loop playsinline preload="metadata" data-auto></video><span>In-store</span></div><div class="tile"><video src="/assets/011d201d28c8b913872a34784d03021d.mp4" muted loop playsinline preload="metadata" data-auto></video><span>Body care</span></div></div>
+<div class="wrap center"><a class="btn" href="/">Guarda tutto il portfolio</a></div>
+</section>
+
+<section class="cr" id="creator"><div class="wrap">
+  <div class="eyebrow" style="color:var(--pink)">Per le creator</div>
+  <h2>Vuoi diventare una <em style="background:linear-gradient(transparent 55%,var(--pink) 55%);color:#fff">UGC creator</em>?</h2>
+  <p class="t">Un metodo per imparare a lavorare con i brand, con me accanto nei primi mesi.</p>
+  <div class="card">
+    <ul><li>Lezioni video</li><li>Esercizi pratici</li><li>Coaching 1:1 con me</li></ul>
+    <a class="btn" href="https://www.carlottaspinelli.com/">Scopri il corso</a>
+    <img src="/assets/633f23deb9d547e4226ae7b269038e5f.png" alt="">
+  </div>
+</div></section>
+
+<section class="ab"><div class="wrap">
+  <div class="eyebrow">Chi sono</div>
+  <h2>Cose che mi rendono <em>speciale</em></h2>
+  <p>Faccio <strong>UGC</strong> da quattro anni, quando in Italia quasi non esisteva. Ho creato <strong>900+ video</strong> per brand come <strong>Sephora</strong> e <strong>Amazon</strong>: non produco solo contenuti, li faccio <strong>funzionare</strong>.</p>
+  <p>Formo anche altre creator con un percorso <strong>1:1</strong> (<strong>150+ formate</strong>) e lavoro come <strong>recruiter e campaign manager</strong> per brand e agenzie.</p>
+  <div class="facts"><div><b>Da</b>Milano</div><div><b>Età</b>27</div><div><b>Altezza</b>174 cm</div></div>
+</div></section>
+
+<section class="cta" id="contatti"><div class="wrap">
+  <h2>Parliamone.</h2>
+  <p class="t" style="color:#222">Scrivimi, ti rispondo io.</p>
+  <div class="row">
+    <a class="btn" href="mailto:spinelli.carlotta99@gmail.com?subject=Collaborazione">Collaboriamo (brand)</a>
+    <a class="btn alt" href="https://www.carlottaspinelli.com/">Info sul corso (creator)</a>
+  </div>
+</div></section>
+<footer>© Carlotta Spinelli · carlottaugcitalia.com</footer>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.4});
+[].forEach.call(document.querySelectorAll('video[data-auto]'),function(v){io.observe(v)});
+</script>
+</body>
+</html>
