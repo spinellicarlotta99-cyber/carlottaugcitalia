@@ -171,7 +171,7 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .mbox .who .av{width:64px;height:64px;border-radius:50%;border:3px solid var(--black);background:var(--pink);overflow:hidden;display:grid;place-items:center;font-weight:800;flex:0 0 auto}
 .mbox .who img{width:100%;height:100%;object-fit:cover}
 .mbox video{width:100%;border-radius:16px;margin-top:14px;display:block;background:#000}
-.ba{margin-bottom:12px;padding:12px 14px;border-radius:14px;background:#f4f4f4;font-size:.93rem;line-height:1.5}.ba span{display:inline-block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}.ba p{margin:0}.ba.dopo{background:var(--pink)}
+.ba{margin-bottom:12px;padding:12px 14px;border-radius:14px;background:#f4f4f4;font-size:.93rem;line-height:1.5}.ba span{display:inline-block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}.ba ul{margin:0;padding-left:18px;display:grid;gap:5px}.ba strong{font-weight:800}.q2 strong{font-weight:800}.ba.dopo{background:var(--pink)}
 .mbox .q2{font-size:1.05rem;font-weight:500;line-height:1.55}
 @media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bub:nth-child(3n){width:118px!important;height:118px!important}.bubbles{gap:18px 20px}}
 
@@ -346,9 +346,9 @@ var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
   {name:"Lucia Ciciliani", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator",
-   before:"Venivo da circa 5 anni di network marketing: mi aveva permesso di lavorare da casa ed esserci per le mie bambine, ma non rispecchiava più i miei valori. Volevo un lavoro online in cui i risultati dipendessero da me. Sono partita da zero, senza sapere come propormi ai brand o creare un portfolio.",
-   after:"Con la formazione e i due mesi di affiancamento ho iniziato le prime collab: dalla terza ho chiesto un compenso. Oggi i brand mi contattano, ho collaborazioni continuative con una base di circa 1.800€ al mese più progetti occasionali, e sono il volto di un importante centro commerciale della mia zona.",
-   text:"Carlotta è stata un punto di riferimento fondamentale: sempre presente, e lo è ancora oggi. Non mi sono mai sentita sola. Oggi faccio un lavoro che amo davvero, e sono solo all'inizio!", video:""},
+   before:["**5 anni di network marketing**","Valori che non sentivo più miei","Voglio risultati che **dipendono da me**","Parto **da zero**: niente portfolio, niente brand"],
+   after:["**2 mesi di affiancamento** con Carlotta","Dalla **3ª collab** chiedo un compenso","Ora sono i **brand a cercarmi**","Base di **~1.800€ al mese** + progetti extra","**Volto di un centro commerciale** della mia zona"],
+   text:"Carlotta è sempre presente, ancora oggi. **Sono solo all'inizio!**", video:""},
   {name:"Creator 2", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 3", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 4", photo:"", text:"Qui andrà la recensione.", video:""},
@@ -374,11 +374,13 @@ document.documentElement.classList.add("js");
   /* recensioni */
   var md=document.getElementById("modal"),mc=document.getElementById("mc");
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function bd(t){return esc(t).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}
+  function li(a){return a.map(function(x){return "<li>"+bd(x)+"</li>"}).join("")}
   function ini(n){return esc(n.trim().charAt(0).toUpperCase())}
   function openM(r,vsrc){
     var av=r.photo?'<img src="'+esc(r.photo)+'" alt="">':ini(r.name);
     var v=vsrc||r.video;
-    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.before?'<div class="ba"><span>Prima</span><p>'+esc(r.before)+'</p></div><div class="ba dopo"><span>Dopo</span><p>'+esc(r.after)+'</p></div>':'')+(r.text?'<p class="q2">“'+esc(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
+    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.before?'<div class="ba"><span>Prima</span><ul>'+li(r.before)+'</ul></div><div class="ba dopo"><span>Dopo</span><ul>'+li(r.after)+'</ul></div>':'')+(r.text?'<p class="q2">“'+bd(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
     md.classList.add("on")}
   function closeM(){md.classList.remove("on");mc.innerHTML=""}
   document.getElementById("mx").onclick=closeM;
