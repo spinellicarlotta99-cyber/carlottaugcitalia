@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Firma Gmail</title>
+<style>
+body{margin:0;background:#fcfcc6;font-family:Arial,Helvetica,sans-serif;color:#0b0b0b}
+.w{max-width:640px;margin:0 auto;padding:32px 16px}
+h1{font-size:20px;margin:0 0 6px}
+p{font-size:14px;line-height:1.5;margin:0 0 14px}
+.card{background:#fff;border-radius:14px;padding:24px 20px;overflow-x:auto;margin:18px 0}
+button{background:#f58ec3;color:#0b0b0b;border:0;border-radius:999px;padding:12px 22px;font-weight:700;font-size:15px;cursor:pointer}
+ol{font-size:14px;line-height:1.7;padding-left:20px}
+#ok{margin-left:10px;font-size:14px;font-weight:700}
+</style></head><body><div class="w">
+<h1>Firma Gmail</h1>
+<p>Clicca “Copia firma”, poi incollala in Gmail.</p>
+<div class="card"><div id="sig">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#0b0b0b">
+<tr>
+<td valign="top" style="padding:0 18px 0 0"><img src="https://carlottaugcitalia.com/assets/firma-carlotta.png" width="110" height="110" alt="Carlotta Spinelli" style="display:block;border-radius:55px;border:0"></td>
+<td valign="top" style="border-left:3px solid #f58ec3;padding:2px 0 2px 18px">
+<div style="font-size:24px;font-weight:bold;line-height:28px;color:#0b0b0b">Carlotta Spinelli</div>
+<div style="font-size:14px;font-weight:bold;line-height:20px;color:#f58ec3;padding-top:2px">UGC Creator &amp; UGC Coach</div>
+<div style="font-size:13px;line-height:19px;color:#0b0b0b;padding-top:8px">+3 Years of experience in UGC<br>+700 videos created for Brands such as Sephora, Pantene, Braun, Amazon and much more</div>
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin-top:12px"><tr>
+<td bgcolor="#fcbce1" style="background:#fcbce1;border-radius:999px;padding:7px 14px"><a href="https://carlottaugcitalia.com/" style="color:#0b0b0b;font-size:13px;font-weight:bold;text-decoration:none">Portfolio</a></td>
+<td width="8"></td>
+<td bgcolor="#fcbce1" style="background:#fcbce1;border-radius:999px;padding:7px 14px"><a href="https://www.instagram.com/carlottaugcitalia/" style="color:#0b0b0b;font-size:13px;font-weight:bold;text-decoration:none">Instagram</a></td>
+<td width="8"></td>
+<td bgcolor="#fcbce1" style="background:#fcbce1;border-radius:999px;padding:7px 14px"><a href="mailto:spinelli.carlotta99@gmail.com" style="color:#0b0b0b;font-size:13px;font-weight:bold;text-decoration:none">Mail</a></td>
+</tr></table>
+</td></tr></table>
+</div></div>
+<button id="cp">Copia firma</button><span id="ok"></span>
+<ol>
+<li>In Gmail: Impostazioni (ingranaggio) → Mostra tutte le impostazioni → Firma.</li>
+<li>Crea una firma nuova o apri quella esistente, cancella il contenuto.</li>
+<li>Incolla (Ctrl+V / Cmd+V) e premi “Salva modifiche” in fondo.</li>
+</ol>
+</div>
+<script>
+document.getElementById("cp").onclick=function(){
+  var s=document.getElementById("sig"),r=document.createRange();r.selectNode(s);
+  var sel=getSelection();sel.removeAllRanges();sel.addRange(r);
+  var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+  document.getElementById("ok").textContent=ok?"Copiata ✓":"Seleziona la firma e premi Ctrl+C";
+};
+</script></body></html>
