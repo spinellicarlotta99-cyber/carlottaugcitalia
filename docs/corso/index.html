@@ -146,11 +146,32 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 
 /* recensioni */
 .rev{background:var(--yellow);overflow:hidden}
+
+.rev::before,.rev::after{content:"";position:absolute;border-radius:50%;border:3px solid var(--black);opacity:.18;animation:bubf 11s ease-in-out infinite;pointer-events:none}
+.rev::before{width:220px;height:220px;background:var(--pink);left:-70px;top:60px}
+.rev::after{width:150px;height:150px;background:#fff;right:-40px;bottom:50px;animation-delay:-5s}
+.rev .wrap{position:relative;z-index:1}
+.bwrap{position:relative}
+.stk{position:absolute;top:-8px;right:-20px;background:var(--black);color:#fff;border-radius:999px;padding:5px 11px;font-weight:800;font-size:.78rem;transform:rotate(8deg);box-shadow:2px 3px 0 var(--hot);white-space:nowrap;z-index:2;pointer-events:none}
+.bnm{font-weight:800;font-size:.9rem;text-align:center;line-height:1.15}
+.bub{box-shadow:5px 6px 0 var(--black),0 0 0 0 rgba(245,142,195,.0)}
+.bub:hover,.bub:focus-visible{box-shadow:7px 9px 0 var(--black),0 0 0 10px rgba(245,142,195,.45)!important}
+.bigfig{background:var(--black);color:#fff;border-radius:18px;padding:14px 18px;margin:0 0 16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bigfig b{font-size:2.3rem;letter-spacing:-.04em;line-height:1;color:var(--pink)}
+.bigfig span{font-weight:600;font-size:.9rem;opacity:.9}
+.jr .jn{opacity:0;transform:translateX(-8px);animation:jin .5s forwards;animation-delay:calc(var(--i,0)*.22s + .15s)}
+.jn:not(.end)::before{transform-origin:top;transform:scaleY(0);animation:jline .35s forwards;animation-delay:calc(var(--i,0)*.22s + .3s)}
+@keyframes jin{to{opacity:1;transform:none}}
+@keyframes jline{to{transform:scaleY(1)}}
+.mnav{display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:10px}
+.mnav button{width:42px;height:42px;border-radius:50%;border:2.5px solid var(--black);background:var(--yellow);font-size:1.2rem;font-weight:800;cursor:pointer;box-shadow:2px 3px 0 var(--black)}
+.mnav .dots{display:flex;gap:7px}.mnav .dots i{width:9px;height:9px;border-radius:50%;border:2px solid var(--black);background:#fff}.mnav .dots i.on{background:var(--hot)}
+@media(max-width:600px){.stk{right:-12px;font-size:.7rem}.bigfig b{font-size:2rem}}
 .bw{display:flex;flex-direction:column;align-items:center;gap:12px}.btag{background:#fff;border:2.5px solid var(--black);border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:800;box-shadow:2px 3px 0 var(--black);white-space:nowrap}
 .bubbles{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 34px;margin-top:38px;padding:10px 0}
-.bub{width:132px;height:132px;border-radius:50%;border:3px solid var(--black);background:linear-gradient(135deg,var(--pink),var(--hot));box-shadow:5px 6px 0 var(--black);padding:0;cursor:pointer;overflow:hidden;position:relative;font:inherit;color:var(--black);display:grid;place-items:center;font-weight:800;font-size:2rem;animation:bubf 7s ease-in-out infinite;transition:transform .25s,box-shadow .25s}
-.bw:nth-child(2n) .bub{animation-duration:8.5s;animation-delay:-2s;margin-top:22px;width:118px;height:118px}
-.bw:nth-child(3n) .bub{animation-duration:9.5s;animation-delay:-4s;width:146px;height:146px}
+.bub{width:150px;height:150px;border-radius:50%;border:3px solid var(--black);background:linear-gradient(135deg,var(--pink),var(--hot));box-shadow:5px 6px 0 var(--black);padding:0;cursor:pointer;overflow:hidden;position:relative;font:inherit;color:var(--black);display:grid;place-items:center;font-weight:800;font-size:2rem;animation:bubf 7s ease-in-out infinite;transition:transform .25s,box-shadow .25s}
+.bw:nth-child(2n) .bub{animation-duration:8.5s;animation-delay:-2s;margin-top:22px;width:130px;height:130px}
+.bw:nth-child(3n) .bub{animation-duration:9.5s;animation-delay:-4s;width:164px;height:164px}
 .bw:nth-child(4n) .bub{background:linear-gradient(135deg,#fff,var(--pink))}
 .bub img{width:100%;height:100%;object-fit:cover;display:block}
 .bub:hover,.bub:focus-visible{animation-play-state:paused;transform:scale(1.08);box-shadow:7px 9px 0 var(--black)}
@@ -308,7 +329,7 @@ footer a{color:var(--black);margin-right:16px}
   <div class="vrev" id="vrev"></div>
 </div></section>
 
-<div class="modal" id="modal"><div class="mbox" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Chiudi">×</button><div id="mc"></div></div></div>
+<div class="modal" id="modal"><div class="mbox" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Chiudi">×</button><div id="mc"></div><div class="mnav" id="mnav"><button id="mp" aria-label="Precedente">‹</button><div class="dots" id="mdots"></div><button id="mn" aria-label="Successiva">›</button></div></div></div>
 
 <section id="fit"><div class="wrap">
   <div class="eyebrow">Fa per te o no?</div>
@@ -357,37 +378,37 @@ var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "3933312345
 var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
-  {name:"Lucia Ciciliani", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator", tag:"Mamma di 2 bimbe",
+  {name:"Lucia Ciciliani", big:"1.800€", bigl:"al mese", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator", tag:"Mamma di 2 bimbe",
    journey:{
      start:["**5 anni di network marketing**","Voglio risultati che **dipendono da me**","Parto **da zero**: niente portfolio, niente brand"],
      steps:["Ho preso **sicurezza**","Ho capito **come farmi pagare**","Ho creato il mio **personal brand**","Ho trovato la mia **identità**"],
      result:["**~1.800€ al mese** + progetti extra","Una delle ultime collab: **1 video a 360€**","**Volto di un centro commerciale**","**Inbound costanti** dai brand"]},
    text:"Carlotta è sempre presente, ancora oggi. **Sono solo all'inizio!**", video:""},
-  {name:"Alessia Soldati", photo:"/assets/alessia-soldati.jpg", role:"UGC Creator", tag:"Da 1.200€ a 3.300€",
+  {name:"Alessia Soldati", big:"3.300€", bigl:"fatturato a settembre", photo:"/assets/alessia-soldati.jpg", role:"UGC Creator", tag:"Da 1.200€ a 3.300€",
    journey:{
      start:["Laurea in **Lettere Moderne** + master in editoria","Collab in P.IVA nell'editoria che **non bastava** a fine mese","Stipendio netto: **1.200€**"],
      steps:["Ho strutturato il mio **script**","Ho capito le **fasi di contrattazione**, anche dopo un no","Affiancamento **oltre i 3 mesi** e **community**"],
      result:["**2.100€ fissi** + variabili","**3.300€ di fatturato** a settembre 2026","Chiude pacchetti da **500€+**","Brand che la **richiamano** dopo la prima collab"]},
    text:"L'affiancamento non dovuto di Carlotta e la **community** hanno fatto la differenza.", video:""},
-  {name:"Nathalie Colangelo", photo:"/assets/nathalie-colangelo.jpg", role:"UGC Creator", tag:"Mamma giovane",
+  {name:"Nathalie Colangelo", big:"Collab pagate", bigl:"con brand importanti", photo:"/assets/nathalie-colangelo.jpg", role:"UGC Creator", tag:"Mamma giovane",
    journey:{
      start:["Assistente alla poltrona in uno **studio dentistico**","Passione per **social, beauty e lifestyle**","Non sapevo da dove iniziare, tante **insicurezze**"],
      steps:["Ho smesso di vederlo come **un sogno**","Ho imparato a **dare valore** al mio lavoro creativo","Ho iniziato a costruire, **un progetto alla volta**"],
      result:["**Collab pagate** con **brand importanti**","Progetti nell'**ospitalità e lifestyle**","UGC accanto al lavoro, verso un **reddito più stabile**"]},
    text:"Il cambiamento più grande: **aver iniziato a costruire**, non solo sognare.", video:""},
-  {name:"Anna Savini", photo:"/assets/anna-savini.jpg", role:"UGC Creator", tag:"Neolaureata",
+  {name:"Anna Savini", big:"150€+", bigl:"a collaborazione", photo:"/assets/anna-savini.jpg", role:"UGC Creator", tag:"Neolaureata",
    journey:{
      start:["Laurea in **scienze psicosociali della comunicazione**","Video fatti per divertimento, **senza metodo né strategia**","Offerte nel marketing: stage 40h a settimana per **400€ al mese**"],
      steps:["Ho scelto di **investire su me stessa**","Ho aperto la **partita IVA**","Ho cambiato **mentalità**: credo di più nella mia creatività"],
      result:["Chiudo collab da **150€ in su**","Mattina: lavoro part-time. Pomeriggio: **UGC**","Obiettivo: diventare **freelancer full time**"]},
    text:"Con **impegno**, voglia di farcela e la **guida giusta** raggiungerò i miei obiettivi.", video:""},
-  {name:"Maria Laura Caporaso", photo:"/assets/creator3.jpg", role:"UGC Creator", tag:"Mamma e creator",
+  {name:"Maria Laura Caporaso", big:"400€", bigl:"per 1 video", photo:"/assets/creator3.jpg", role:"UGC Creator", tag:"Mamma e creator",
    journey:{
      start:["Una vita da **commessa full time**","Dopo essere diventata mamma: **la vita è una**","Non volevo sprecarla a servire “un padrone”"],
      steps:["Ho deciso di essere **padrona di me stessa**"],
      result:["Scelta da **Buitoni, Deborah Milano, Fresh&Clean, Ipercoop**…","**1 video da 15 secondi** con 8 settimane di adv a **400€**","Ha aperto la **partita IVA**","Punta a uno **stipendio mensile con l'UGC**"]},
    text:"Lavoro h 24, ma ho tantissime **soddisfazioni personali**.", video:""},
-  {name:"Margherita Malandra", photo:"/assets/creator6.jpg", role:"UGC Creator", tag:"Record 6.200€ in un mese",
+  {name:"Margherita Malandra", big:"6.200€", bigl:"record in un mese", photo:"/assets/creator6.jpg", role:"UGC Creator", tag:"Record 6.200€ in un mese",
    journey:{
      start:["Entrate tra **300€ e 800€ al mese**","Collab pagate **20–30€ a video**","Non sapevo **come trovare collab** né fare **pitching**"],
      steps:["**Strategia efficace**, richiesta più volte dai brand","**9.000€** in collab con i brand in soli **4 mesi**","Selezionata da **PG PER TE** tra **20.000 partecipanti** (con altre 24 ragazze)"],
@@ -411,27 +432,38 @@ document.documentElement.classList.add("js");
     if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo";return}
     vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>'});
   /* recensioni */
-  var md=document.getElementById("modal"),mc=document.getElementById("mc");
+  var mbx=document.querySelector(".mbox"),md=document.getElementById("modal"),mc=document.getElementById("mc");
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
   function bd(t){return esc(t).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}
   function li(a){return a.map(function(x){return "<li>"+bd(x)+"</li>"}).join("")}
-  function jr(j){var h='<div class="jr"><div class="jn st"><i>⚑</i><span class="jl">Punto di partenza</span><ul>'+li(j.start)+'</ul></div>';
-    j.steps.forEach(function(x,k){h+='<div class="jn"><i>'+(k+1)+'</i><p>'+bd(x)+'</p></div>'});
-    return h+'<div class="jn end"><i>★</i><span class="jl">Oggi</span><ul>'+li(j.result)+'</ul></div></div>'}
+  function jr(j){var h='<div class="jr"><div class="jn st" style="--i:0"><i>⚑</i><span class="jl">Punto di partenza</span><ul>'+li(j.start)+'</ul></div>';
+    j.steps.forEach(function(x,k){h+='<div class="jn" style="--i:'+(k+1)+'"><i>'+(k+1)+'</i><p>'+bd(x)+'</p></div>'});
+    return h+'<div class="jn end" style="--i:'+(j.steps.length+1)+'"><i>★</i><span class="jl">Oggi</span><ul>'+li(j.result)+'</ul></div></div>'}
   function ini(n){return esc(n.trim().charAt(0).toUpperCase())}
-  function openM(r,vsrc){
+  var cur=-1;
+  function openM(r,vsrc,idx){
+    cur=(typeof idx==="number")?idx:-1;
     var av=r.photo?'<img src="'+esc(r.photo)+'" alt="">':ini(r.name);
     var v=vsrc||r.video;
-    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.journey?jr(r.journey):'')+(r.text?'<p class="q2">“'+bd(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
-    md.classList.add("on")}
+    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.big?'<div class="bigfig"><b>'+esc(r.big)+'</b><span>'+esc(r.bigl||"")+'</span></div>':'')+(r.journey?jr(r.journey):'')+(r.text?'<p class="q2">“'+bd(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
+    var nv=document.getElementById("mnav");nv.style.display=cur<0?"none":"flex";
+    document.getElementById("mdots").innerHTML=REVIEWS.map(function(_,k){return '<i class="'+(k===cur?"on":"")+'"></i>'}).join("");
+    mbx.scrollTop=0;md.classList.add("on")}
+  function stepM(d){if(cur<0)return;var k=(cur+d+REVIEWS.length)%REVIEWS.length;openM(REVIEWS[k],null,k)}
   function closeM(){md.classList.remove("on");mc.innerHTML=""}
   document.getElementById("mx").onclick=closeM;
   md.addEventListener("click",function(e){if(e.target===md)closeM()});
-  addEventListener("keydown",function(e){if(e.key==="Escape")closeM()});
+  document.getElementById("mp").onclick=function(){stepM(-1)};document.getElementById("mn").onclick=function(){stepM(1)};
+  addEventListener("keydown",function(e){if(e.key==="Escape")closeM();if(md.classList.contains("on")){if(e.key==="ArrowRight")stepM(1);if(e.key==="ArrowLeft")stepM(-1)}});
+  var tx=0;mbx.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});mbx.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>70)stepM(d<0?1:-1)},{passive:true});
   var bb=document.getElementById("bubbles");
-  REVIEWS.forEach(function(r){var b=document.createElement("button");b.className="bub";b.setAttribute("aria-label","Leggi la recensione di "+r.name);
+  REVIEWS.forEach(function(r,k){var b=document.createElement("button");b.className="bub";b.setAttribute("aria-label","Leggi la recensione di "+r.name);
     b.innerHTML=r.photo?'<img src="'+esc(r.photo)+'" alt="'+esc(r.name)+'">':ini(r.name);
-    b.onclick=function(){openM(r)};var w=document.createElement("div");w.className="bw";w.appendChild(b);if(r.tag){var t=document.createElement("span");t.className="btag";t.textContent=r.tag;w.appendChild(t)}bb.appendChild(w)});
+    b.onclick=function(){openM(r,null,k)};
+    var w=document.createElement("div");w.className="bw";var bw=document.createElement("div");bw.className="bwrap";bw.appendChild(b);
+    if(r.big){var st=document.createElement("span");st.className="stk";st.textContent=r.big;bw.appendChild(st)}
+    w.appendChild(bw);var nm=document.createElement("span");nm.className="bnm";nm.textContent=r.name;w.appendChild(nm);
+    if(r.tag){var t=document.createElement("span");t.className="btag";t.textContent=r.tag;w.appendChild(t)}bb.appendChild(w)});
   var vr=document.getElementById("vrev");
   if(!VIDEO_REVIEWS.length){vr.style.display="none"}
   VIDEO_REVIEWS.forEach(function(v){var c=document.createElement("button");c.className="vcard";
