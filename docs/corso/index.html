@@ -50,10 +50,10 @@ nav .btn{padding:10px 20px;font-size:.78rem}
 .b1{width:380px;height:380px;background:var(--yellow);left:-120px;top:20%}
 .b2{width:300px;height:300px;background:var(--hot);right:-90px;top:6%;animation-delay:-5s;opacity:.55}
 @keyframes float{50%{transform:translate(30px,-40px) scale(1.1)}}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;grid-template-areas:"text video" "cta video";gap:28px 40px;align-items:center}
-.h-text{grid-area:text;align-self:end}.h-video{grid-area:video}.h-cta{grid-area:cta;align-self:start}
-.hero .lead{margin:20px 0 0}
-.vframe{position:relative;width:min(100%,340px);margin-inline:auto;aspect-ratio:var(--ar,9/16);border:3px solid var(--black);border-radius:30px;background:var(--black);box-shadow:8px 10px 0 var(--black);overflow:hidden;transform:rotate(1.5deg);transition:transform .4s}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr;grid-template-areas:"text" "video" "cta";gap:28px;justify-items:center;text-align:center}
+.h-text{grid-area:text;max-width:860px}.h-cta{justify-self:center}.h-cta .cta-row,.h-cta .chips,.h-text .chips{justify-content:center}.h-video{width:100%}.h-video{grid-area:video}.h-cta{grid-area:cta;align-self:start}
+.hero .lead{margin:20px auto 0}
+.vframe{position:relative;width:min(100%,900px);margin-inline:auto;aspect-ratio:var(--ar,16/9);border:3px solid var(--black);border-radius:24px;background:var(--black);box-shadow:8px 10px 0 var(--black);overflow:hidden;transform:none;transition:transform .4s}
 .vframe:hover{transform:rotate(0)}
 .vframe video{width:100%;height:100%;object-fit:cover;display:block}
 .vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(160deg,var(--pink),var(--hot));color:var(--black);font-weight:800;font-size:.9rem;text-align:center;padding:20px}
@@ -299,7 +299,7 @@ footer a{color:var(--black);margin-right:16px}
 /* ===== DA COMPILARE ===== */
 var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "393331234567"
 var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
-var VIDEO_RATIO = "9/16"; // formato: "9/16" verticale, "16/9" orizzontale
+var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
 var WA_TEXT = "Ciao! Vorrei prenotare l'analisi gratuita per UGC Level Up.";
 var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Analisi gratuita UGC Level Up");
 /* ======================== */
