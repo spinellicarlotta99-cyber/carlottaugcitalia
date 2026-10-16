@@ -370,6 +370,21 @@ body.editing .panel{display:block}
   .btn{font-size:1rem}
   .eyebrow{font-size:.8rem}
 }
+
+@media(max-width:760px){
+  .hero-grid{row-gap:22px;text-align:center}
+  .hero-grid>div:first-child{display:contents}
+  .hero-grid .eyebrow{display:block;order:1}
+  .hero-grid h1{order:1;margin:0}
+  .hero-grid .lead{order:1;margin:0 auto}
+  .hero-visual{order:2}
+  .hero-grid .cta-row{order:3;justify-content:center}
+  .about{text-align:center;gap:10px}
+  .portrait{width:min(100%,300px);max-width:300px;margin:10px auto 0}
+  .about .chips,.about .facts{justify-content:center}
+  .about .facts{gap:28px}
+  .about strong{font-weight:800}
+}
 </style>
 </head>
 <body>
@@ -422,8 +437,8 @@ body.editing .panel{display:block}
     <div class="rv d1">
       <span class="eyebrow">About me</span>
       <h2>Things that make me <span class="acc mark">special</span></h2>
-      <p>I started creating UGC four years ago, when it barely existed in Italy. Since then I’ve created 900+ videos for brands like Sephora, Amazon and many more, and the results speak for themselves: brands chose me and keep choosing me every day. I don’t just produce content, I make it resonate, convert and scale.</p>
-      <p>Alongside my work as a creator, I train other creators: in my one-to-one mentoring program I share everything I know and all my experience, helping the girls I follow become some of the best UGC creators in Italy (150+ trained so far).</p><p>I also work as a recruiter and campaign manager for brands and agencies, so I understand both the creative mindset and the brand’s performance goals.</p>
+      <p>I started creating <strong>UGC</strong> four years ago, when it barely existed in Italy. Since then I’ve made <strong>900+ videos</strong> for brands like <strong>Sephora</strong> and <strong>Amazon</strong>: I don’t just produce content, I make it <strong>resonate, convert and scale</strong>.</p>
+      <p>I also <strong>train other creators</strong> in my one-to-one mentoring program (<strong>150+ trained</strong>) and work as a <strong>recruiter and campaign manager</strong> for brands and agencies.</p>
       <div class="chips"><span class="chip">Cheerful</span><span class="chip">Passionate</span><span class="chip">Organized</span><span class="chip">Creative</span></div>
       <div class="facts"><div><b>From</b>Milan</div><div><b>Age</b>27</div><div><b>Height</b>174 cm</div></div>
     </div>
