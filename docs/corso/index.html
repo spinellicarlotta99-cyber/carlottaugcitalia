@@ -50,10 +50,19 @@ nav .btn{padding:10px 20px;font-size:.78rem}
 .b1{width:380px;height:380px;background:var(--yellow);left:-120px;top:20%}
 .b2{width:300px;height:300px;background:var(--hot);right:-90px;top:6%;animation-delay:-5s;opacity:.55}
 @keyframes float{50%{transform:translate(30px,-40px) scale(1.1)}}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;grid-template-areas:"text video" "cta video";gap:28px 40px;align-items:center}
+.h-text{grid-area:text;align-self:end}.h-video{grid-area:video}.h-cta{grid-area:cta;align-self:start}
+.hero .lead{margin:20px 0 0}
+.vframe{position:relative;width:min(100%,340px);margin-inline:auto;aspect-ratio:var(--ar,9/16);border:3px solid var(--black);border-radius:30px;background:var(--black);box-shadow:8px 10px 0 var(--black);overflow:hidden;transform:rotate(1.5deg);transition:transform .4s}
+.vframe:hover{transform:rotate(0)}
+.vframe video{width:100%;height:100%;object-fit:cover;display:block}
+.vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(160deg,var(--pink),var(--hot));color:var(--black);font-weight:800;font-size:.9rem;text-align:center;padding:20px}
+.play{all:unset;width:84px;height:84px;border-radius:50%;background:#fff;border:3px solid var(--black);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 0 var(--black);animation:pulse 2.2s ease-in-out infinite;transition:transform .2s}
+.play svg{width:34px;height:34px;margin-left:5px}.play:hover{transform:scale(1.1)}
+@keyframes pulse{50%{box-shadow:0 6px 0 var(--black),0 0 0 14px rgba(255,255,255,.35)}}
 .hero h1 .acc{display:inline-block;background:var(--yellow);border:2.5px solid var(--black);border-radius:14px;padding:0 .18em;transform:rotate(-2deg);box-shadow:5px 6px 0 var(--black)}
-.hero .lead{margin:20px 0 28px;color:#2b2b2b}
-.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero .lead{color:#2b2b2b}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .chip{display:inline-block;padding:8px 14px;background:#fff;border:2.5px solid var(--black);border-radius:999px;font-size:.78rem;font-weight:800}
 .collage{position:relative;aspect-ratio:1/1.05;max-width:480px;margin-inline:auto;width:100%;container-type:inline-size}
 .collage .ring{position:absolute;left:50%;bottom:2%;width:86%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--yellow);border:3px solid var(--black)}
@@ -72,7 +81,7 @@ nav .btn{padding:10px 20px;font-size:.78rem}
 .brands img{height:44px;width:auto;filter:grayscale(1) contrast(1.1)}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:60px 0 10px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,260px));justify-content:center;gap:16px;padding:40px 0 60px}
 .stat{border:2.5px solid var(--black);border-radius:26px;padding:28px 18px;text-align:center;transition:transform .3s}
 .stat:nth-child(odd){background:var(--yellow)}.stat:nth-child(even){background:var(--pink)}
 .stat:hover{transform:translateY(-8px) rotate(-1.5deg)}
@@ -187,77 +196,50 @@ footer a{color:var(--black);margin-right:16px}
 <div class="progress" id="prog"></div>
 <nav><div class="wrap">
   <a class="logo" href="#top">UGC <em>Level Up</em></a>
-  <div class="links"><a href="#corso">Il corso</a><a href="#come">Come funziona</a><a href="#risultati">Risultati</a><a href="#fit">Fa per te?</a><a href="#faq">FAQ</a></div>
+  <div class="links"><a href="#corso">Il corso</a><a href="#risultati">Risultati</a><a href="#fit">Fa per te?</a><a href="#faq">FAQ</a></div>
   <a class="btn wa" href="#analisi">Analisi gratuita</a>
 </div></nav>
 
 <header class="hero" id="top">
   <div class="blob b1"></div><div class="blob b2"></div>
   <div class="wrap hero-grid">
-    <div>
+    <div class="h-text">
       <div class="eyebrow">Corso UGC · 100% online · Solo col telefono</div>
       <h1 style="margin-top:14px">Fai dell’UGC la tua <span class="mark y">professione</span> e chiudi la tua prima collab da <span class="acc">+300€</span> in un mese</h1>
       <p class="lead">Un percorso per imparare a lavorare con i brand, anche se parti da zero. Lezioni video, community, collab pagate ogni mese e call 1:1 direttamente con me.</p>
+    </div>
+    <div class="h-video">
+      <div class="vframe" id="vframe">
+        <div class="vph"><button class="play" id="play" aria-label="Guarda il video di presentazione"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><span>Guarda il video di presentazione</span></div>
+      </div>
+    </div>
+    <div class="h-cta">
       <div class="row">
         <a class="btn wa" href="#analisi">Prenota l’analisi gratuita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn alt" href="#corso">Scopri il corso</a>
       </div>
       <div class="facts"><span class="chip">70+ lezioni video</span><span class="chip">Community</span><span class="chip">Collab pagate ogni mese</span></div>
     </div>
-    <div class="collage" id="collage">
-      <div class="ring"></div>
-      <div class="cg c3" data-d="-10"><img src="/assets/ac9d713ca22c9f7093f7d01a39e34080.png" alt=""></div>
-      <div class="cg c1" data-d="-18"><img src="/assets/phone-crop.png" alt="Carlotta Spinelli"></div>
-      <div class="cg c2" data-d="-26"><img src="/assets/633f23deb9d547e4226ae7b269038e5f.png" alt=""></div>
-      <span class="tagc t1">UGC</span><span class="tagc t2">Coach</span><span class="tagc t3">Recruiter</span>
-    </div>
   </div>
 </header>
 
-<div class="brands"><div class="track"><img src="/assets/842f9fc081161dc5e579ec8bf5c1463e.png" alt="" loading="lazy"><img src="/assets/2ed63393a7ee01ceb2bfc3dc5132bc24.png" alt="" loading="lazy"><img src="/assets/ad9afdc819d39725912a8f499fdf5fab.png" alt="" loading="lazy"><img src="/assets/8ca157d5f2d7ad1ba2d9651705bcdfbe.png" alt="" loading="lazy"><img src="/assets/15948addf53517a06cf212a835b4600e.png" alt="" loading="lazy"><img src="/assets/3e3718f3d2272f4a409bc01ef3a1eede.png" alt="" loading="lazy"><img src="/assets/e9e5acb1b933240044765b8d3148493f.png" alt="" loading="lazy"><img src="/assets/f8590cd3cd30191855bf28d9fa4c3668.png" alt="" loading="lazy"><img src="/assets/a5b87c66ce0a2f17dbe3a7c71b20f9ec.png" alt="" loading="lazy"><img src="/assets/62ec9805ef5140a57ee7d298bd557842.png" alt="" loading="lazy"><img src="/assets/842f9fc081161dc5e579ec8bf5c1463e.png" alt="" loading="lazy"><img src="/assets/2ed63393a7ee01ceb2bfc3dc5132bc24.png" alt="" loading="lazy"><img src="/assets/ad9afdc819d39725912a8f499fdf5fab.png" alt="" loading="lazy"><img src="/assets/8ca157d5f2d7ad1ba2d9651705bcdfbe.png" alt="" loading="lazy"><img src="/assets/15948addf53517a06cf212a835b4600e.png" alt="" loading="lazy"><img src="/assets/3e3718f3d2272f4a409bc01ef3a1eede.png" alt="" loading="lazy"><img src="/assets/e9e5acb1b933240044765b8d3148493f.png" alt="" loading="lazy"><img src="/assets/f8590cd3cd30191855bf28d9fa4c3668.png" alt="" loading="lazy"><img src="/assets/a5b87c66ce0a2f17dbe3a7c71b20f9ec.png" alt="" loading="lazy"><img src="/assets/62ec9805ef5140a57ee7d298bd557842.png" alt="" loading="lazy"></div></div>
-
 <div class="wrap stats">
-  <div class="stat rv"><b data-n="900" data-s="+">0</b><span>video creati</span></div>
-  <div class="stat rv d1"><b data-n="400" data-s="+">0</b><span>brand clienti</span></div>
-  <div class="stat rv d2"><b data-n="150" data-s="+">0</b><span>creator formate</span></div>
-  <div class="stat rv d3"><b data-n="4" data-s="+">0</b><span>anni di UGC</span></div>
+  <div class="stat rv"><b data-n="150" data-s="+">0</b><span>creator formate</span></div>
+  <div class="stat rv d1"><b data-n="4" data-s="+">0</b><span>anni di UGC</span></div>
 </div>
-
-<section id="problema"><div class="wrap">
-  <div class="eyebrow">Il punto</div>
-  <p class="big rv" style="margin-top:14px">Non è che <s>non sei capace</s>. Ti manca un <span class="mark">sistema</span>.</p>
-  <p class="lead rv d1" style="margin-top:22px">Per lavorare con i brand servono un profilo che convince, un portfolio, un modo di proporti e un prezzo giusto. Nel corso li costruiamo uno alla volta.</p>
-</div></section>
 
 <section class="dark" id="corso"><div class="wrap">
   <div class="eyebrow" style="color:var(--pink)">Cosa include</div>
-  <h2 class="rv">Tutto quello che ti serve, <span class="mark" style="color:var(--black)">in un posto solo</span></h2>
+  <h2 class="rv">Non è che non sei capace. Ti manca un <span class="mark" style="color:var(--black);background:var(--pink);border-radius:6px">sistema</span></h2>
   <div class="grid3">
     <div class="inc rv"><span class="n">70+</span><h3>Lezioni video</h3><p>Da guardare quando vuoi, con un esercizio dopo ogni lezione.</p></div>
-    <div class="inc rv d1"><span class="n">Online</span><h3>Campus virtuale</h3><p>Tutto il materiale in un unico spazio online.</p></div>
-    <div class="inc rv d2"><span class="n">Insieme</span><h3>Community</h3><p>Ti confronti con altre creator e non sei mai da sola.</p></div>
-    <div class="inc rv"><span class="n">€ / mese</span><h3>Collab pagate ogni mese</h3><p>Ricevi proposte di collaborazioni retribuite, ogni mese.</p></div>
-    <div class="inc rv d1"><span class="n">Live</span><h3>Eventi e fiere</h3><p>Partecipi a eventi e fiere insieme alla community.</p></div>
-    <div class="inc rv d2"><span class="n">Su misura</span><h3>Percorsi personalizzati</h3><p>Diversi percorsi studiati in base alle tue necessità.</p></div>
-    <div class="inc rv"><span class="n">1 : 1</span><h3>Call direttamente con me</h3><p>Mi parli in prima persona, senza intermediari.</p></div>
-    <div class="inc rv d1"><span class="n">Ogni mese</span><h3>Sfide con premi</h3><p>Sfide mensili con premi, come attrezzatura per i tuoi video.</p></div>
-    <div class="inc rv d2"><span class="n">Rate</span><h3>Possibilità di rateizzare</h3><p>Puoi dividere il pagamento in più rate.</p></div>
+    <div class="inc rv d1"><span class="n">Insieme</span><h3>Campus e community</h3><p>Un campus virtuale e un gruppo di creator con cui confrontarti.</p></div>
+    <div class="inc rv d2"><span class="n">€ / mese</span><h3>Collab, eventi e fiere</h3><p>Proposte di collab pagate ogni mese e partecipazione a eventi e fiere.</p></div>
+    <div class="inc rv"><span class="n">1 : 1</span><h3>Call con me</h3><p>Mi parli direttamente, senza intermediari.</p></div>
+    <div class="inc rv d1"><span class="n">Su misura</span><h3>Percorsi personalizzati</h3><p>Diversi percorsi studiati in base alle tue necessità.</p></div>
+    <div class="inc rv d2"><span class="n">Ogni mese</span><h3>Sfide con premi</h3><p>Sfide mensili con premi, come attrezzatura per i tuoi video.</p></div>
   </div>
-  <p class="lead rv" style="margin-top:26px">Accesso a vita e aggiornamenti inclusi. Ti basta il telefono per iniziare.</p>
-  <div class="topics rv">
-    <span class="chip">Profilo social</span><span class="chip">Portfolio</span><span class="chip">Pitch e comunicazione</span><span class="chip">Negoziazione</span><span class="chip">Script</span><span class="chip">Creazione contenuti</span><span class="chip">Editing</span><span class="chip">Prezzi e pacchetti</span><span class="chip">Upselling</span>
-  </div>
-</div></section>
-
-<section id="come"><div class="wrap">
-  <div class="eyebrow">Come funziona</div>
-  <h2 class="rv">Dal primo messaggio alla <span class="mark">prima collab</span></h2>
-  <div class="steps">
-    <div class="step rv"><div class="dot">1</div><h3>Analisi gratuita</h3><p>Una chiamata senza impegno per capire da dove parti.</p></div>
-    <div class="step rv d1"><div class="dot">2</div><h3>Entri nel percorso</h3><p>Ricevi l’accesso a tutte le lezioni.</p></div>
-    <div class="step rv d2"><div class="dot">3</div><h3>Lezioni ed esercizi</h3><p>Impari un passo alla volta e lo applichi subito.</p></div>
-    <div class="step rv d3"><div class="dot">4</div><h3>Call 1:1 e community</h3><p>Ti seguo direttamente e ti metto in contatto con le prime collab.</p></div>
-  </div>
+  <div class="topics rv"><span class="chip">Pagamento rateizzabile</span><span class="chip">Accesso a vita</span><span class="chip">Aggiornamenti inclusi</span><span class="chip">Ti basta il telefono</span></div>
 </div></section>
 
 <section id="risultati" style="background:#fff7fb"><div class="wrap">
@@ -282,13 +264,12 @@ footer a{color:var(--black);margin-right:16px}
   </div>
 </div></section>
 
-<section class="about" id="chi"><div class="wrap agrid">
-  <div class="aph rv"><div class="ring"></div><img src="/assets/ac9d713ca22c9f7093f7d01a39e34080.png" alt="Carlotta Spinelli"></div>
-  <div class="rv d1">
+<section class="about" id="chi"><div class="wrap">
+  <div class="rv" style="max-width:640px">
     <div class="eyebrow">Chi sono</div>
     <h2>Ciao, sono <span class="mark" style="background:linear-gradient(transparent 56%,#fff 56%)">Carlotta</span></h2>
-    <p>Faccio <strong>UGC</strong> da quattro anni, quando in Italia quasi non esisteva. Ho creato <strong>900+ video</strong> per brand come <strong>Sephora</strong> e <strong>Amazon</strong>.</p>
-    <p>Ho già formato <strong>150+ creator</strong> e lavoro anche come <strong>recruiter e campaign manager</strong> per brand e agenzie: so cosa cercano i brand, perché lo vedo ogni giorno dall’altra parte.</p>
+    <p>Faccio <strong>UGC</strong> da quattro anni, quando in Italia quasi non esisteva, e lavoro con brand come <strong>Sephora</strong> e <strong>Amazon</strong>.</p>
+    <p>Ho già formato <strong>150+ creator</strong> e lavoro anche come <strong>recruiter e campaign manager</strong>: so cosa cercano i brand, perché lo vedo ogni giorno dall’altra parte.</p>
     <div class="row" style="margin-top:22px"><a class="btn" href="https://carlottaugcitalia.com/" target="_blank" rel="noopener">Guarda il mio portfolio</a></div>
   </div>
 </div></section>
@@ -317,6 +298,8 @@ footer a{color:var(--black);margin-right:16px}
 <script>
 /* ===== DA COMPILARE ===== */
 var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "393331234567"
+var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
+var VIDEO_RATIO = "9/16"; // formato: "9/16" verticale, "16/9" orizzontale
 var WA_TEXT = "Ciao! Vorrei prenotare l'analisi gratuita per UGC Level Up.";
 var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Analisi gratuita UGC Level Up");
 /* ======================== */
@@ -327,6 +310,10 @@ document.documentElement.classList.add("js");
     if(a.getAttribute("href")==="#analisi"&&a.closest("nav,.hero"))return;
     a.href=link; if(WA_NUMBER){a.target="_blank";a.rel="noopener"}
   });
+  var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
+  document.getElementById("play").addEventListener("click",function(){
+    if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo";return}
+    vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>'});
   /* reveal + livelli */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
   [].forEach.call(document.querySelectorAll(".rv,.big,#levels"),function(el){io.observe(el)});
@@ -339,9 +326,6 @@ document.documentElement.classList.add("js");
   var pr=document.getElementById("prog"),st=document.getElementById("sticky");
   function sc(){var h=document.documentElement.scrollHeight-innerHeight,y=scrollY;pr.style.width=(h>0?y/h*100:0)+"%";st.classList.toggle("show",y>innerHeight*.7)}
   addEventListener("scroll",sc,{passive:true});sc();
-  /* parallax collage */
-  var cg=[].slice.call(document.querySelectorAll(".cg"));
-  addEventListener("pointermove",function(e){var nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;cg.forEach(function(c){var d=+c.dataset.d;c.style.transform="translate("+nx*d+"px,"+ny*d+"px)"})});
 })();
 </script>
 </body>
