@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portfolio | Carlotta Spinelli</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -352,6 +352,24 @@ body.editing .panel{display:block}
 .panel .meter{margin-top:10px;opacity:.7}
 .toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 80px);transform:translateX(-50%);background:#0b0b0b;color:#fff;padding:12px 22px;border-radius:99px;z-index:300;font-weight:600;font-size:.88rem;display:none;max-width:90vw;text-align:center}
 .toast.on{display:block}
+
+/* mobile: testi piu grandi, menu visibile, meno spazio vuoto */
+@media(max-width:760px){
+  html{font-size:112.5%;scroll-padding-top:120px}
+  nav{padding:10px 0 8px}
+  nav .wrap{flex-wrap:wrap;row-gap:8px}
+  .logo{font-size:1.2rem}
+  .links,.links.home-links{display:flex!important;order:3;width:100%;gap:18px;font-size:.98rem;font-weight:700;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-bottom:2px}
+  .links::-webkit-scrollbar{display:none}
+  body:not(.is-sub) .links.sub-links{display:none!important}
+  body.is-sub .links.home-links{display:none!important}
+  body.is-sub .links.sub-links{display:flex!important}
+  .hero{min-height:0;padding-top:130px;padding-bottom:20px}
+  section{padding:56px 0}
+  .brands+section{padding:30px 0 36px}
+  .btn{font-size:1rem}
+  .eyebrow{font-size:.8rem}
+}
 </style>
 </head>
 <body>
@@ -837,27 +855,6 @@ body.editing .panel{display:block}
       if(canEdit)$("#ed-toggle").classList.add("show");
     }).catch(function(){});
   }
-})();
-</script>
-<script>
-/* desktop layout on phones: neutralize max-width media queries and scale the 1280px page to the screen */
-(function(){
-  var done=false,W=1280;
-  function fit(){
-    var w=window.innerWidth||document.documentElement.clientWidth;
-    if(w>=1100){document.documentElement.style.zoom="";return}
-    if(!done){
-      done=true;
-      try{Array.prototype.forEach.call(document.styleSheets,function(sh){
-        var rs;try{rs=sh.cssRules}catch(e){return}
-        Array.prototype.forEach.call(rs,function(r){
-          if(r.type===4&&/max-width/.test(r.conditionText||r.media.mediaText)){r.media.mediaText="not all"}
-        })
-      })}catch(e){}
-    }
-    document.documentElement.style.zoom=String(w/W);
-  }
-  fit();window.addEventListener("resize",fit);window.addEventListener("orientationchange",fit);
 })();
 </script>
 </body>
