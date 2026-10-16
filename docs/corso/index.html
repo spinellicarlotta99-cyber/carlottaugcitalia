@@ -425,11 +425,16 @@ var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
 var WA_TEXT = " Ciao, ho visto il video! Vorrei saperne di più su UGC Level Up";   // dopo il video
 var WA_TEXT_PRE = "Ciao! Vorrei saperne di più su UGC Level Up";   // prima del video
-var BOOKING_URL = "https://carlottaspinelli.com/call-ugc-level-up";   // link pagina prenotazioni Wix (quando pronto). Se vuoto, il bottone apre WhatsApp
+var BOOKING_URL = "https://carlottaspinelli.com/call-ugc-level-up";
+// Origine del contatto: dal link ?src=bio (Instagram/link in bio) oppure ?src=adv (video adv).
+// Se in Wix crei due servizi diversi, metti qui i due link e le prenotazioni si dividono da sole:
+var BOOKING_BY_SRC = { /* bio: "https://carlottaspinelli.com/...", adv: "https://carlottaspinelli.com/..." */ };
+var SRC_LABEL = { bio: "Instagram (link in bio)", adv: "Video adv" };   // link pagina prenotazioni Wix (quando pronto). Se vuoto, il bottone apre WhatsApp
 var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Analisi gratuita UGC Level Up");
 /* ======================== */
 document.documentElement.classList.add("js");
 (function(){
+  var SRC="";try{var q=new URLSearchParams(location.search).get("src");if(q){SRC=q.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,20);sessionStorage.setItem("ulu_src",SRC)}else{SRC=sessionStorage.getItem("ulu_src")||""}}catch(e){}
   var link="";
   [].forEach.call(document.querySelectorAll(".wa"),function(a){if(WA_NUMBER){a.target="_blank";a.rel="noopener"}});
   var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
@@ -437,10 +442,11 @@ document.documentElement.classList.add("js");
   var seen=false;try{seen=localStorage.getItem("ulu_seen")==="1"}catch(e){}
   var books=[].slice.call(document.querySelectorAll(".book")),gate=document.getElementById("gate");
   books.forEach(function(a){a.dataset.label=a.firstChild.textContent});
-  function waLink(){return WA_NUMBER?"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(seen?WA_TEXT:WA_TEXT_PRE):FALLBACK}
+  function bookUrl(){var u=BOOKING_BY_SRC[SRC]||BOOKING_URL;if(SRC)u+=(u.indexOf("?")<0?"?":"&")+"utm_source="+encodeURIComponent(SRC)+"&utm_medium="+(SRC==="adv"?"paid":"organic")+"&utm_campaign=ugc-level-up";return u}
+  function waLink(){return WA_NUMBER?"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent((seen?WA_TEXT:WA_TEXT_PRE)+(SRC?" [Fonte: "+(SRC_LABEL[SRC]||SRC)+"]":"")):FALLBACK}
   function paint(){link=waLink();[].forEach.call(document.querySelectorAll(".wa"),function(a){a.href=link});books.forEach(function(a){
     if(seen){a.classList.remove("locked");a.firstChild.textContent=a.dataset.label;
-      if(BOOKING_URL){a.href=BOOKING_URL;a.target="_blank";a.rel="noopener"}else{a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}}
+      if(BOOKING_URL){a.href=bookUrl();a.target="_blank";a.rel="noopener"}else{a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}}
     else{a.classList.add("locked");a.firstChild.textContent="🔒 Guarda prima il video ";a.href="#top";a.removeAttribute("target")}});
     if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi prenotare la chiamata.":"🔒 La prenotazione si sblocca dopo aver guardato il video di presentazione."}}
   function unlock(){if(seen)return;seen=true;try{localStorage.setItem("ulu_seen","1")}catch(e){}paint()}
