@@ -233,6 +233,17 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .in .pg i,.cmock.in .pg i{width:62%}
 .pill{display:inline-block;background:var(--yellow);border:2px solid var(--black);border-radius:999px;padding:2px 9px;font-size:.7rem;font-weight:800;margin-right:5px}
 .cmock .cc{animation:bubf 8s ease-in-out infinite}.cmock .cc:nth-child(2){animation-delay:-3s}.cmock .cc:nth-child(3){animation-delay:-5s}
+.cphone{position:relative;max-width:300px;margin-inline:auto}
+.cdev{border:3px solid var(--black);border-radius:34px;overflow:hidden;box-shadow:8px 10px 0 var(--black);background:#0b1320;aspect-ratio:540/964;transform:rotate(1.5deg);transition:transform .4s}
+.cphone:hover .cdev{transform:rotate(0)}
+.cdev video{width:100%;height:100%;object-fit:cover;display:block}
+.ctag{position:absolute;background:var(--yellow);border:2.5px solid var(--black);border-radius:999px;padding:7px 15px;font-weight:800;font-size:.86rem;box-shadow:3px 4px 0 var(--black);white-space:nowrap;opacity:0;animation:ctg 9s ease-in-out infinite;z-index:2}
+.ctag.t1{left:-46px;top:16%}
+.ctag.t2{right:-44px;top:46%;background:var(--pink);animation-delay:3s}
+.ctag.t3{left:-34px;bottom:12%;background:#fff;animation-delay:6s}
+@keyframes ctg{0%{opacity:0;transform:translateY(14px) scale(.8) rotate(-4deg)}8%,28%{opacity:1;transform:translateY(0) scale(1) rotate(-3deg)}36%,100%{opacity:0;transform:translateY(-10px) scale(.9) rotate(-3deg)}}
+@media(max-width:900px){.ctag.t1{left:-6px}.ctag.t2{right:-6px}.ctag.t3{left:-4px}}
+@media(prefers-reduced-motion:reduce){.ctag{opacity:1;animation:none}}
 .cnote{font-size:.85rem;font-weight:600;opacity:.75;margin-top:12px}
 @media(max-width:900px){.cgrid{grid-template-columns:1fr}.cbody2{grid-template-columns:100px 1fr}}
 /* faq */
@@ -339,20 +350,13 @@ footer a{color:var(--black);margin-right:16px}
   <div class="rv">
     <div class="eyebrow">Il campus</div>
     <h2>Dai un’occhiata <span class="mark">da dentro</span></h2>
-    <p class="lead" style="margin:0 0 22px">Lezioni, community, sfide del mese e proposte di collab sono tutte nello stesso posto. Entra come ospite e guarda come funziona prima di decidere.</p>
+    <p class="lead" style="margin:0 0 22px">Lezioni, sfide con premi mensili, community e proposte di collab sono tutte nello stesso posto. Guarda come funziona prima di decidere.</p>
     <div class="row"><a class="btn" id="campusBtn" href="#analisi">Sbircia il campus</a></div>
     <p class="cnote" id="campusNote"></p>
   </div>
-  <div class="cmock rv d1" aria-hidden="true">
-    <div class="cbar"><i></i><i></i><i></i><span>CAMPUS · UGC LEVEL UP</span></div>
-    <div class="cbody2">
-      <div class="cside"><b class="on">Lezioni</b><b>Community</b><b>Sfide</b><b>Collab</b><b>Eventi</b><b>Call 1:1</b></div>
-      <div class="cmain">
-        <div class="cc"><b>Le tue lezioni</b><div class="pg"><i></i></div></div>
-        <div class="cc"><b>Sfida del mese</b><span class="pill">Premio</span><span class="pill">Attrezzatura</span></div>
-        <div class="cc"><b>Nuova proposta di collab</b><span class="pill">Pagata</span><span class="pill">Questo mese</span></div>
-      </div>
-    </div>
+  <div class="cphone rv d1">
+    <div class="cdev"><video id="campusVid" src="/assets/campus.mp4" poster="/assets/campus-poster.jpg" muted loop playsinline preload="metadata"></video></div>
+    <span class="ctag t1">Lezioni</span><span class="ctag t2">Sfide</span><span class="ctag t3">Premi mensili</span>
   </div>
 </div></section>
 
@@ -483,6 +487,8 @@ document.documentElement.classList.add("js");
   var link="";
   [].forEach.call(document.querySelectorAll(".wa"),function(a){if(WA_NUMBER){a.target="_blank";a.rel="noopener"}});
   var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
+  var cv=document.getElementById("campusVid");
+  if(cv&&"IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var pr=cv.play();if(pr&&pr.catch)pr.catch(function(){})}else cv.pause()})},{threshold:.35}).observe(cv)}
   /* campus */
   var cb2=document.getElementById("campusBtn");
   if(CAMPUS_URL){cb2.href=CAMPUS_URL;cb2.target="_blank";cb2.rel="noopener"}else{cb2.textContent="Anteprima in arrivo"}
