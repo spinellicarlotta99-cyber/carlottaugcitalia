@@ -61,7 +61,8 @@ nav .btn{padding:10px 20px;font-size:.78rem}
 .vframe{position:relative;width:min(100%,900px);margin-inline:auto;aspect-ratio:var(--ar,16/9);border:3px solid var(--black);border-radius:24px;background:var(--black);box-shadow:8px 10px 0 var(--black);overflow:hidden;transform:none;transition:transform .4s}
 .vframe:hover{transform:rotate(0)}
 .vframe video{width:100%;height:100%;object-fit:cover;display:block}
-.vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(160deg,var(--pink),var(--hot));color:var(--black);font-weight:800;font-size:.9rem;text-align:center;padding:20px}
+.vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(160deg,rgba(252,188,225,.6),rgba(245,142,195,.55)),url(/assets/vsl-poster.jpg) center/cover var(--black);color:var(--black);font-weight:800;font-size:.9rem;text-align:center;padding:20px}
+.vph span{background:#fff;border:3px solid var(--black);border-radius:999px;padding:9px 18px;font-size:.95rem;box-shadow:0 4px 0 var(--black)}
 .play{all:unset;width:84px;height:84px;border-radius:50%;background:#fff;border:3px solid var(--black);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 0 var(--black);animation:pulse 2.2s ease-in-out infinite;transition:transform .2s}
 .play svg{width:34px;height:34px;margin-left:5px}.play:hover{transform:scale(1.1)}
 @keyframes pulse{50%{box-shadow:0 6px 0 var(--black),0 0 0 14px rgba(255,255,255,.35)}}
