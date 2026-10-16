@@ -65,6 +65,7 @@ nav .btn{padding:10px 20px;font-size:.78rem}
 .vph::before{content:"";position:absolute;inset:-14px;background:url(/assets/vsl-poster.jpg) center/cover;filter:blur(7px) saturate(1.15)}
 .vph::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(252,188,225,.22),rgba(245,142,195,.16))}
 .vph>*,.vph .play{position:relative;z-index:1}
+.vnote{margin:16px auto 0;max-width:620px;text-align:center;font-weight:700;font-size:.95rem;line-height:1.45}.vnote.ok{color:#1c7c4f}
 .vph span{background:#fff;border:3px solid var(--black);border-radius:999px;padding:9px 18px;font-size:.95rem;box-shadow:0 4px 0 var(--black)}
 .play{all:unset;width:84px;height:84px;border-radius:50%;background:#fff;border:3px solid var(--black);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 0 var(--black);animation:pulse 2.2s ease-in-out infinite;transition:transform .2s}
 .play svg{width:34px;height:34px;margin-left:5px}.play:hover{transform:scale(1.1)}
@@ -324,6 +325,7 @@ footer a{color:var(--black);margin-right:16px}
       <div class="vframe" id="vframe">
         <div class="vph"><button class="play" id="play" aria-label="Guarda il video di presentazione"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><span>Guarda il video di presentazione</span></div>
       </div>
+      <p class="vnote" id="vnote"></p>
     </div>
     <div class="h-cta">
       <div class="row">
@@ -426,7 +428,7 @@ footer a{color:var(--black);margin-right:16px}
   <h2 class="rv">Pronta a fare il <span class="mark y">level up</span>?</h2>
   <p class="lead rv d1">Prenota l’analisi gratuita: ne parliamo insieme, senza impegno.</p>
   <div class="row rv d2"><a class="btn book" href="#analisi">Prenota la chiamata</a><a class="btn alt wa" href="#">Scrivici su WhatsApp</a></div>
-  <p class="gate rv d3" id="gate">🔒 La prenotazione si sblocca dopo aver guardato il video di presentazione.</p>
+  <p class="gate rv d3" id="gate">🔒 Puoi prenotare un’analisi gratuita con me: guarda prima il video di presentazione (almeno metà) e il bottone si sblocca.</p>
 </div></section>
 
 <footer><div class="wrap"><div><a href="https://www.carlottaspinelli.com/privacy-policy">Privacy e Cookie</a><a href="https://www.carlottaspinelli.com/terms">Termini e condizioni</a><a href="https://www.carlottaspinelli.com/refund-policy">Rimborsi</a></div><div>© Carlotta Spinelli</div></div></footer>
@@ -511,7 +513,8 @@ document.documentElement.classList.add("js");
     if(seen){a.classList.remove("locked");a.firstChild.textContent=a.dataset.label;
       if(BOOKING_URL){a.href=bookUrl();a.target="_blank";a.rel="noopener"}else{a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}}
     else{a.classList.add("locked");a.firstChild.textContent="🔒 Guarda prima il video ";a.href="#top";a.removeAttribute("target")}});
-    if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi prenotare la chiamata.":"🔒 La prenotazione si sblocca dopo aver guardato il video di presentazione."}}
+    if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi prenotare la tua analisi gratuita.":"🔒 Puoi prenotare un’analisi gratuita con me: guarda prima il video di presentazione (almeno metà) e il bottone si sblocca."}
+    var vn=document.getElementById("vnote");if(vn){vn.classList.toggle("ok",seen);vn.textContent=seen?"✓ Video visto: ora puoi prenotare la tua analisi gratuita.":"🔒 Puoi prenotare un’analisi gratuita con me: guarda prima il video di presentazione (almeno metà) e il bottone si sblocca."}}
   function unlock(){if(seen)return;seen=true;if(VIDEO_SRC){try{localStorage.setItem("ulu_seen2","1")}catch(e){}}paint()}
   books.forEach(function(a){a.addEventListener("click",function(e){if(!seen){e.preventDefault();vf.scrollIntoView({behavior:"smooth",block:"center"});vf.classList.remove("shake");void vf.offsetWidth;vf.classList.add("shake")}})});
   paint();
