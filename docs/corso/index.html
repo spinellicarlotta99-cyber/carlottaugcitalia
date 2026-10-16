@@ -29,6 +29,11 @@ h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.15}
 .lead{font-size:1.08rem;color:var(--muted);max-width:56ch;font-weight:500}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;border:2.5px solid var(--black);background:var(--black);color:#fff;font:800 .92rem var(--f);letter-spacing:.02em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.9,.3,1.4),background .2s,color .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-4px) rotate(-1deg);background:var(--pink);color:var(--black);box-shadow:0 8px 0 var(--black)}
+.btn.book.locked{background:#6b6b6b;border-color:var(--black);color:#fff;cursor:pointer}
+.btn.book.locked svg{display:none}
+.gate{margin-top:16px;font-weight:700;font-size:.9rem}.gate.ok{color:#14803c}
+.vframe.shake{animation:shk .5s}
+@keyframes shk{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 .btn.alt{background:transparent;color:var(--black)}.btn.alt:hover{background:var(--yellow)}
 .btn.pk{background:var(--pink);color:var(--black)}.btn.pk:hover{background:#fff}
 .btn svg{width:18px;height:18px;transition:transform .25s}.btn:hover svg{transform:translateX(4px)}
@@ -263,7 +268,7 @@ footer a{color:var(--black);margin-right:16px}
 <nav><div class="wrap">
   <a class="logo" href="#top">UGC <em>Level Up</em></a>
   <div class="links"><a href="#corso">Il corso</a><a href="#risultati">Risultati</a><a href="#fit">Fa per te?</a><a href="#faq">FAQ</a></div>
-  <a class="btn wa" href="#analisi">Analisi gratuita</a>
+  <a class="btn book" href="#analisi">Analisi gratuita</a>
 </div></nav>
 
 <header class="hero" id="top">
@@ -282,7 +287,7 @@ footer a{color:var(--black);margin-right:16px}
     </div>
     <div class="h-cta">
       <div class="row">
-        <a class="btn wa" href="#analisi">Prenota l’analisi gratuita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn book" href="#analisi">Prenota l’analisi gratuita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn alt" href="#corso">Scopri il corso</a>
       </div>
     </div>
@@ -366,7 +371,8 @@ footer a{color:var(--black);margin-right:16px}
 <section class="cta" id="analisi"><div class="wrap">
   <h2 class="rv">Pronta a fare il <span class="mark y">level up</span>?</h2>
   <p class="lead rv d1">Prenota l’analisi gratuita: ne parliamo insieme, senza impegno.</p>
-  <div class="row rv d2"><a class="btn wa" href="#">Scrivici su WhatsApp</a><a class="btn alt" href="#faq">Leggi le FAQ</a></div>
+  <div class="row rv d2"><a class="btn book" href="#analisi">Prenota la chiamata</a><a class="btn alt wa" href="#">Scrivici su WhatsApp</a></div>
+  <p class="gate rv d3" id="gate">🔒 La prenotazione si sblocca dopo aver guardato il video di presentazione.</p>
 </div></section>
 
 <footer><div class="wrap"><div><a href="https://www.carlottaspinelli.com/privacy-policy">Privacy e Cookie</a><a href="https://www.carlottaspinelli.com/terms">Termini e condizioni</a><a href="https://www.carlottaspinelli.com/refund-policy">Rimborsi</a></div><div>© Carlotta Spinelli</div></div></footer>
@@ -374,7 +380,7 @@ footer a{color:var(--black);margin-right:16px}
 
 <script>
 /* ===== DA COMPILARE ===== */
-var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "393331234567"
+var WA_NUMBER = "393287276998";   // numero WhatsApp internazionale senza +, es. "393331234567"
 var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
@@ -417,20 +423,35 @@ var REVIEWS = [
 ];
 var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
-var WA_TEXT = "Ciao! Vorrei prenotare l'analisi gratuita per UGC Level Up.";
+var WA_TEXT = " Ciao, ho visto il video! Vorrei saperne di più su UGC Level Up";   // dopo il video
+var WA_TEXT_PRE = "Ciao! Vorrei saperne di più su UGC Level Up";   // prima del video
+var BOOKING_URL = "";   // link pagina prenotazioni Wix (quando pronto). Se vuoto, il bottone apre WhatsApp
 var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Analisi gratuita UGC Level Up");
 /* ======================== */
 document.documentElement.classList.add("js");
 (function(){
-  var link = WA_NUMBER ? "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_TEXT) : FALLBACK;
-  [].forEach.call(document.querySelectorAll(".wa"),function(a){
-    if(a.getAttribute("href")==="#analisi"&&a.closest("nav,.hero"))return;
-    a.href=link; if(WA_NUMBER){a.target="_blank";a.rel="noopener"}
-  });
+  var link="";
+  [].forEach.call(document.querySelectorAll(".wa"),function(a){if(WA_NUMBER){a.target="_blank";a.rel="noopener"}});
   var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
+  /* sblocco prenotazione dopo il video */
+  var seen=false;try{seen=localStorage.getItem("ulu_seen")==="1"}catch(e){}
+  var books=[].slice.call(document.querySelectorAll(".book")),gate=document.getElementById("gate");
+  books.forEach(function(a){a.dataset.label=a.firstChild.textContent});
+  function waLink(){return WA_NUMBER?"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(seen?WA_TEXT:WA_TEXT_PRE):FALLBACK}
+  function paint(){link=waLink();[].forEach.call(document.querySelectorAll(".wa"),function(a){a.href=link});books.forEach(function(a){
+    if(seen){a.classList.remove("locked");a.firstChild.textContent=a.dataset.label;
+      if(BOOKING_URL){a.href=BOOKING_URL;a.target="_blank";a.rel="noopener"}else{a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}}
+    else{a.classList.add("locked");a.firstChild.textContent="🔒 Guarda prima il video ";a.href="#top";a.removeAttribute("target")}});
+    if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi prenotare la chiamata.":"🔒 La prenotazione si sblocca dopo aver guardato il video di presentazione."}}
+  function unlock(){if(seen)return;seen=true;try{localStorage.setItem("ulu_seen","1")}catch(e){}paint()}
+  books.forEach(function(a){a.addEventListener("click",function(e){if(!seen){e.preventDefault();vf.scrollIntoView({behavior:"smooth",block:"center"});vf.classList.remove("shake");void vf.offsetWidth;vf.classList.add("shake")}})});
+  paint();
   document.getElementById("play").addEventListener("click",function(){
-    if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo";return}
-    vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>'});
+    if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo (anteprima: prenotazione sbloccata)";unlock();return}
+    vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>';
+    var v=vf.querySelector("video");
+    v.addEventListener("ended",unlock);
+    v.addEventListener("timeupdate",function(){if(v.duration&&v.currentTime/v.duration>=.9)unlock()})});
   /* recensioni */
   var mbx=document.querySelector(".mbox"),md=document.getElementById("modal"),mc=document.getElementById("mc");
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
