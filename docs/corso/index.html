@@ -146,11 +146,12 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 
 /* recensioni */
 .rev{background:var(--yellow);overflow:hidden}
+.bw{display:flex;flex-direction:column;align-items:center;gap:12px}.btag{background:#fff;border:2.5px solid var(--black);border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:800;box-shadow:2px 3px 0 var(--black);white-space:nowrap}
 .bubbles{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 34px;margin-top:38px;padding:10px 0}
 .bub{width:132px;height:132px;border-radius:50%;border:3px solid var(--black);background:linear-gradient(135deg,var(--pink),var(--hot));box-shadow:5px 6px 0 var(--black);padding:0;cursor:pointer;overflow:hidden;position:relative;font:inherit;color:var(--black);display:grid;place-items:center;font-weight:800;font-size:2rem;animation:bubf 7s ease-in-out infinite;transition:transform .25s,box-shadow .25s}
-.bub:nth-child(2n){animation-duration:8.5s;animation-delay:-2s;margin-top:22px;width:118px;height:118px}
-.bub:nth-child(3n){animation-duration:9.5s;animation-delay:-4s;width:146px;height:146px}
-.bub:nth-child(4n){background:linear-gradient(135deg,#fff,var(--pink))}
+.bw:nth-child(2n) .bub{animation-duration:8.5s;animation-delay:-2s;margin-top:22px;width:118px;height:118px}
+.bw:nth-child(3n) .bub{animation-duration:9.5s;animation-delay:-4s;width:146px;height:146px}
+.bw:nth-child(4n) .bub{background:linear-gradient(135deg,#fff,var(--pink))}
 .bub img{width:100%;height:100%;object-fit:cover;display:block}
 .bub:hover,.bub:focus-visible{animation-play-state:paused;transform:scale(1.08);box-shadow:7px 9px 0 var(--black)}
 .bub .st{position:absolute;bottom:6px;left:0;right:0;font-size:.7rem;letter-spacing:.1em}
@@ -184,7 +185,7 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .jn strong{font-weight:800}
 .ba{margin-bottom:12px;padding:12px 14px;border-radius:14px;background:#f4f4f4;font-size:.93rem;line-height:1.5}.ba span{display:inline-block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}.ba ul{margin:0;padding-left:18px;display:grid;gap:5px}.ba strong{font-weight:800}.q2 strong{font-weight:800}.ba.dopo{background:var(--pink)}
 .mbox .q2{font-size:1.05rem;font-weight:500;line-height:1.55}
-@media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bub:nth-child(3n){width:118px!important;height:118px!important}.bubbles{gap:18px 20px}}
+@media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bw:nth-child(3n) .bub{width:118px!important;height:118px!important}.bubbles{gap:18px 20px}}
 
 /* faq */
 .faq{margin-top:34px;border-top:2.5px solid var(--black)}
@@ -356,7 +357,7 @@ var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "3933312345
 var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
-  {name:"Lucia Ciciliani", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator",
+  {name:"Lucia Ciciliani", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator", tag:"Mamma di 2 bimbe",
    journey:{
      start:["**5 anni di network marketing**","Voglio risultati che **dipendono da me**","Parto **da zero**: niente portfolio, niente brand"],
      steps:["Ho preso **sicurezza**","Ho capito **come farmi pagare**","Ho creato il mio **personal brand**","Ho trovato la mia **identità**"],
@@ -405,7 +406,7 @@ document.documentElement.classList.add("js");
   var bb=document.getElementById("bubbles");
   REVIEWS.forEach(function(r){var b=document.createElement("button");b.className="bub";b.setAttribute("aria-label","Leggi la recensione di "+r.name);
     b.innerHTML=r.photo?'<img src="'+esc(r.photo)+'" alt="'+esc(r.name)+'">':ini(r.name);
-    b.onclick=function(){openM(r)};bb.appendChild(b)});
+    b.onclick=function(){openM(r)};var w=document.createElement("div");w.className="bw";w.appendChild(b);if(r.tag){var t=document.createElement("span");t.className="btag";t.textContent=r.tag;w.appendChild(t)}bb.appendChild(w)});
   var vr=document.getElementById("vrev");
   if(!VIDEO_REVIEWS.length){vr.style.display="none"}
   VIDEO_REVIEWS.forEach(function(v){var c=document.createElement("button");c.className="vcard";
