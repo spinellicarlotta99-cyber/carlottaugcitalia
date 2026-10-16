@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>UGC Level Up | Carlotta Spinelli</title>
+<meta name="description" content="UGC Level Up: il corso di Carlotta Spinelli per diventare UGC creator. Lezioni video, esercizi e mentoring 1:1.">
+<meta property="og:title" content="UGC Level Up | Carlotta Spinelli">
+<meta property="og:image" content="/assets/ac9d713ca22c9f7093f7d01a39e34080.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#fcfcc6;--pink:#fcbce1;--hot:#f58ec3;--black:#0b0b0b;--white:#fff;--muted:#4a4a4a;
+  --f:"Montserrat","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{overflow-x:hidden;scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--f);color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden;font-size:17px}
+img{max-width:100%}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:84px 0;position:relative}
+.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.02;font-weight:800;text-wrap:balance}
+h1{font-size:clamp(2.3rem,7vw,4.6rem)}
+h2{font-size:clamp(1.9rem,4.8vw,3.2rem);margin:10px 0 16px}
+h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.15}
+.mark{background:linear-gradient(transparent 56%,var(--pink) 56%);padding:0 .1em}
+.mark.y{background:linear-gradient(transparent 56%,var(--yellow) 56%)}
+.lead{font-size:1.08rem;color:var(--muted);max-width:56ch;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;border:2.5px solid var(--black);background:var(--black);color:#fff;font:800 .92rem var(--f);letter-spacing:.02em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.9,.3,1.4),background .2s,color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-4px) rotate(-1deg);background:var(--pink);color:var(--black);box-shadow:0 8px 0 var(--black)}
+.btn.alt{background:transparent;color:var(--black)}.btn.alt:hover{background:var(--yellow)}
+.btn.pk{background:var(--pink);color:var(--black)}.btn.pk:hover{background:#fff}
+.btn svg{width:18px;height:18px;transition:transform .25s}.btn:hover svg{transform:translateX(4px)}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--hot);z-index:60}
+nav{position:fixed;top:4px;left:0;right:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,11,11,.12)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{font-weight:800;font-size:1.1rem;letter-spacing:-.02em;color:var(--black);text-decoration:none}
+.logo em{font-style:normal;font-weight:500}
+.links{display:flex;gap:26px;font-weight:600;font-size:.9rem}
+.links a{color:var(--black);text-decoration:none;position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-5px;height:3px;width:0;background:var(--pink);transition:width .3s}
+.links a:hover::after{width:100%}
+nav .btn{padding:10px 20px;font-size:.78rem}
+/* hero */
+.hero{position:relative;padding:132px 0 70px;background:linear-gradient(180deg,var(--pink) 0%,#fde3f1 60%,#fff 100%);overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75;animation:float 14s ease-in-out infinite;pointer-events:none}
+.b1{width:380px;height:380px;background:var(--yellow);left:-120px;top:20%}
+.b2{width:300px;height:300px;background:var(--hot);right:-90px;top:6%;animation-delay:-5s;opacity:.55}
+@keyframes float{50%{transform:translate(30px,-40px) scale(1.1)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.hero h1 .acc{display:inline-block;background:var(--yellow);border:2.5px solid var(--black);border-radius:14px;padding:0 .18em;transform:rotate(-2deg);box-shadow:5px 6px 0 var(--black)}
+.hero .lead{margin:20px 0 28px;color:#2b2b2b}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{display:inline-block;padding:8px 14px;background:#fff;border:2.5px solid var(--black);border-radius:999px;font-size:.78rem;font-weight:800}
+.collage{position:relative;aspect-ratio:1/1.05;max-width:480px;margin-inline:auto;width:100%;container-type:inline-size}
+.collage .ring{position:absolute;left:50%;bottom:2%;width:86%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--yellow);border:3px solid var(--black)}
+.cg{position:absolute;transition:transform .3s ease-out}
+.cg img{display:block;width:100%;height:auto;animation:bob 7s ease-in-out infinite;filter:drop-shadow(0 14px 20px rgba(120,20,80,.25))}
+.c1{left:14%;bottom:0;width:66%}
+.c2{right:-4%;bottom:8%;width:40%}.c2 img{animation-delay:-3s}
+.c3{left:-5%;bottom:4%;width:32%}.c3 img{animation-delay:-5s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.tagc{position:absolute;z-index:4;padding:7px 13px;border:2.5px solid var(--black);border-radius:999px;font-size:.76rem;font-weight:800;background:#fff;animation:bob 5s ease-in-out infinite}
+.t1{right:2%;top:14%}.t2{left:2%;top:34%;background:var(--black);color:#fff;animation-delay:-2s}.t3{right:-2%;top:56%;background:var(--pink);animation-delay:-3.5s}
+/* brands */
+.brands{background:var(--yellow);border-block:2.5px solid var(--black);padding:22px 0;overflow:hidden;white-space:nowrap}
+.brands .track{display:inline-flex;align-items:center;gap:70px;padding-right:70px;animation:mq 38s linear infinite}
+.brands:hover .track{animation-play-state:paused}
+.brands img{height:44px;width:auto;filter:grayscale(1) contrast(1.1)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:60px 0 10px}
+.stat{border:2.5px solid var(--black);border-radius:26px;padding:28px 18px;text-align:center;transition:transform .3s}
+.stat:nth-child(odd){background:var(--yellow)}.stat:nth-child(even){background:var(--pink)}
+.stat:hover{transform:translateY(-8px) rotate(-1.5deg)}
+.stat b{display:block;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.stat span{font-size:.82rem;font-weight:600}
+/* problema */
+.big{font-size:clamp(1.9rem,6vw,4rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;max-width:20ch}
+.big s{text-decoration:none;position:relative;color:#777}
+.big s::after{content:"";position:absolute;left:0;right:0;top:54%;height:.1em;background:var(--hot);transform:scaleX(0);transform-origin:left;transition:transform .9s .4s}
+.in .big s::after,.big.in s::after{transform:scaleX(1)}
+/* include */
+.dark{background:var(--black);color:#fff}
+.dark .lead{color:#cfcfcf}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.inc{background:#fff;color:var(--black);border:2.5px solid #fff;border-radius:26px;padding:26px 24px;transition:transform .3s,background .2s;position:relative;overflow:hidden}
+.inc:nth-child(3n+2){background:var(--pink)}.inc:nth-child(3n+3){background:var(--yellow)}
+.inc:hover{transform:translateY(-8px) rotate(-1deg)}
+.inc .n{font-size:2.3rem;font-weight:800;letter-spacing:-.05em;line-height:1;display:block;margin-bottom:10px}
+.inc p{font-size:.92rem;font-weight:500;color:#333;margin-top:6px}
+.topics{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.topics .chip{background:transparent;color:#fff;border-color:#fff;transition:background .2s,color .2s,transform .2s}
+.topics .chip:hover{background:var(--pink);color:var(--black);transform:translateY(-3px) rotate(-2deg)}
+/* come funziona */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;position:relative}
+.steps::before{content:"";position:absolute;left:6%;right:6%;top:28px;border-top:3px dashed var(--black);opacity:.35}
+.step{position:relative;text-align:left}
+.step .dot{width:56px;height:56px;border-radius:50%;background:var(--pink);border:2.5px solid var(--black);display:grid;place-items:center;font-weight:800;font-size:1.2rem;margin-bottom:16px;position:relative;z-index:1;transition:transform .3s,background .2s}
+.step:hover .dot{transform:scale(1.15) rotate(-8deg);background:var(--yellow)}
+.step p{font-size:.92rem;color:var(--muted);font-weight:500;margin-top:6px}
+/* risultati */
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px;align-items:end}
+.lvl{border:2.5px solid var(--black);border-radius:26px;padding:22px 18px;background:#fff;transition:transform .3s}
+.lvl:nth-child(1){background:var(--yellow)}.lvl:nth-child(2){background:#fff}.lvl:nth-child(3){background:var(--pink)}.lvl:nth-child(4){background:var(--black);color:#fff}
+.lvl:hover{transform:translateY(-8px) rotate(-1deg)}
+.lvl small{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.lvl h3{margin:6px 0 12px}
+.lvl .eur{font-size:1.7rem;font-weight:800;letter-spacing:-.04em;line-height:1.05}
+.lvl .bar{height:10px;border-radius:99px;background:rgba(11,11,11,.12);margin-top:16px;overflow:hidden}
+.lvl:nth-child(4) .bar{background:rgba(255,255,255,.25)}
+.lvl .bar i{display:block;height:100%;width:0;background:var(--black);border-radius:99px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.lvl:nth-child(4) .bar i{background:var(--pink)}
+.in .lvl .bar i{width:var(--w)}
+.note{font-size:.8rem;color:var(--muted);margin-top:18px;font-weight:600}
+/* fit */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.fbox{border:2.5px solid var(--black);border-radius:28px;padding:28px 26px}
+.fbox.yes{background:var(--yellow)}.fbox.no{background:#fff}
+.fbox ul{list-style:none;padding:0;margin-top:14px}
+.fbox li{padding:8px 0 8px 34px;position:relative;font-weight:600;font-size:.98rem;border-top:1px solid rgba(11,11,11,.14)}
+.fbox li:first-child{border-top:0}
+.fbox li::before{position:absolute;left:0;top:7px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.8rem;border:2px solid var(--black)}
+.yes li::before{content:"✓";background:var(--pink)}.no li::before{content:"✕";background:var(--black);color:#fff}
+/* chi sono */
+.about{background:var(--yellow);overflow:hidden}
+.agrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.aph{position:relative;max-width:420px;margin-inline:auto}
+.aph .ring{position:absolute;inset:8% 4% 0;border-radius:50%;background:var(--pink);border:3px solid var(--black)}
+.aph img{position:relative;display:block;width:100%;height:auto;animation:bob 8s ease-in-out infinite}
+.about p{font-size:1.04rem;font-weight:500;margin-bottom:14px;max-width:52ch}
+.about strong{font-weight:800}
+/* faq */
+.faq{margin-top:34px;border-top:2.5px solid var(--black)}
+.q{border-bottom:2.5px solid var(--black)}
+.q button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 4px;cursor:pointer;font-weight:800;font-size:1.1rem;letter-spacing:-.02em;transition:padding .25s,background .2s}
+.q button:hover{background:var(--yellow);padding-left:14px}
+.q button:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.q .pl{flex:0 0 36px;height:36px;border-radius:50%;border:2.5px solid var(--black);display:grid;place-items:center;font-size:1.3rem;transition:transform .3s,background .2s}
+.q.open .pl{transform:rotate(45deg);background:var(--pink)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
+.q.open .a{grid-template-rows:1fr}
+.q .a div{overflow:hidden}
+.q .a p{padding:0 4px 22px;color:var(--muted);font-weight:500;max-width:62ch}
+/* cta */
+.cta{background:var(--hot);text-align:center;overflow:hidden}
+.cta h2{font-size:clamp(2.2rem,7vw,4.6rem);max-width:16ch;margin-inline:auto}
+.cta .lead{margin:0 auto 28px;color:#222}
+.cta .row{justify-content:center}
+.cta .btn.alt:hover{background:#fff}
+footer{padding:28px 0 100px;font-size:.8rem;font-weight:600}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--black);margin-right:16px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 16px max(10px,env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:2px solid var(--black);display:none;transform:translateY(110%);transition:transform .35s}
+.sticky.show{transform:none}
+.sticky .btn{width:100%;justify-content:center}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}.js .rv.d4{transition-delay:.32s}
+@media(max-width:900px){
+  .links{display:none}
+  .hero{padding-top:112px}.hero-grid,.agrid{grid-template-columns:1fr}
+  .collage{max-width:380px}
+  .grid3,.fit{grid-template-columns:1fr}
+  .stats,.levels,.steps{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  section{padding:64px 0}
+  .sticky{display:block}
+  .hero h1,.hero .lead,.hero .facts{text-align:left}
+}
+@media(max-width:520px){
+  body{font-size:18px}
+  .stats,.levels,.steps{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .btn{width:100%;justify-content:center}
+  nav .btn{width:auto}
+  .row{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<nav><div class="wrap">
+  <a class="logo" href="#top">UGC <em>Level Up</em></a>
+  <div class="links"><a href="#corso">Il corso</a><a href="#come">Come funziona</a><a href="#risultati">Risultati</a><a href="#fit">Fa per te?</a><a href="#faq">FAQ</a></div>
+  <a class="btn wa" href="#analisi">Analisi gratuita</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Corso UGC · 100% online · Solo col telefono</div>
+      <h1 style="margin-top:14px">Fai dell’UGC la tua <span class="mark y">professione</span> e chiudi la tua prima collab da <span class="acc">+300€</span> in un mese</h1>
+      <p class="lead">Un percorso per imparare a lavorare con i brand, anche se parti da zero. Lezioni video, esercizi pratici e me accanto nei primi tre mesi.</p>
+      <div class="row">
+        <a class="btn wa" href="#analisi">Prenota l’analisi gratuita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn alt" href="#corso">Scopri il corso</a>
+      </div>
+      <div class="facts"><span class="chip">30+ lezioni video</span><span class="chip">Mentoring 1:1</span><span class="chip">Accesso a vita</span></div>
+    </div>
+    <div class="collage" id="collage">
+      <div class="ring"></div>
+      <div class="cg c3" data-d="-10"><img src="/assets/ac9d713ca22c9f7093f7d01a39e34080.png" alt=""></div>
+      <div class="cg c1" data-d="-18"><img src="/assets/phone-crop.png" alt="Carlotta Spinelli"></div>
+      <div class="cg c2" data-d="-26"><img src="/assets/633f23deb9d547e4226ae7b269038e5f.png" alt=""></div>
+      <span class="tagc t1">UGC</span><span class="tagc t2">Coach</span><span class="tagc t3">Recruiter</span>
+    </div>
+  </div>
+</header>
+
+<div class="brands"><div class="track"><img src="/assets/842f9fc081161dc5e579ec8bf5c1463e.png" alt="" loading="lazy"><img src="/assets/2ed63393a7ee01ceb2bfc3dc5132bc24.png" alt="" loading="lazy"><img src="/assets/ad9afdc819d39725912a8f499fdf5fab.png" alt="" loading="lazy"><img src="/assets/8ca157d5f2d7ad1ba2d9651705bcdfbe.png" alt="" loading="lazy"><img src="/assets/15948addf53517a06cf212a835b4600e.png" alt="" loading="lazy"><img src="/assets/3e3718f3d2272f4a409bc01ef3a1eede.png" alt="" loading="lazy"><img src="/assets/e9e5acb1b933240044765b8d3148493f.png" alt="" loading="lazy"><img src="/assets/f8590cd3cd30191855bf28d9fa4c3668.png" alt="" loading="lazy"><img src="/assets/a5b87c66ce0a2f17dbe3a7c71b20f9ec.png" alt="" loading="lazy"><img src="/assets/62ec9805ef5140a57ee7d298bd557842.png" alt="" loading="lazy"><img src="/assets/842f9fc081161dc5e579ec8bf5c1463e.png" alt="" loading="lazy"><img src="/assets/2ed63393a7ee01ceb2bfc3dc5132bc24.png" alt="" loading="lazy"><img src="/assets/ad9afdc819d39725912a8f499fdf5fab.png" alt="" loading="lazy"><img src="/assets/8ca157d5f2d7ad1ba2d9651705bcdfbe.png" alt="" loading="lazy"><img src="/assets/15948addf53517a06cf212a835b4600e.png" alt="" loading="lazy"><img src="/assets/3e3718f3d2272f4a409bc01ef3a1eede.png" alt="" loading="lazy"><img src="/assets/e9e5acb1b933240044765b8d3148493f.png" alt="" loading="lazy"><img src="/assets/f8590cd3cd30191855bf28d9fa4c3668.png" alt="" loading="lazy"><img src="/assets/a5b87c66ce0a2f17dbe3a7c71b20f9ec.png" alt="" loading="lazy"><img src="/assets/62ec9805ef5140a57ee7d298bd557842.png" alt="" loading="lazy"></div></div>
+
+<div class="wrap stats">
+  <div class="stat rv"><b data-n="900" data-s="+">0</b><span>video creati</span></div>
+  <div class="stat rv d1"><b data-n="400" data-s="+">0</b><span>brand clienti</span></div>
+  <div class="stat rv d2"><b data-n="150" data-s="+">0</b><span>creator formate</span></div>
+  <div class="stat rv d3"><b data-n="4" data-s="+">0</b><span>anni di UGC</span></div>
+</div>
+
+<section id="problema"><div class="wrap">
+  <div class="eyebrow">Il punto</div>
+  <p class="big rv" style="margin-top:14px">Non è che <s>non sei capace</s>. Ti manca un <span class="mark">sistema</span>.</p>
+  <p class="lead rv d1" style="margin-top:22px">Per lavorare con i brand servono un profilo che convince, un portfolio, un modo di proporti e un prezzo giusto. Nel corso li costruiamo uno alla volta.</p>
+</div></section>
+
+<section class="dark" id="corso"><div class="wrap">
+  <div class="eyebrow" style="color:var(--pink)">Cosa include</div>
+  <h2 class="rv">Tutto quello che ti serve, <span class="mark" style="color:var(--black)">in un posto solo</span></h2>
+  <div class="grid3">
+    <div class="inc rv"><span class="n">30+</span><h3>Lezioni video registrate</h3><p>Da 10 a 30 minuti ciascuna, da guardare quando vuoi.</p></div>
+    <div class="inc rv d1"><span class="n">1 : 1</span><h3>Mentoring con me</h3><p>Ti seguo personalmente nei primi 3 mesi.</p></div>
+    <div class="inc rv d2"><span class="n">Pratica</span><h3>Un esercizio dopo ogni lezione</h3><p>Metti subito in pratica quello che hai imparato.</p></div>
+    <div class="inc rv"><span class="n">∞</span><h3>Accesso a vita</h3><p>Il corso resta tuo, con tutti gli aggiornamenti inclusi.</p></div>
+    <div class="inc rv d1"><span class="n">Mobile</span><h3>Solo il telefono</h3><p>Niente attrezzatura da professionisti per iniziare.</p></div>
+    <div class="inc rv d2"><span class="n">€</span><h3>Prezzi e pacchetti</h3><p>Impari a farti pagare il giusto e a vendere di più.</p></div>
+  </div>
+  <div class="topics rv">
+    <span class="chip">Profilo social</span><span class="chip">Portfolio</span><span class="chip">Pitch e comunicazione</span><span class="chip">Negoziazione</span><span class="chip">Script</span><span class="chip">Creazione contenuti</span><span class="chip">Editing</span><span class="chip">Prezzi e pacchetti</span><span class="chip">Upselling</span>
+  </div>
+</div></section>
+
+<section id="come"><div class="wrap">
+  <div class="eyebrow">Come funziona</div>
+  <h2 class="rv">Dal primo messaggio alla <span class="mark">prima collab</span></h2>
+  <div class="steps">
+    <div class="step rv"><div class="dot">1</div><h3>Analisi gratuita</h3><p>Una chiamata senza impegno per capire da dove parti.</p></div>
+    <div class="step rv d1"><div class="dot">2</div><h3>Entri nel percorso</h3><p>Ricevi l’accesso a tutte le lezioni.</p></div>
+    <div class="step rv d2"><div class="dot">3</div><h3>Lezioni ed esercizi</h3><p>Impari un passo alla volta e lo applichi subito.</p></div>
+    <div class="step rv d3"><div class="dot">4</div><h3>Mentoring 1:1</h3><p>Ti accompagno nei primi 3 mesi, fino alle prime collab.</p></div>
+  </div>
+</div></section>
+
+<section id="risultati" style="background:#fff7fb"><div class="wrap">
+  <div class="eyebrow">Risultati economici</div>
+  <h2 class="rv">Dove puoi arrivare <span class="mark">in 6 mesi</span></h2>
+  <p class="lead rv d1">Quattro livelli, a seconda di dove parti e di quanto ti impegni.</p>
+  <div class="levels" id="levels">
+    <div class="lvl rv"><small>Livello 1</small><h3>Principiante</h3><div class="eur">500 – 1.000€</div><div class="bar"><i style="--w:25%"></i></div></div>
+    <div class="lvl rv d1"><small>Livello 2</small><h3>Intermedio</h3><div class="eur">1.500 – 2.000€</div><div class="bar"><i style="--w:50%"></i></div></div>
+    <div class="lvl rv d2"><small>Livello 3</small><h3>Avanzato, fee basse</h3><div class="eur">2.000 – 3.000€</div><div class="bar"><i style="--w:75%"></i></div></div>
+    <div class="lvl rv d3"><small>Livello 4</small><h3>Avanzato, fee consolidate</h3><div class="eur">3.000€ +</div><div class="bar"><i style="--w:100%"></i></div></div>
+  </div>
+  <p class="note rv">Importi mensili indicativi. I guadagni non sono automatici: richiedono pratica e costanza.</p>
+</div></section>
+
+<section id="fit"><div class="wrap">
+  <div class="eyebrow">Fa per te o no?</div>
+  <h2 class="rv">Meglio dirlo <span class="mark">subito</span></h2>
+  <div class="fit">
+    <div class="fbox yes rv"><h3>Fa per te se</h3><ul><li>Ti piacciono beauty e social</li><li>Vuoi un lavoro flessibile da casa</li><li>Sei disposta a metterti in gioco con costanza</li></ul></div>
+    <div class="fbox no rv d1"><h3>Non fa per te se</h3><ul><li>Cerchi soldi veloci</li><li>Cerchi un guadagno passivo</li><li>Non hai voglia di esercitarti</li></ul></div>
+  </div>
+</div></section>
+
+<section class="about" id="chi"><div class="wrap agrid">
+  <div class="aph rv"><div class="ring"></div><img src="/assets/ac9d713ca22c9f7093f7d01a39e34080.png" alt="Carlotta Spinelli"></div>
+  <div class="rv d1">
+    <div class="eyebrow">Chi sono</div>
+    <h2>Ciao, sono <span class="mark" style="background:linear-gradient(transparent 56%,#fff 56%)">Carlotta</span></h2>
+    <p>Faccio <strong>UGC</strong> da quattro anni, quando in Italia quasi non esisteva. Ho creato <strong>900+ video</strong> per brand come <strong>Sephora</strong> e <strong>Amazon</strong>.</p>
+    <p>Ho già formato <strong>150+ creator</strong> e lavoro anche come <strong>recruiter e campaign manager</strong> per brand e agenzie: so cosa cercano i brand, perché lo vedo ogni giorno dall’altra parte.</p>
+    <div class="row" style="margin-top:22px"><a class="btn" href="https://carlottaugcitalia.com/" target="_blank" rel="noopener">Guarda il mio portfolio</a></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="eyebrow">FAQ</div>
+  <h2 class="rv">Domande <span class="mark">frequenti</span></h2>
+  <div class="faq">
+    <div class="q"><button aria-expanded="false">Serve esperienza?<span class="pl">+</span></button><div class="a"><div><p>No. Il percorso parte da zero e va bene anche se non hai mai fatto un video per un brand.</p></div></div></div>
+    <div class="q"><button aria-expanded="false">Servono tanti follower?<span class="pl">+</span></button><div class="a"><div><p>No. L’UGC si basa sui contenuti che crei, non sulla grandezza del tuo pubblico.</p></div></div></div>
+    <div class="q"><button aria-expanded="false">Quanto tempo devo dedicarci?<span class="pl">+</span></button><div class="a"><div><p>Dipende dai tuoi obiettivi. Le lezioni sono registrate, quindi organizzi il tempo come preferisci.</p></div></div></div>
+    <div class="q"><button aria-expanded="false">Guadagnerò di sicuro?<span class="pl">+</span></button><div class="a"><div><p>I guadagni sono possibili ma non automatici: servono pratica e costanza.</p></div></div></div>
+    <div class="q"><button aria-expanded="false">Cos’è la chiamata gratuita?<span class="pl">+</span></button><div class="a"><div><p>È un’analisi della tua situazione, senza obbligo di acquisto.</p></div></div></div>
+  </div>
+</div></section>
+
+<section class="cta" id="analisi"><div class="wrap">
+  <h2 class="rv">Pronta a fare il <span class="mark y">level up</span>?</h2>
+  <p class="lead rv d1">Prenota l’analisi gratuita: ne parliamo insieme, senza impegno.</p>
+  <div class="row rv d2"><a class="btn wa" href="#">Scrivici su WhatsApp</a><a class="btn alt" href="#faq">Leggi le FAQ</a></div>
+</div></section>
+
+<footer><div class="wrap"><div><a href="https://www.carlottaspinelli.com/privacy-policy">Privacy e Cookie</a><a href="https://www.carlottaspinelli.com/terms">Termini e condizioni</a><a href="https://www.carlottaspinelli.com/refund-policy">Rimborsi</a></div><div>© Carlotta Spinelli</div></div></footer>
+<div class="sticky" id="sticky"><a class="btn wa" href="#">Scrivici su WhatsApp</a></div>
+
+<script>
+/* ===== DA COMPILARE ===== */
+var WA_NUMBER = "";   // numero WhatsApp internazionale senza +, es. "393331234567"
+var WA_TEXT = "Ciao! Vorrei prenotare l'analisi gratuita per UGC Level Up.";
+var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Analisi gratuita UGC Level Up");
+/* ======================== */
+document.documentElement.classList.add("js");
+(function(){
+  var link = WA_NUMBER ? "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_TEXT) : FALLBACK;
+  [].forEach.call(document.querySelectorAll(".wa"),function(a){
+    if(a.getAttribute("href")==="#analisi"&&a.closest("nav,.hero"))return;
+    a.href=link; if(WA_NUMBER){a.target="_blank";a.rel="noopener"}
+  });
+  /* reveal + livelli */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+  [].forEach.call(document.querySelectorAll(".rv,.big,#levels"),function(el){io.observe(el)});
+  /* contatori */
+  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var n=+e.target.dataset.n,s=e.target.dataset.s||"",t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/1400),v=Math.round(n*(1-Math.pow(1-p,3)));e.target.textContent=v+s;if(p<1)requestAnimationFrame(f)})(t0)})},{threshold:.6});
+  [].forEach.call(document.querySelectorAll("[data-n]"),function(el){co.observe(el)});
+  /* FAQ */
+  [].forEach.call(document.querySelectorAll(".q button"),function(b){b.addEventListener("click",function(){var q=b.parentNode,o=q.classList.toggle("open");b.setAttribute("aria-expanded",o)})});
+  /* progress + sticky */
+  var pr=document.getElementById("prog"),st=document.getElementById("sticky");
+  function sc(){var h=document.documentElement.scrollHeight-innerHeight,y=scrollY;pr.style.width=(h>0?y/h*100:0)+"%";st.classList.toggle("show",y>innerHeight*.7)}
+  addEventListener("scroll",sc,{passive:true});sc();
+  /* parallax collage */
+  var cg=[].slice.call(document.querySelectorAll(".cg"));
+  addEventListener("pointermove",function(e){var nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;cg.forEach(function(c){var d=+c.dataset.d;c.style.transform="translate("+nx*d+"px,"+ny*d+"px)"})});
+})();
+</script>
+</body>
+</html>
