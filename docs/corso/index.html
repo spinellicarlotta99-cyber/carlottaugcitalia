@@ -450,8 +450,10 @@ document.documentElement.classList.add("js");
     if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo (anteprima: prenotazione sbloccata)";unlock();return}
     vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>';
     var v=vf.querySelector("video");
-    v.addEventListener("ended",unlock);
-    v.addEventListener("timeupdate",function(){if(v.duration&&v.currentTime/v.duration>=.9)unlock()})});
+    var maxT=0;
+    v.addEventListener("timeupdate",function(){if(!v.seeking&&v.currentTime<=maxT+1.5)maxT=Math.max(maxT,v.currentTime)});
+    v.addEventListener("seeking",function(){if(!seen&&v.currentTime>maxT+1.5)v.currentTime=maxT});
+    v.addEventListener("ended",unlock)});
   /* recensioni */
   var mbx=document.querySelector(".mbox"),md=document.getElementById("modal"),mc=document.getElementById("mc");
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
