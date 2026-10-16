@@ -472,6 +472,7 @@ var REVIEWS = [
    text:"Grazie a Carlotta sono riuscita a **vivere solo di creatività**, mantenendomi completamente con le collaborazioni da creator e il lavoro da attrice. **Eternamente grata.**", video:""}
 ];
 var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
+var WATCH_PCT = 0.9; // quota di video da guardare per sbloccare la prenotazione
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
 var WA_TEXT = " Ciao, ho visto il video! Vorrei saperne di più su UGC Level Up";   // dopo il video
 var WA_TEXT_PRE = "Ciao! Vorrei saperne di più su UGC Level Up";   // prima del video
@@ -515,7 +516,7 @@ document.documentElement.classList.add("js");
     vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>';
     var v=vf.querySelector("video");
     var maxT=0;
-    v.addEventListener("timeupdate",function(){if(!v.seeking&&v.currentTime<=maxT+1.5)maxT=Math.max(maxT,v.currentTime)});
+    v.addEventListener("timeupdate",function(){if(!v.seeking&&v.currentTime<=maxT+1.5)maxT=Math.max(maxT,v.currentTime);if(!seen&&v.duration&&maxT>=v.duration*WATCH_PCT)unlock()});
     v.addEventListener("seeking",function(){if(!seen&&v.currentTime>maxT+1.5)v.currentTime=maxT});
     v.addEventListener("ended",unlock)});
   /* recensioni */
