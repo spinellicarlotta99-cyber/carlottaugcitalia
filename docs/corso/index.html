@@ -171,6 +171,17 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .mbox .who .av{width:64px;height:64px;border-radius:50%;border:3px solid var(--black);background:var(--pink);overflow:hidden;display:grid;place-items:center;font-weight:800;flex:0 0 auto}
 .mbox .who img{width:100%;height:100%;object-fit:cover}
 .mbox video{width:100%;border-radius:16px;margin-top:14px;display:block;background:#000}
+.jr{position:relative;padding-left:46px;margin:6px 0 14px}
+.jn:not(.end)::before{content:"";position:absolute;left:-29px;top:36px;bottom:-14px;border-left:3px dashed var(--black)}
+.jn{position:relative;margin-bottom:14px;font-size:.95rem;line-height:1.4}
+.jn i{position:absolute;left:-46px;top:-2px;width:36px;height:36px;border-radius:50%;border:3px solid var(--black);background:var(--pink);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.9rem}
+.jn.st i{background:var(--yellow)}.jn.end i{background:var(--black);color:#fff}
+.jn p{margin:0;padding:6px 0 0;font-weight:500}
+.jn ul{margin:4px 0 0;padding-left:18px;display:grid;gap:4px}
+.jl{display:block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding-top:6px}
+.jn.end{background:var(--pink);border:2.5px solid var(--black);border-radius:14px;padding:8px 12px 10px;margin-bottom:0}
+.jn.end i{left:-48px;top:6px}
+.jn strong{font-weight:800}
 .ba{margin-bottom:12px;padding:12px 14px;border-radius:14px;background:#f4f4f4;font-size:.93rem;line-height:1.5}.ba span{display:inline-block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}.ba ul{margin:0;padding-left:18px;display:grid;gap:5px}.ba strong{font-weight:800}.q2 strong{font-weight:800}.ba.dopo{background:var(--pink)}
 .mbox .q2{font-size:1.05rem;font-weight:500;line-height:1.55}
 @media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bub:nth-child(3n){width:118px!important;height:118px!important}.bubbles{gap:18px 20px}}
@@ -346,8 +357,10 @@ var VIDEO_SRC = "";   // percorso o link del video di presentazione (mp4), es. "
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
   {name:"Lucia Ciciliani", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator",
-   before:["**5 anni di network marketing**","Valori che non sentivo più miei","Voglio risultati che **dipendono da me**","Parto **da zero**: niente portfolio, niente brand"],
-   after:["**2 mesi di affiancamento** con Carlotta","Dalla **3ª collab** chiedo un compenso","Ora sono i **brand a cercarmi**","Base di **~1.800€ al mese** + progetti extra","**Volto di un centro commerciale** della mia zona"],
+   journey:{
+     start:["**5 anni di network marketing**","Voglio risultati che **dipendono da me**","Parto **da zero**: niente portfolio, niente brand"],
+     steps:["Ho preso **sicurezza**","Ho capito **come farmi pagare**","Ho creato il mio **personal brand**","Ho trovato la mia **identità**"],
+     result:["**~1.800€ al mese** + progetti extra","**Volto di un centro commerciale**","**Inbound costanti** dai brand"]},
    text:"Carlotta è sempre presente, ancora oggi. **Sono solo all'inizio!**", video:""},
   {name:"Creator 2", photo:"", text:"Qui andrà la recensione.", video:""},
   {name:"Creator 3", photo:"", text:"Qui andrà la recensione.", video:""},
@@ -376,11 +389,14 @@ document.documentElement.classList.add("js");
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
   function bd(t){return esc(t).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}
   function li(a){return a.map(function(x){return "<li>"+bd(x)+"</li>"}).join("")}
+  function jr(j){var h='<div class="jr"><div class="jn st"><i>⚑</i><span class="jl">Punto di partenza</span><ul>'+li(j.start)+'</ul></div>';
+    j.steps.forEach(function(x,k){h+='<div class="jn"><i>'+(k+1)+'</i><p>'+bd(x)+'</p></div>'});
+    return h+'<div class="jn end"><i>★</i><span class="jl">Oggi</span><ul>'+li(j.result)+'</ul></div></div>'}
   function ini(n){return esc(n.trim().charAt(0).toUpperCase())}
   function openM(r,vsrc){
     var av=r.photo?'<img src="'+esc(r.photo)+'" alt="">':ini(r.name);
     var v=vsrc||r.video;
-    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.before?'<div class="ba"><span>Prima</span><ul>'+li(r.before)+'</ul></div><div class="ba dopo"><span>Dopo</span><ul>'+li(r.after)+'</ul></div>':'')+(r.text?'<p class="q2">“'+bd(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
+    mc.innerHTML='<div class="who"><div class="av">'+av+'</div><div><b>'+esc(r.name)+'</b>'+(r.role?'<small style="display:block;font-weight:500;opacity:.7">'+esc(r.role)+'</small>':'')+'</div></div>'+(r.journey?jr(r.journey):'')+(r.text?'<p class="q2">“'+bd(r.text)+'”</p>':'')+(v?'<video src="'+esc(v)+'" controls autoplay playsinline></video>':'');
     md.classList.add("on")}
   function closeM(){md.classList.remove("on");mc.innerHTML=""}
   document.getElementById("mx").onclick=closeM;
