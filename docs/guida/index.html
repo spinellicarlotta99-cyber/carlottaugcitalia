@@ -341,8 +341,8 @@ footer .wrap { flex-direction: column; align-items: center; justify-content: cen
     <h1>Contatti brand per <span class="acc">UGC creator</span></h1>
     <p class="lead">Brand che hanno già lavorato con creator UGC, divisi per categoria. Email dirette e profili Instagram da cui partire oggi.</p>
     <div class="facts">
-      <span class="chip"><b id="n-mail">18</b> email dirette</span>
-      <span class="chip"><b id="n-dm">21</b> profili per i DM</span>
+      <span class="chip"><b id="n-mail">24</b> email dirette</span>
+      <span class="chip"><b id="n-dm">34</b> profili per i DM</span>
     </div>
   </div>
 </header>
@@ -490,13 +490,21 @@ var EMAILS = [
     ["Diego Dalla Palma", "demiri@diegodallapalma.com"],
     ["Clio Makeup", "federica.scolari@cliomakeup.com"],
     ["Nabla", "info@nablacosmetics.com"]
+  ]},
+  { cat: "Altri brand (wellness, lifestyle, accessori)", items: [
+    ["Frais Monde", "info@fraismonde.com"],
+    ["Layoners", "info@layoners.com"],
+    ["Sisters Republic", "contact@sistersrepublic.com"],
+    ["MyVariations", "hello@myvariations.com"],
+    ["TummyTox", "info@tummytox.it"],
+    ["Polarwise", "hello@polarwise.com"]
   ]}
 ];
 
 var DMS = [
-  { cat: "Beauty & Cosmetics", items: ["rimadacqua","clovecosmetics","cosi.cosmetics.it","skinproofcosmetics","kosmerabeauty","my.superlash","ozmeebeauty","eblitalia","ilso_global","uniqapeacosmetics","nuud.care","nerrabody"] },
-  { cat: "Fashion & Jewellery", items: ["fruitsandjewels","mihar_studio"] },
-  { cat: "Lifestyle", items: ["doncactus_apulia","wondercompanyofficial","sto.puzzle","divina_blk","flerworld","ecobioboutique_it","fgm04cosmetica"] }
+  { cat: "Beauty & Cosmetics", items: ["rimadacqua","clovecosmetics","cosi.cosmetics.it","skinproofcosmetics","kosmerabeauty","my.superlash","ozmeebeauty","eblitalia","ilso_global","uniqapeacosmetics","nuud.care","nerrabody","fraismonde","youglamofficial","nacomi_naturalne_kosmetyki","polarwise"] },
+  { cat: "Fashion & Jewellery", items: ["fruitsandjewels","mihar_studio","byvalenti","giordijewels","layoners","sistersrepublic_fr"] },
+  { cat: "Lifestyle", items: ["doncactus_apulia","wondercompanyofficial","sto.puzzle","divina_blk","flerworld","ecobioboutique_it","fgm04cosmetica","tummytox.it","my.variations","elsenutrition","hypnozio.app","flibco"] }
 ];
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
