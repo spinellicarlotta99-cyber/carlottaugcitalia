@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>100 idee di video per attirare i brand | Carlotta Spinelli</title>
+<meta name="description" content="Guida gratuita di Carlotta Spinelli: 100 idee di video divise in 10 nicchie per attirare i brand con cui vuoi collaborare.">
+<meta property="og:title" content="100 idee di video per attirare i brand | Carlotta Spinelli">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<style>
+/* Stessa grafica del sito UGC Level Up: Montserrat, giallo/rosa/nero, bordi neri 2.5px, ombre dure, pulsanti a pillola.
+   Look unico e chiaro, come il sito: nessuna variante scura. */
+:root {
+  --yellow: #fcfcc6;
+  --pink: #fcbce1;
+  --hot: #f58ec3;
+  --black: #0b0b0b;
+  --white: #ffffff;
+  --soft: #fff4fa;
+  --muted: #4a4a4a;
+  --f: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--soft);
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--soft); z-index: 60; }
+img { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; border-radius: 6px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: 84px; position: relative; }
+.eyebrow { font-size: .74rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+h1, h2, h3 { letter-spacing: -.035em; line-height: 1.02; font-weight: 800; text-wrap: balance; }
+h1 { font-size: clamp(2.3rem, 7vw, 4.6rem); }
+h2 { font-size: clamp(1.9rem, 4.8vw, 3.2rem); margin: 10px 0 16px; }
+h3 { font-size: 1.2rem; letter-spacing: -.02em; line-height: 1.15; }
+.mark { background: linear-gradient(transparent 56%, var(--pink) 56%); padding: 0 .1em; }
+.mark.y { background: linear-gradient(transparent 56%, var(--yellow) 56%); }
+.lead { font-size: 1.08rem; color: var(--muted); max-width: 56ch; font-weight: 500; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px; border-radius: 999px;
+  border: 2.5px solid var(--black); background: var(--black); color: #fff;
+  font: 800 .92rem var(--f); letter-spacing: .02em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+  transition: transform .25s cubic-bezier(.2, .9, .3, 1.4), background .2s, color .2s, box-shadow .2s;
+}
+.btn:hover { transform: translateY(-4px) rotate(-1deg); background: var(--pink); color: var(--black); box-shadow: 0 8px 0 var(--black); }
+.btn svg { width: 18px; height: 18px; transition: transform .25s; flex: none; }
+.btn:hover svg { transform: translateX(4px); }
+.chip { display: inline-block; padding: 8px 14px; background: #fff; border: 2.5px solid var(--black); border-radius: 999px; font-size: .78rem; font-weight: 800; }
+
+/* nav */
+nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(255, 244, 250, .92);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(11, 11, 11, .12);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; text-decoration: none; white-space: nowrap; flex: none; }
+.logo em { font-style: normal; font-weight: 500; }
+nav .btn { padding: 10px 20px; font-size: .78rem; white-space: nowrap; }
+@media (max-width: 600px) { .logo { font-size: 1.4rem; } nav .wrap { gap: 10px; } nav .btn { padding: 9px 14px; font-size: .7rem; } }
+@media (max-width: 400px) { .logo { font-size: 1.25rem; } nav .btn { padding: 8px 11px; font-size: .62rem; } }
+
+/* hero */
+.hero {
+  position: relative; padding-block: 72px 70px; overflow: hidden; text-align: center;
+  background: linear-gradient(180deg, var(--pink) 0%, #fde3f1 60%, var(--soft) 100%);
+}
+.blob { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; }
+.b1 { width: 380px; height: 380px; background: var(--yellow); left: -120px; top: 20%; opacity: .75; }
+.b2 { width: 300px; height: 300px; background: var(--hot); right: -90px; top: 6%; opacity: .55; }
+.hero .wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.hero h1 { max-width: 14ch; }
+.hero h1 .acc {
+  display: inline-block; background: var(--yellow); border: 2.5px solid var(--black); border-radius: 14px;
+  padding: 0 .18em; transform: rotate(-2deg); box-shadow: 5px 6px 0 var(--black);
+}
+.hero .lead { color: #2b2b2b; margin-inline: auto; }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.facts .chip { font-size: .85rem; padding: 10px 18px; }
+.facts b { font-weight: 800; font-size: 1.05em; font-variant-numeric: tabular-nums; }
+
+/* come usare */
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 38px; }
+.rule { border: 2.5px solid var(--black); border-radius: 26px; padding: 26px 24px; background: #fff; transition: transform .3s; }
+.rule:nth-child(1) { background: var(--yellow); }
+.rule:nth-child(3) { background: var(--pink); }
+.rule:hover { transform: translateY(-8px) rotate(-1deg); }
+.rule p { font-size: .95rem; font-weight: 500; color: #333; margin-top: 8px; }
+
+/* email */
+.sec-white { background: #fff; border-block: 2.5px solid var(--black); }
+.cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 38px; align-items: start; }
+.cat { border: 2.5px solid var(--black); border-radius: 26px; background: #fff; overflow: hidden; box-shadow: 6px 8px 0 var(--black); }
+.cat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 2.5px solid var(--black); }
+.cat:nth-child(odd) .cat-head { background: var(--yellow); }
+.cat:nth-child(even) .cat-head { background: var(--pink); }
+.cat-head h3 { font-size: 1.1rem; }
+.cat-head span { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 14px; align-items: center; padding: 14px 22px; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); }
+.row:last-child { border-bottom: 0; }
+.row .name { font-weight: 800; font-size: .98rem; grid-column: 1; }
+.row .mail { font-weight: 500; font-size: .86rem; color: var(--muted); overflow-wrap: anywhere; grid-column: 1; }
+.row .copy { grid-column: 2; grid-row: 1 / span 2; }
+.copy {
+  font: 800 .72rem var(--f); letter-spacing: .06em; text-transform: uppercase;
+  background: #fff; color: var(--black); border: 2.5px solid var(--black); border-radius: 999px;
+  padding: 8px 14px; min-width: 6.6rem; cursor: pointer;
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+.copy:hover { background: var(--pink); transform: translateY(-2px); box-shadow: 0 4px 0 var(--black); }
+.note { margin-top: 30px; font-size: .92rem; font-weight: 600; max-width: 64ch; }
+
+/* DM */
+.dark { background: var(--black); color: #fff; }
+.dark .lead { color: #cfcfcf; }
+.dm-groups { display: flex; flex-direction: column; gap: 34px; margin-top: 38px; }
+.dm-group h3 { font-size: 1.05rem; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.dark .chip { background: transparent; color: #fff; border-color: #fff; text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+.dark .chip:hover { background: var(--pink); color: var(--black); transform: translateY(-3px) rotate(-2deg); }
+
+/* pitching */
+.pitch { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px 56px; align-items: start; margin-top: 30px; }
+.pitch .text { display: flex; flex-direction: column; gap: 16px; font-weight: 500; color: #2b2b2b; }
+.pitch .cap { margin-bottom: 14px; }
+.wins { display: flex; flex-direction: column; gap: 12px; }
+.win { border: 2.5px solid var(--black); border-radius: 22px; padding: 16px 20px; font-weight: 800; letter-spacing: -.02em; background: #fff; transition: transform .3s; }
+.win:nth-child(1) { background: var(--yellow); }
+.win:nth-child(3) { background: var(--pink); }
+.win:hover { transform: translateY(-4px) rotate(-1deg); }
+
+/* CTA */
+.cta-sec { background: var(--pink); border-top: 2.5px solid var(--black); }
+.cta {
+  background: var(--yellow); border: 3px solid var(--black); border-radius: 24px; box-shadow: 8px 10px 0 var(--black);
+  padding: clamp(28px, 6vw, 56px); display: flex; flex-direction: column; align-items: flex-start; gap: 22px;
+}
+.cta h2 { margin: 0; max-width: 18ch; }
+.cta p { font-weight: 500; max-width: 52ch; color: #2b2b2b; }
+.msg { background: #fff; border: 2.5px solid var(--black); border-radius: 18px; padding: 14px 18px; font-weight: 600; font-size: .95rem; max-width: 52ch; }
+.msg small { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
+
+footer { background: var(--black); color: #fff; padding-block: 26px calc(26px + env(safe-area-inset-bottom, 0px)); font-size: .85rem; font-weight: 600; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; }
+footer em { font-style: normal; font-weight: 500; }
+
+@media (max-width: 860px) {
+  .cats { grid-template-columns: 1fr; }
+  .pitch { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  section { padding-block: 64px; }
+  .rules { grid-template-columns: 1fr; }
+  .hero { padding-block: 52px 56px; }
+  .cta .btn { align-self: stretch; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+
+html { scroll-padding-top: 84px; }
+.big { font-size: clamp(1.8rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; max-width: 22ch; text-wrap: balance; }
+.section-head { display: flex; flex-direction: column; gap: 6px; }
+
+/* passi (sequenza reale, quindi numerati) */
+.steps { position: relative; display: flex; flex-direction: column; gap: 34px; margin-top: 44px; max-width: 860px; }
+.steps::before { content: ""; position: absolute; left: 27px; top: 28px; bottom: 28px; border-left: 3px dashed rgba(11, 11, 11, .35); }
+.step { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 22px; }
+.dot { width: 56px; height: 56px; border-radius: 50%; background: var(--pink); border: 2.5px solid var(--black); display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; position: relative; z-index: 1; }
+.step:nth-child(even) .dot { background: var(--yellow); }
+.step-body { display: flex; flex-direction: column; gap: 10px; padding-top: 10px; min-width: 0; }
+.step-body h3 { font-size: 1.4rem; }
+.step-body p { font-weight: 500; color: #2b2b2b; max-width: 62ch; }
+.tip { background: var(--yellow); border: 2.5px solid var(--black); border-radius: 18px; padding: 12px 16px; font-size: .92rem; font-weight: 600; max-width: 62ch; }
+.tip b { font-weight: 800; }
+.tip a { font-weight: 800; }
+
+.tpl { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
+.tpl .text { white-space: pre-line; font-weight: 500; font-size: .95rem; }
+.ph { background: var(--pink); border-radius: 6px; padding: 0 .25em; font-weight: 600; }
+.tpl .copy { align-self: flex-start; min-width: 9rem; }
+
+/* idee per nicchia */
+.jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+a.chip { text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+a.chip:hover { background: var(--pink); transform: translateY(-3px) rotate(-2deg); box-shadow: 3px 4px 0 var(--black); }
+.niches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; margin-top: 38px; align-items: start; }
+.niche { border: 2.5px solid var(--black); border-radius: 26px; background: #fff; overflow: hidden; box-shadow: 6px 8px 0 var(--black); }
+.niche-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 2.5px solid var(--black); }
+.niche:nth-child(odd) .niche-head { background: var(--yellow); }
+.niche:nth-child(even) .niche-head { background: var(--pink); }
+.niche-head h3 { font-size: 1.15rem; }
+.niche-head span { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.niche-brands { padding: 12px 22px; background: var(--soft); border-bottom: 2.5px solid var(--black); font-size: .82rem; font-weight: 600; }
+.niche ol { list-style: none; margin: 0; padding: 4px 22px 8px; }
+.niche li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 10px; padding: 11px 0; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); font-weight: 500; font-size: .96rem; line-height: 1.45; }
+.niche li:last-child { border-bottom: 0; }
+.niche li i { font-style: normal; font-weight: 800; font-size: .8rem; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+
+/* altre guide */
+.more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
+a.more-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; border: 2.5px solid var(--black); border-radius: 26px; padding: 24px; background: #fff; transition: transform .3s; }
+a.more-card:nth-child(1) { background: var(--yellow); }
+a.more-card:nth-child(2) { background: var(--pink); }
+a.more-card:hover { transform: translateY(-8px) rotate(-1deg); }
+a.more-card p { font-size: .95rem; font-weight: 500; color: #2b2b2b; }
+a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+
+@media (max-width: 860px) {
+  .niches { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .more { grid-template-columns: 1fr; }
+  .step { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
+  .dot { width: 44px; height: 44px; font-size: 1rem; }
+  .steps::before { left: 21px; }
+  .step-body h3 { font-size: 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">UGC <em>Level Up</em></a>
+    <a class="btn" id="wa-nav" href="https://wa.me/393287276998" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <p class="eyebrow">Guida gratuita</p>
+    <h1>100 idee di video per <span class="acc">attirare i brand</span></h1>
+    <p class="lead">Dieci nicchie, dieci idee ciascuna. Scegli quella dei brand con cui sogni di collaborare e gira video simili a quelli che pubblicano loro.</p>
+    <div class="facts"><span class="chip">100 idee</span><span class="chip">10 nicchie</span></div>
+  </div>
+</header>
+
+
+<section id="regola">
+  <div class="wrap">
+    <p class="eyebrow">La regola</p>
+    <p class="big">Il brand sceglie chi ha già girato il video che vorrebbe ricevere.</p>
+    <p class="lead" style="margin-top:22px">Se sogni di collaborare con un brand di <b>haircare</b>, il tuo portfolio deve avere video di haircare. Quando un brand apre il tuo profilo si chiede una cosa sola: questa persona saprebbe fare un video per noi? Se trova routine capelli, prima e dopo e prove prodotto, la risposta è sì. Se trova solo viaggi e ricette, deve indovinare.</p>
+    <p class="lead" style="margin-top:14px">Vale per ogni nicchia: skincare, makeup, moda, casa, cibo. Guarda cosa pubblica il brand che vuoi e gira video dello stesso tipo.</p>
+    <div class="rules">
+      <div class="rule">
+        <h3>Scegli il brand dei sogni</h3>
+        <p>Pensa a 3 brand con cui vorresti lavorare e alla nicchia in cui stanno. Parti da una nicchia sola.</p>
+      </div>
+      <div class="rule">
+        <h3>Guarda cosa pubblica</h3>
+        <p>Che formati usa, quanto durano i video, come parlano le creator, che tono ha. Salva 3 video che ti piacciono.</p>
+      </div>
+      <div class="rule">
+        <h3>Gira il tuo, non una copia</h3>
+        <p>Stesso tipo di video, con il tuo prodotto e il tuo modo di parlare. Scegli 3 idee della stessa nicchia e girale nella stessa sessione.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:30px">Due regole di correttezza. Se pubblichi un video di prova, non scrivere che è una collaborazione con il brand: non lo è, è un esempio del tuo lavoro. E non promettere risultati su pelle, capelli o corpo, racconta solo cosa hai provato tu.</p>
+  </div>
+</section>
+
+<section class="sec-white" id="idee">
+  <div class="wrap">
+    <p class="eyebrow">10 nicchie, 100 idee</p>
+    <h2>Scegli la tua <span class="mark y">nicchia</span></h2>
+    <p class="lead">Ogni idea è un video da girare con il telefono. Se la tua nicchia non c’è, prendi la più vicina e adatta l’idea al tuo prodotto.</p>
+    <div class="jump"><a class="chip" href="#haircare">Haircare</a><a class="chip" href="#skincare">Skincare</a><a class="chip" href="#makeup">Makeup</a><a class="chip" href="#moda-e-gioielli">Moda e gioielli</a><a class="chip" href="#casa-e-lifestyle">Casa e lifestyle</a><a class="chip" href="#food-e-bevande">Food e bevande</a><a class="chip" href="#viaggi">Viaggi</a><a class="chip" href="#tech-e-app">Tech e app</a><a class="chip" href="#fitness-e-benessere">Fitness e benessere</a><a class="chip" href="#mamma-e-famiglia">Mamma e famiglia</a></div>
+    <div class="niches"><article class="niche" id="haircare"><div class="niche-head"><h3>Haircare</h3><span>1-10</span></div><div class="niche-brands">Nella guida contatti: Wella, Aussie, Kérastase, Maaii Hair, Gyada Cosmetics</div><ol><li><i>1</i><span>La mia routine capelli completa, passo per passo, in 30 secondi</span></li><li><i>2</i><span>Prima e dopo una maschera: stessa luce, stessa inquadratura</span></li><li><i>3</i><span>Capelli lavati con questo shampoo contro il mio solito: come sono al tatto</span></li><li><i>4</i><span>3 errori che facevo quando lavavo i capelli</span></li><li><i>5</i><span>Una piega in 5 minuti con un solo prodotto</span></li><li><i>6</i><span>Il mio rituale per i capelli dopo la palestra</span></li><li><i>7</i><span>Unboxing di un prodotto haircare con prima impressione sincera</span></li><li><i>8</i><span>Come uso un olio o un siero: quantità, punti e tempi</span></li><li><i>9</i><span>Una settimana di test: cosa noto dopo 7 lavaggi</span></li><li><i>10</i><span>Ricci, mossi o lisci: il prodotto che cambia davvero la mia routine</span></li></ol></article><article class="niche" id="skincare"><div class="niche-head"><h3>Skincare</h3><span>11-20</span></div><div class="niche-brands">Nella guida contatti: Shiseido, Collistar, Dermaluci, Erborian, Comfort Zone</div><ol><li><i>11</i><span>La mia routine del mattino in 60 secondi</span></li><li><i>12</i><span>La mia routine della sera, con i prodotti in fila sul tavolo</span></li><li><i>13</i><span>La texture del prodotto in primo piano e come si stende</span></li><li><i>14</i><span>Cosa uso quando la pelle è stanca</span></li><li><i>15</i><span>Un prodotto che ho finito e che ricomprerei</span></li><li><i>16</i><span>Due settimane con la stessa crema: cosa ho notato</span></li><li><i>17</i><span>Come applico la protezione solare e quanta ne metto</span></li><li><i>18</i><span>La skincare che porto in borsa, in viaggio e in ufficio</span></li><li><i>19</i><span>3 cose che non faccio più alla mia pelle</span></li><li><i>20</i><span>Get ready with me: solo pelle, senza trucco</span></li></ol></article><article class="niche" id="makeup"><div class="niche-head"><h3>Makeup</h3><span>21-30</span></div><div class="niche-brands">Nella guida contatti: Diego Dalla Palma, Clio Makeup, Nabla</div><ol><li><i>21</i><span>Un trucco da 5 minuti per le mattine di corsa</span></li><li><i>22</i><span>Un solo prodotto, tre look diversi</span></li><li><i>23</i><span>Gli swatch dei colori su pelle vera, con luce naturale</span></li><li><i>24</i><span>Il mio trucco da ufficio contro quello da sera</span></li><li><i>25</i><span>Prima impressione su un mascara o un fondotinta appena arrivato</span></li><li><i>26</i><span>Come applico la base: com’è dopo 8 ore</span></li><li><i>27</i><span>La mia pochette: cosa c’è dentro e cosa uso davvero</span></li><li><i>28</i><span>Makeup per chi inizia: 4 prodotti e basta</span></li><li><i>29</i><span>Ricreo un look visto sui social con quello che ho in casa</span></li><li><i>30</i><span>Il prodotto che mi fa sentire pronta in un secondo</span></li></ol></article><article class="niche" id="moda-e-gioielli"><div class="niche-head"><h3>Moda e gioielli</h3><span>31-40</span></div><div class="niche-brands">Nella guida contatti: Aniye By, Label Rose, Golden Point, JW Pei</div><ol><li><i>31</i><span>Come abbino un capo nuovo con quello che ho già nell’armadio</span></li><li><i>32</i><span>Try-on onesto: taglia, vestibilità e tessuto</span></li><li><i>33</i><span>Unboxing di un ordine di moda con prima prova</span></li><li><i>34</i><span>Come indosso più gioielli insieme senza esagerare</span></li><li><i>35</i><span>Lo stesso look da ufficio e da weekend cambiando gli accessori</span></li><li><i>36</i><span>Cosa metto in valigia per 3 giorni, solo capi che si abbinano tra loro</span></li><li><i>37</i><span>Un capo dopo un mese: come si è lavato e com’è rimasto</span></li><li><i>38</i><span>Come cambio un outfit con un solo accessorio</span></li><li><i>39</i><span>Una tendenza del momento portata nella vita di tutti i giorni</span></li><li><i>40</i><span>Cosa indosso per un’occasione precisa: colloquio, aperitivo, cerimonia</span></li></ol></article><article class="niche" id="casa-e-lifestyle"><div class="niche-head"><h3>Casa e lifestyle</h3><span>41-50</span></div><ol><li><i>41</i><span>Un angolo di casa prima e dopo l’arrivo di un prodotto nuovo</span></li><li><i>42</i><span>Riordino un cassetto o una mensola in tempo reale</span></li><li><i>43</i><span>Il prodotto per la casa che uso ogni giorno</span></li><li><i>44</i><span>La mia pulizia del sabato in 60 secondi</span></li><li><i>45</i><span>Come preparo casa per gli ospiti in 15 minuti</span></li><li><i>46</i><span>Candele e profumi per la casa: come li scelgo e dove li metto</span></li><li><i>47</i><span>La mia scrivania: cosa c’è sopra e a cosa serve</span></li><li><i>48</i><span>Idee economiche per cambiare l’aspetto di una stanza</span></li><li><i>49</i><span>Un oggetto low cost contro uno più caro: confronto onesto</span></li><li><i>50</i><span>La mia sera a casa, dalla cena al letto</span></li></ol></article><article class="niche" id="food-e-bevande"><div class="niche-head"><h3>Food e bevande</h3><span>51-60</span></div><ol><li><i>51</i><span>Una colazione in 3 minuti con un prodotto al centro</span></li><li><i>52</i><span>Una ricetta in 4 passaggi dove il prodotto si vede bene</span></li><li><i>53</i><span>Primo assaggio: la mia reazione sincera a un prodotto nuovo</span></li><li><i>54</i><span>La spesa della settimana: cosa ricompro sempre</span></li><li><i>55</i><span>Lo snack che tengo sulla scrivania in ufficio</span></li><li><i>56</i><span>Come preparo il mio caffè, tè o drink preferito</span></li><li><i>57</i><span>Due prodotti simili assaggiati alla cieca</span></li><li><i>58</i><span>3 pranzi da portare in ufficio in una schiscetta</span></li><li><i>59</i><span>Un aperitivo veloce per amici con 3 ingredienti</span></li><li><i>60</i><span>La mia dispensa: cosa c’è sempre e perché</span></li></ol></article><article class="niche" id="viaggi"><div class="niche-head"><h3>Viaggi</h3><span>61-70</span></div><ol><li><i>61</i><span>Cosa porto nel bagaglio a mano, tutto steso sul letto</span></li><li><i>62</i><span>Un weekend in una città vicina, con costi e orari reali</span></li><li><i>63</i><span>Come resto connessa all’estero senza spendere troppo</span></li><li><i>64</i><span>Come prenoto un treno o un volo: i passaggi che faccio io</span></li><li><i>65</i><span>Appena entro in camera d’albergo: cosa controllo subito</span></li><li><i>66</i><span>3 cose che mi hanno salvata in aeroporto</span></li><li><i>67</i><span>Itinerario di un giorno, ora per ora</span></li><li><i>68</i><span>Cosa metto nel beauty case da viaggio</span></li><li><i>69</i><span>Cosa farei diversamente alla prossima partenza</span></li><li><i>70</i><span>Il budget di un viaggio low cost, voce per voce</span></li></ol></article><article class="niche" id="tech-e-app"><div class="niche-head"><h3>Tech e app</h3><span>71-80</span></div><ol><li><i>71</i><span>Come uso un’app in 3 passaggi: dalla schermata al risultato</span></li><li><i>72</i><span>Le app che apro ogni mattina sul telefono</span></li><li><i>73</i><span>La mia postazione per lavorare da casa</span></li><li><i>74</i><span>Prima impressione su un gadget appena aperto</span></li><li><i>75</i><span>Una funzione di un’app che quasi nessuno conosce</span></li><li><i>76</i><span>Un compito che facevo a mano e ora faccio in due minuti</span></li><li><i>77</i><span>Come segno le spese della settimana con un’app</span></li><li><i>78</i><span>Cuffie, caricatore e powerbank: la mia borsa tech</span></li><li><i>79</i><span>Un problema di tutti i giorni risolto con uno strumento digitale</span></li><li><i>80</i><span>Due app che fanno la stessa cosa: quale tengo</span></li></ol></article><article class="niche" id="fitness-e-benessere"><div class="niche-head"><h3>Fitness e benessere</h3><span>81-90</span></div><ol><li><i>81</i><span>Il mio allenamento da 20 minuti a casa</span></li><li><i>82</i><span>Cosa porto in borsa in palestra</span></li><li><i>83</i><span>Come preparo il mio integratore o frullato e quando lo prendo</span></li><li><i>84</i><span>Una settimana di routine: sonno, acqua e passi</span></li><li><i>85</i><span>Stretching serale: 3 minuti prima di dormire</span></li><li><i>86</i><span>Una colazione dopo l’allenamento in 5 minuti</span></li><li><i>87</i><span>Provo un capo sportivo mentre mi alleno: comodità vera</span></li><li><i>88</i><span>Come organizzo la settimana per allenarmi dopo il lavoro</span></li><li><i>89</i><span>La mia routine per ricominciare dopo una pausa</span></li><li><i>90</i><span>L’accessorio che uso ogni giorno e perché</span></li></ol></article><article class="niche" id="mamma-e-famiglia"><div class="niche-head"><h3>Mamma e famiglia</h3><span>91-100</span></div><ol><li><i>91</i><span>Una mattina con i bambini, dalla sveglia alla porta di casa</span></li><li><i>92</i><span>Il prodotto che mi salva nelle uscite: la borsa del cambio</span></li><li><i>93</i><span>Come preparo una merenda in 5 minuti</span></li><li><i>94</i><span>Prima impressione su un gioco aperto insieme a mio figlio</span></li><li><i>95</i><span>La routine della buonanotte</span></li><li><i>96</i><span>Cosa metto nello zaino per l’asilo o per la scuola</span></li><li><i>97</i><span>Un pasto solo che va bene per tutta la famiglia</span></li><li><i>98</i><span>Come organizzo la settimana con il calendario di casa</span></li><li><i>99</i><span>Cosa uso per i viaggi lunghi in auto con bambini piccoli</span></li><li><i>100</i><span>Il mio angolo di calma: cosa uso per staccare a fine giornata</span></li></ol></article></div>
+  </div>
+</section>
+
+
+<section id="altre-guide"><div class="wrap"><p class="eyebrow">Continua con</p><h2>Le altre <span class="mark y">guide</span></h2><div class="more"><a class="more-card" href="/guida/"><h3>Contatti brand</h3><p>Email e profili Instagram di brand che collaborano con creator UGC.</p><span class="go">Apri la guida →</span></a><a class="more-card" href="/guida-primi-passi/"><h3>I primi passi</h3><p>Nove passi in ordine, dal primo video di prova alla prima collaborazione.</p><span class="go">Apri la guida →</span></a></div></div></section>
+
+<section class="cta-sec" id="whatsapp">
+  <div class="wrap">
+    <div class="cta">
+      <p class="eyebrow">Il passo dopo la guida</p>
+      <h2>Vuoi sapere come funziona <span class="mark" style="background:linear-gradient(transparent 56%,var(--pink) 56%)">UGC Level Up</span>?</h2>
+      <p>Il corso è 100% online e si fa solo con il telefono. Scrivici su WhatsApp: ti spieghiamo il percorso e vediamo insieme se fa per te.</p>
+      <div class="msg"><small>Messaggio già pronto</small><span id="msg-text"></span></div>
+      <a class="btn" id="wa-link" href="https://wa.me/393287276998" target="_blank" rel="noopener">Scrivici su WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>UGC <em>Level Up</em> · Carlotta Spinelli</span>
+    <span>Guida gratuita</span>
+  </div>
+</footer>
+
+<script>
+var WA_NUMBER = "393287276998";
+var WA_MESSAGE = "Ciao! Ho letto la guida con le 100 idee di video e vorrei sapere come funziona il percorso UGC Level Up.";
+var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
+document.getElementById("msg-text").textContent = WA_MESSAGE;
+document.getElementById("wa-link").href = waHref;
+document.getElementById("wa-nav").href = waHref;
+
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest("[data-copy-target]");
+  if (!btn) return;
+  var node = document.getElementById(btn.getAttribute("data-copy-target"));
+  var text = node.innerText;
+  var done = function (label) {
+    btn.textContent = label;
+    setTimeout(function () { btn.textContent = "Copia messaggio"; }, 1800);
+  };
+  var select = function () {
+    var range = document.createRange();
+    range.selectNodeContents(node);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    done("Selezionato");
+  };
+  try {
+    navigator.clipboard.writeText(text).then(function () { done("Copiato"); }, select);
+  } catch (err) { select(); }
+});
+</script>
+</body>
+</html>
