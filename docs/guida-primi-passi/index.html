@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>I primi passi da UGC creator | Carlotta Spinelli</title>
-<meta name="description" content="Guida gratuita di Carlotta Spinelli: nove passi per iniziare come UGC creator, dal primo video di prova alla prima collaborazione.">
+<meta name="description" content="Guida gratuita di Carlotta Spinelli: sei passi per iniziare come UGC creator, dal primo video di prova alla prima collaborazione.">
 <meta property="og:title" content="I primi passi da UGC creator | Carlotta Spinelli">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,27 +183,48 @@ footer em { font-style: normal; font-weight: 500; }
 
 html { scroll-padding-top: 84px; }
 .big { font-size: clamp(1.8rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; max-width: 22ch; text-wrap: balance; }
-.section-head { display: flex; flex-direction: column; gap: 6px; }
+
+/* cos'è l'UGC */
+.what { background: #fff; border-bottom: 2.5px solid var(--black); padding-block: 40px; }
+.what-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 18px; }
+.what-grid > div { border-top: 3px solid var(--hot); padding-top: 12px; }
+.what-grid p { font-weight: 500; font-size: .98rem; color: #2b2b2b; }
+.what-grid b { display: block; font-weight: 800; color: var(--black); font-size: 1.02rem; margin-bottom: 4px; letter-spacing: -.01em; }
 
 /* passi (sequenza reale, quindi numerati) */
-.steps { position: relative; display: flex; flex-direction: column; gap: 34px; margin-top: 44px; max-width: 860px; }
+.steps { position: relative; display: flex; flex-direction: column; gap: 38px; margin-top: 44px; max-width: 900px; }
 .steps::before { content: ""; position: absolute; left: 27px; top: 28px; bottom: 28px; border-left: 3px dashed rgba(11, 11, 11, .35); }
 .step { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 22px; }
 .dot { width: 56px; height: 56px; border-radius: 50%; background: var(--pink); border: 2.5px solid var(--black); display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; position: relative; z-index: 1; }
 .step:nth-child(even) .dot { background: var(--yellow); }
-.step-body { display: flex; flex-direction: column; gap: 10px; padding-top: 10px; min-width: 0; }
+.step-body { display: flex; flex-direction: column; gap: 12px; padding-top: 10px; min-width: 0; }
 .step-body h3 { font-size: 1.4rem; }
 .step-body p { font-weight: 500; color: #2b2b2b; max-width: 62ch; }
 .tip { background: var(--yellow); border: 2.5px solid var(--black); border-radius: 18px; padding: 12px 16px; font-size: .92rem; font-weight: 600; max-width: 62ch; }
 .tip b { font-weight: 800; }
 .tip a { font-weight: 800; }
+.tip .ph { background: #fff; }
+
+/* hook + corpo + cta */
+.anat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.anat > div { border: 2.5px solid var(--black); border-radius: 22px; padding: 16px 16px 18px; background: #fff; display: flex; flex-direction: column; gap: 6px; }
+.anat > div:nth-child(1) { background: var(--pink); }
+.anat > div:nth-child(3) { background: var(--yellow); }
+.anat small { font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.anat h4 { font-size: 1.3rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
+.anat p { font-size: .9rem !important; font-weight: 500; }
+.example { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; max-width: 62ch; }
+.example .ex { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 12px; font-weight: 500; font-size: .95rem; }
+.example .ex b { font-weight: 800; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; padding-top: 3px; }
+.cta-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
 
 .tpl { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
 .tpl .text { white-space: pre-line; font-weight: 500; font-size: .95rem; }
 .ph { background: var(--pink); border-radius: 6px; padding: 0 .25em; font-weight: 600; }
 .tpl .copy { align-self: flex-start; min-width: 9rem; }
+.plat { display: flex; flex-wrap: wrap; gap: 10px; }
 
-/* idee per nicchia */
+/* hook per nicchia */
 .jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 a.chip { text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
 a.chip:hover { background: var(--pink); transform: translateY(-3px) rotate(-2deg); box-shadow: 3px 4px 0 var(--black); }
@@ -216,9 +237,11 @@ a.chip:hover { background: var(--pink); transform: translateY(-3px) rotate(-2deg
 .niche-head span { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .niche-brands { padding: 12px 22px; background: var(--soft); border-bottom: 2.5px solid var(--black); font-size: .82rem; font-weight: 600; }
 .niche ol { list-style: none; margin: 0; padding: 4px 22px 8px; }
-.niche li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 10px; padding: 11px 0; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); font-weight: 500; font-size: .96rem; line-height: 1.45; }
+.niche li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 10px; padding: 13px 0; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); }
 .niche li:last-child { border-bottom: 0; }
-.niche li i { font-style: normal; font-weight: 800; font-size: .8rem; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.niche li i { font-style: normal; font-weight: 800; font-size: .8rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.niche .hook { display: block; font-weight: 800; font-size: 1rem; line-height: 1.3; letter-spacing: -.01em; }
+.niche .body { display: block; margin-top: 4px; font-weight: 500; font-size: .88rem; line-height: 1.45; color: var(--muted); }
 
 /* altre guide */
 .more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
@@ -229,15 +252,39 @@ a.more-card:hover { transform: translateY(-8px) rotate(-1deg); }
 a.more-card p { font-size: .95rem; font-weight: 500; color: #2b2b2b; }
 a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
 
+/* chi sono */
+.about { background: var(--yellow); border-top: 2.5px solid var(--black); overflow: hidden; }
+.agrid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
+.aph { position: relative; max-width: 420px; margin-inline: auto; width: 100%; }
+.aph .ring { position: absolute; inset: 8% 4% 0; border-radius: 50%; background: var(--pink); border: 3px solid var(--black); }
+.aph img { position: relative; display: block; width: 100%; height: auto; }
+.about p { font-size: 1.04rem; font-weight: 500; margin-bottom: 14px; max-width: 52ch; }
+.about strong { font-weight: 800; }
+.teasers-head { margin-top: 56px; }
+.teasers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+.teaser { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; padding: 18px 20px; }
+.teaser:nth-child(2), .teaser:nth-child(4), .teaser:nth-child(6) { background: var(--pink); }
+.teaser h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.about .teaser p { font-size: .9rem; font-weight: 500; color: #333; margin: 0; }
+
+@media (max-width: 960px) {
+  .teasers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 860px) {
   .niches { grid-template-columns: 1fr; }
+  .agrid { grid-template-columns: 1fr; gap: 32px; }
+  .aph { max-width: 340px; }
 }
 @media (max-width: 700px) {
   .more { grid-template-columns: 1fr; }
+  .what-grid { grid-template-columns: 1fr; gap: 18px; }
+  .anat { grid-template-columns: 1fr; }
+  .teasers { grid-template-columns: 1fr; }
   .step { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
   .dot { width: 44px; height: 44px; font-size: 1rem; }
   .steps::before { left: 21px; }
   .step-body h3 { font-size: 1.2rem; }
+  .example .ex { grid-template-columns: 1fr; gap: 2px; }
 }
 
 </style>
@@ -255,10 +302,22 @@ a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; tex
   <div class="wrap">
     <p class="eyebrow">Guida gratuita</p>
     <h1>I tuoi primi passi da <span class="acc">UGC creator</span></h1>
-    <p class="lead">Nove passi in ordine, dal primo video di prova alla prima collaborazione. Ti serve solo il telefono, non servono follower.</p>
-    <div class="facts"><span class="chip">9 passi</span><span class="chip">Solo col telefono</span></div>
+    <p class="lead">Sei passi in ordine, dal primo video di prova alla prima collaborazione. Ti serve solo il telefono, non servono follower.</p>
+    <div class="facts"><span class="chip">6 passi</span><span class="chip">Solo col telefono</span></div>
   </div>
 </header>
+
+<section class="what" id="cose-ugc">
+  <div class="wrap">
+    <p class="eyebrow">Cos’è l’UGC</p>
+    <div class="what-grid">
+      <div><p><b>Che cos’è</b>UGC significa User Generated Content: video e foto che sembrano girati da una persona vera, con un prodotto o un servizio vero.</p></div>
+      <div><p><b>Chi lo compra</b>I brand pagano le creator per questi contenuti e li usano sui loro canali e nelle loro pubblicità.</p></div>
+      <div><p><b>Cosa serve</b>Un telefono e la capacità di raccontare un prodotto. Non servono tanti follower.</p></div>
+    </div>
+  </div>
+</section>
+
 
 
 <section id="passi">
@@ -266,24 +325,79 @@ a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; tex
     <p class="eyebrow">In ordine</p>
     <h2>Dal primo video alla <span class="mark">prima collab</span></h2>
     <p class="lead">Fai un passo alla volta. Non serve aver finito il precedente alla perfezione: serve averlo fatto una volta.</p>
-    <div class="steps"><div class="step"><div class="dot">1</div><div class="step-body"><h3>Scegli la tua nicchia</h3><p>Parti da una o due categorie che usi davvero: haircare, skincare, makeup, moda, casa, cibo, viaggi, tech. Un brand sceglie chi sembra già una sua cliente.</p><div class="tip"><b>Come scegliere:</b> prendi la categoria di cui parli con le amiche senza che nessuno te lo chieda.</div></div></div><div class="step"><div class="dot">2</div><div class="step-body"><h3>Prepara l’essenziale</h3><p>Ti servono un telefono con una buona fotocamera, la luce di una finestra, un appoggio stabile (anche una pila di libri) e un audio pulito: parla vicino al telefono, in una stanza senza eco.</p><p>Il resto lo compri dopo il primo compenso.</p></div></div><div class="step"><div class="dot">3</div><div class="step-body"><h3>Gira i primi video di prova</h3><p>Sono video che fai senza che un brand te li abbia chiesti, con prodotti che hai già in casa. Servono a mostrare cosa sai fare.</p><p>Parti con 3-5 video da 15-30 secondi. Ognuno ha un gancio nei primi due secondi, un prodotto in mano e una cosa concreta da dire.</p><div class="tip"><b>Non sai cosa girare?</b> Nella guida <a href="/guida-100-idee/">100 idee di video</a> trovi 10 idee per ogni nicchia.</div></div></div><div class="step"><div class="dot">4</div><div class="step-body"><h3>Metti tutto in un portfolio</h3><p>Un solo link dove il brand vede i tuoi lavori: una pagina web, una cartella Drive pubblica o il link in bio.</p><p>Aggiungi due righe su di te, la tua nicchia e un contatto email. Apri il link dal telefono e controlla che i video partano.</p></div></div><div class="step"><div class="dot">5</div><div class="step-body"><h3>Sistema il profilo</h3><p>Una bio che dice cosa fai e per chi, un’email che controlli ogni giorno e un account Instagram in ordine. Anche con pochi follower: i brand lo aprono per capire con chi hanno a che fare.</p></div></div><div class="step"><div class="dot">6</div><div class="step-body"><h3>Scegli 5-10 brand alla volta</h3><p>Scegli quelli vicini al tuo stile e controlla che lavorino già con creator: guarda i post in cui sono taggati e le collaborazioni che mostrano.</p><p>Meglio pochi messaggi mirati che cento tutti uguali.</p><div class="tip"><b>Da dove partire:</b> nella guida <a href="/guida/">Contatti brand</a> trovi email e profili Instagram già pronti.</div></div></div><div class="step"><div class="dot">7</div><div class="step-body"><h3>Scrivi un pitch su misura</h3><p>Il primo messaggio è il tuo biglietto da visita. Tienilo breve, personale e con un solo link. Dice chi sei, cosa hai notato del brand e cosa proponi.</p><p>Questo è un modello da adattare. Cambia le parti evidenziate e togli tutto quello che non è vero per te.</p><div class="tpl"><div class="text" id="pitch-text">Ciao <span class="ph">[nome del referente]</span>,
+    <div class="steps"><div class="step"><div class="dot">1</div><div class="step-body"><h3>Gira 5 video diversi</h3>
+<p>Il portfolio parte da 5 video di prova. Ognuno è per un prodotto o un servizio diverso, di una nicchia diversa: per esempio un siero, un capo di moda, un’app, un caffè, un viaggio. Così il brand vede che sai lavorare con cose diverse.</p>
+<p>Usa prodotti che hai già in casa e servizi che usi davvero. Ogni video segue la struttura dei video adv: hook, corpo e CTA.</p>
+<div class="anat">
+  <div><small>Hook · primi 2-3 secondi</small><h4>Hook</h4><p>La frase o l’immagine che ferma il pollice: un problema, una domanda, un risultato.</p></div>
+  <div><small>Corpo · 10-25 secondi</small><h4>Corpo</h4><p>Mostri il prodotto o il servizio in uso. 2-3 cose concrete, un’immagine per ogni frase.</p></div>
+  <div><small>CTA · ultimi 3 secondi</small><h4>CTA</h4><p>Dici cosa fare: provalo, vai al link in bio, scrivimi.</p></div>
+</div><div class="example">
+  <div class="ex"><b>Hook</b><span>“Se le punte dei capelli sono sempre secche, guarda cosa cambio io.”</span></div>
+  <div class="ex"><b>Corpo</b><span>Mostri l’olio in uso: quanto ne metti, dove lo metti, quando lo usi.</span></div>
+  <div class="ex"><b>CTA</b><span>“Provalo e dimmi com’è andata.”</span></div>
+</div>
+<div class="tip"><b>Attrezzatura minima:</b> la luce di una finestra, un appoggio stabile (anche una pila di libri) e un audio pulito: parla vicino al telefono, in una stanza senza eco.</div>
+<div class="tip"><b>Non sai cosa girare?</b> Nella guida <a href="/guida-100-idee/">100 idee di video</a> trovi 100 hook pronti, divisi per nicchia.</div>
+</div></div><div class="step"><div class="dot">2</div><div class="step-body"><h3>Ottimizza il profilo social</h3>
+<p>Prima di scrivere ai brand sistema Instagram e TikTok, perché è il primo posto dove ti cercano. Il profilo deve essere pubblico e dire subito cosa fai e per chi.</p>
+<p>Nella bio metti la tua attività (UGC creator), le nicchie in cui lavori, un’email che controlli ogni giorno e il link al portfolio. Usa lo stesso nome su tutti i social e una foto chiara del viso. Fissa in alto i 3 video migliori.</p>
+<div class="tip"><b>Esempio di bio:</b> UGC creator · Video per brand di <span class="ph">[beauty, moda, lifestyle]</span> · <span class="ph">[la tua email]</span></div>
+</div></div><div class="step"><div class="dot">3</div><div class="step-body"><h3>Crea il portfolio</h3>
+<p>Un solo link dove il brand vede i tuoi lavori: una pagina web semplice, una cartella Drive pubblica o una pagina Notion.</p>
+<p>Metti i 5 video, partendo dal migliore. Sotto ognuno scrivi il tipo di prodotto o servizio e la nicchia. Aggiungi due righe su di te e il tuo contatto. Quando fai le prime collaborazioni vere, le aggiungi.</p>
+<div class="tip"><b>Prova finale:</b> apri il link dal telefono, senza essere collegata ai tuoi account, e controlla che i video partano.</div>
+</div></div><div class="step"><div class="dot">4</div><div class="step-body"><h3>Inizia a fare pitching</h3>
+<p>Il primo messaggio è il tuo biglietto da visita. Scegli 5-10 brand alla volta, quelli vicini al tuo stile, e controlla che lavorino già con creator: guarda i post in cui sono taggati.</p>
+<p>Scrivi un messaggio per ognuno: breve, personale, con un solo link. Questo è un modello da adattare. Cambia le parti evidenziate e togli tutto quello che non è vero per te.</p>
+<div class="tpl"><div class="text" id="pitch-text">Ciao <span class="ph">[nome del referente]</span>,
 sono <span class="ph">[il tuo nome]</span> e creo video UGC per brand di <span class="ph">[la tua nicchia]</span>.
 Ho visto che <span class="ph">[una cosa concreta che hai notato: un prodotto nuovo, una campagna, un tipo di video che pubblicate]</span> e ho girato un video di prova pensato per il vostro pubblico: <span class="ph">[link al video]</span>.
 Se ti piace, posso farne altri nello stesso stile per i vostri canali. Ti mando volentieri portfolio e tariffe.
 Grazie per il tempo,
-<span class="ph">[il tuo nome]</span></div><button type="button" class="copy" data-copy-target="pitch-text">Copia messaggio</button></div></div></div><div class="step"><div class="dot">8</div><div class="step-body"><h3>Tieni traccia e rispondi ai silenzi</h3><p>Segna in un foglio il brand, la data, il canale e la risposta. Se dopo 5-7 giorni non ha risposto, manda un secondo messaggio di due righe. Dopo il secondo, passa al brand successivo.</p></div></div><div class="step"><div class="dot">9</div><div class="step-body"><h3>Prepara la prima collaborazione</h3><p>Quando un brand risponde, chiedi il brief: cosa mostrare, durata, formato e data di consegna. Chiedi anche dove useranno il video (solo social o anche pubblicità) e per quanto tempo. Metti tutto per iscritto prima di girare.</p><p>Decidi la tua tariffa prima di scrivere ai brand, non dopo. Per contratti e fatture confrontati con un commercialista.</p></div></div></div>
+<span class="ph">[il tuo nome]</span></div><button type="button" class="copy" data-copy-target="pitch-text">Copia messaggio</button></div>
+<p>Segna in un foglio brand, data, canale e risposta. Se dopo 5-7 giorni non ha risposto, manda un secondo messaggio di due righe. Dopo il secondo, passa al brand successivo.</p>
+<div class="tip"><b>Da dove partire:</b> nella guida <a href="/guida/">Contatti brand</a> trovi email e profili Instagram già pronti.</div>
+</div></div><div class="step"><div class="dot">5</div><div class="step-body"><h3>Iscriviti alle piattaforme</h3>
+<p>Sulle piattaforme per creator i brand pubblicano brief pagati e le creator si candidano. Sono un secondo canale, da usare insieme al pitching.</p>
+<div class="plat"><span class="chip">Influee</span><span class="chip">Billo</span><span class="chip">JoinBrands</span><span class="chip">Collabstr</span><span class="chip">TikTok Creator Marketplace</span></div>
+<p>Compila il profilo con la stessa bio e lo stesso portfolio. Prima di candidarti leggi bene il brief e il compenso.</p>
+<div class="tip"><b>Controlla prima:</b> requisiti e disponibilità per chi vive in Italia cambiano nel tempo, quindi leggi le condizioni di ogni piattaforma prima di iscriverti.</div>
+</div></div><div class="step"><div class="dot">6</div><div class="step-body"><h3>Prepara la prima collaborazione</h3>
+<p>Quando un brand risponde, chiedi il brief: cosa mostrare, durata, formato e data di consegna. Chiedi anche dove useranno il video (solo social o anche pubblicità) e per quanto tempo. Metti tutto per iscritto prima di girare.</p>
+<p>Decidi la tua tariffa prima di scrivere ai brand, non dopo. Per contratti e fatture confrontati con un commercialista.</p>
+</div></div></div>
   </div>
 </section>
 
 
-<section id="altre-guide"><div class="wrap"><p class="eyebrow">Continua con</p><h2>Le altre <span class="mark y">guide</span></h2><div class="more"><a class="more-card" href="/guida/"><h3>Contatti brand</h3><p>Email e profili Instagram di brand che collaborano con creator UGC.</p><span class="go">Apri la guida →</span></a><a class="more-card" href="/guida-100-idee/"><h3>100 idee di video</h3><p>Idee per ogni nicchia, per attirare i brand che sogni.</p><span class="go">Apri la guida →</span></a></div></div></section>
+<section id="altre-guide"><div class="wrap"><p class="eyebrow">Continua con</p><h2>Le altre <span class="mark y">guide</span></h2><div class="more"><a class="more-card" href="/guida/"><h3>Contatti brand</h3><p>Email e profili Instagram di brand che collaborano con creator UGC.</p><span class="go">Apri la guida →</span></a><a class="more-card" href="/guida-100-idee/"><h3>100 idee di video</h3><p>Cento hook pronti, divisi per nicchia.</p><span class="go">Apri la guida →</span></a></div></div></section>
+
+<section class="about" id="chi">
+  <div class="wrap">
+    <div class="agrid">
+      <div class="aph"><div class="ring"></div><img src="/assets/phone-crop.png" alt="Carlotta Spinelli" width="857" height="965" decoding="async"></div>
+      <div>
+        <p class="eyebrow">Chi c’è dietro la guida</p>
+        <h2>Ciao, sono <span class="mark" style="background:linear-gradient(transparent 56%,#fff 56%)">Carlotta</span></h2>
+        <p>Sono partita da zero, quando in Italia l’<strong>UGC</strong> non esisteva. Il mio <strong>primo video</strong> mi è stato pagato <strong>20$</strong> e non sapevo nemmeno quale fosse la <strong>struttura di un video efficace</strong>.</p>
+        <p>Oggi lavoro con brand come <strong>Sephora</strong> e <strong>Amazon</strong>. Faccio anche la <strong>recruiter</strong> e la <strong>campaign manager</strong>, quindi vedo ogni giorno cosa fa scegliere una creator e cosa la fa scartare.</p>
+        <p>Con <strong>UGC Level Up</strong> ho aiutato <strong>150+ ragazze</strong> e le affianco una per una. Quello che ho imparato sulla mia pelle lo passo a te prima che tu debba sbagliare.</p>
+        <p>Dentro ci sono più di 70 lezioni video, ma non è tutto lì. Guarda cosa trovi oltre.</p>
+      </div>
+    </div>
+    <p class="eyebrow teasers-head">Dentro il percorso, oltre alle lezioni</p>
+    <div class="teasers"><div class="teaser"><h3>Collab pagate ogni mese</h3><p>Ti arrivano proposte di collaborazione pagate, più eventi e fiere a cui partecipare.</p></div><div class="teaser"><h3>Una sfida al mese, con premi</h3><p>In palio c’è anche l’attrezzatura per i tuoi video.</p></div><div class="teaser"><h3>Una call 1:1 con me</h3><p>Mi parli direttamente, senza intermediari.</p></div><div class="teaser"><h3>Un percorso su misura</h3><p>Parti da dove sei: ci sono percorsi diversi in base alle tue necessità.</p></div><div class="teaser"><h3>Campus e community</h3><p>Un campus virtuale con altre creator con cui confrontarti.</p></div><div class="teaser"><h3>Un esercizio dopo ogni lezione</h3><p>Metti subito in pratica quello che hai visto, senza lasciarlo in sospeso.</p></div></div>
+  </div>
+</section>
+
 
 <section class="cta-sec" id="whatsapp">
   <div class="wrap">
     <div class="cta">
       <p class="eyebrow">Il passo dopo la guida</p>
-      <h2>Vuoi sapere come funziona <span class="mark" style="background:linear-gradient(transparent 56%,var(--pink) 56%)">UGC Level Up</span>?</h2>
-      <p>Il corso è 100% online e si fa solo con il telefono. Scrivici su WhatsApp: ti spieghiamo il percorso e vediamo insieme se fa per te.</p>
+      <h2>Pronta a fare il <span class="mark" style="background:linear-gradient(transparent 56%,var(--pink) 56%)">level up</span>?</h2>
+      <p>Scrivici su WhatsApp per prenotare una call gratuita: ne parliamo insieme, senza impegno.</p>
       <div class="msg"><small>Messaggio già pronto</small><span id="msg-text"></span></div>
       <a class="btn" id="wa-link" href="https://wa.me/393287276998" target="_blank" rel="noopener">Scrivici su WhatsApp
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -301,7 +415,7 @@ Grazie per il tempo,
 
 <script>
 var WA_NUMBER = "393287276998";
-var WA_MESSAGE = "Ciao! Ho letto la guida sui primi passi da UGC creator e vorrei sapere come funziona il percorso UGC Level Up.";
+var WA_MESSAGE = "Ciao! Ho letto la guida sui primi passi da UGC creator e vorrei prenotare la call gratuita per capire come funziona UGC Level Up.";
 var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
 document.getElementById("msg-text").textContent = WA_MESSAGE;
 document.getElementById("wa-link").href = waHref;

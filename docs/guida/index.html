@@ -179,6 +179,112 @@ footer em { font-style: normal; font-weight: 500; }
   * { transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+html { scroll-padding-top: 84px; }
+.big { font-size: clamp(1.8rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; max-width: 22ch; text-wrap: balance; }
+
+/* cos'è l'UGC */
+.what { background: #fff; border-bottom: 2.5px solid var(--black); padding-block: 40px; }
+.what-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 18px; }
+.what-grid > div { border-top: 3px solid var(--hot); padding-top: 12px; }
+.what-grid p { font-weight: 500; font-size: .98rem; color: #2b2b2b; }
+.what-grid b { display: block; font-weight: 800; color: var(--black); font-size: 1.02rem; margin-bottom: 4px; letter-spacing: -.01em; }
+
+/* passi (sequenza reale, quindi numerati) */
+.steps { position: relative; display: flex; flex-direction: column; gap: 38px; margin-top: 44px; max-width: 900px; }
+.steps::before { content: ""; position: absolute; left: 27px; top: 28px; bottom: 28px; border-left: 3px dashed rgba(11, 11, 11, .35); }
+.step { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 22px; }
+.dot { width: 56px; height: 56px; border-radius: 50%; background: var(--pink); border: 2.5px solid var(--black); display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; position: relative; z-index: 1; }
+.step:nth-child(even) .dot { background: var(--yellow); }
+.step-body { display: flex; flex-direction: column; gap: 12px; padding-top: 10px; min-width: 0; }
+.step-body h3 { font-size: 1.4rem; }
+.step-body p { font-weight: 500; color: #2b2b2b; max-width: 62ch; }
+.tip { background: var(--yellow); border: 2.5px solid var(--black); border-radius: 18px; padding: 12px 16px; font-size: .92rem; font-weight: 600; max-width: 62ch; }
+.tip b { font-weight: 800; }
+.tip a { font-weight: 800; }
+.tip .ph { background: #fff; }
+
+/* hook + corpo + cta */
+.anat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.anat > div { border: 2.5px solid var(--black); border-radius: 22px; padding: 16px 16px 18px; background: #fff; display: flex; flex-direction: column; gap: 6px; }
+.anat > div:nth-child(1) { background: var(--pink); }
+.anat > div:nth-child(3) { background: var(--yellow); }
+.anat small { font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.anat h4 { font-size: 1.3rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
+.anat p { font-size: .9rem !important; font-weight: 500; }
+.example { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; max-width: 62ch; }
+.example .ex { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 12px; font-weight: 500; font-size: .95rem; }
+.example .ex b { font-weight: 800; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; padding-top: 3px; }
+.cta-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+
+.tpl { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
+.tpl .text { white-space: pre-line; font-weight: 500; font-size: .95rem; }
+.ph { background: var(--pink); border-radius: 6px; padding: 0 .25em; font-weight: 600; }
+.tpl .copy { align-self: flex-start; min-width: 9rem; }
+.plat { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* hook per nicchia */
+.jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+a.chip { text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+a.chip:hover { background: var(--pink); transform: translateY(-3px) rotate(-2deg); box-shadow: 3px 4px 0 var(--black); }
+.niches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; margin-top: 38px; align-items: start; }
+.niche { border: 2.5px solid var(--black); border-radius: 26px; background: #fff; overflow: hidden; box-shadow: 6px 8px 0 var(--black); }
+.niche-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 2.5px solid var(--black); }
+.niche:nth-child(odd) .niche-head { background: var(--yellow); }
+.niche:nth-child(even) .niche-head { background: var(--pink); }
+.niche-head h3 { font-size: 1.15rem; }
+.niche-head span { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.niche-brands { padding: 12px 22px; background: var(--soft); border-bottom: 2.5px solid var(--black); font-size: .82rem; font-weight: 600; }
+.niche ol { list-style: none; margin: 0; padding: 4px 22px 8px; }
+.niche li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 10px; padding: 13px 0; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); }
+.niche li:last-child { border-bottom: 0; }
+.niche li i { font-style: normal; font-weight: 800; font-size: .8rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.niche .hook { display: block; font-weight: 800; font-size: 1rem; line-height: 1.3; letter-spacing: -.01em; }
+.niche .body { display: block; margin-top: 4px; font-weight: 500; font-size: .88rem; line-height: 1.45; color: var(--muted); }
+
+/* altre guide */
+.more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
+a.more-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; border: 2.5px solid var(--black); border-radius: 26px; padding: 24px; background: #fff; transition: transform .3s; }
+a.more-card:nth-child(1) { background: var(--yellow); }
+a.more-card:nth-child(2) { background: var(--pink); }
+a.more-card:hover { transform: translateY(-8px) rotate(-1deg); }
+a.more-card p { font-size: .95rem; font-weight: 500; color: #2b2b2b; }
+a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+
+/* chi sono */
+.about { background: var(--yellow); border-top: 2.5px solid var(--black); overflow: hidden; }
+.agrid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
+.aph { position: relative; max-width: 420px; margin-inline: auto; width: 100%; }
+.aph .ring { position: absolute; inset: 8% 4% 0; border-radius: 50%; background: var(--pink); border: 3px solid var(--black); }
+.aph img { position: relative; display: block; width: 100%; height: auto; }
+.about p { font-size: 1.04rem; font-weight: 500; margin-bottom: 14px; max-width: 52ch; }
+.about strong { font-weight: 800; }
+.teasers-head { margin-top: 56px; }
+.teasers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+.teaser { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; padding: 18px 20px; }
+.teaser:nth-child(2), .teaser:nth-child(4), .teaser:nth-child(6) { background: var(--pink); }
+.teaser h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.about .teaser p { font-size: .9rem; font-weight: 500; color: #333; margin: 0; }
+
+@media (max-width: 960px) {
+  .teasers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .niches { grid-template-columns: 1fr; }
+  .agrid { grid-template-columns: 1fr; gap: 32px; }
+  .aph { max-width: 340px; }
+}
+@media (max-width: 700px) {
+  .more { grid-template-columns: 1fr; }
+  .what-grid { grid-template-columns: 1fr; gap: 18px; }
+  .anat { grid-template-columns: 1fr; }
+  .teasers { grid-template-columns: 1fr; }
+  .step { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
+  .dot { width: 44px; height: 44px; font-size: 1rem; }
+  .steps::before { left: 21px; }
+  .step-body h3 { font-size: 1.2rem; }
+  .example .ex { grid-template-columns: 1fr; gap: 2px; }
+}
 </style>
 </head>
 <body>
@@ -202,6 +308,17 @@ footer em { font-style: normal; font-weight: 500; }
     </div>
   </div>
 </header>
+
+<section class="what" id="cose-ugc">
+  <div class="wrap">
+    <p class="eyebrow">Cos’è l’UGC</p>
+    <div class="what-grid">
+      <div><p><b>Che cos’è</b>UGC significa User Generated Content: video e foto che sembrano girati da una persona vera, con un prodotto o un servizio vero.</p></div>
+      <div><p><b>Chi lo compra</b>I brand pagano le creator per questi contenuti e li usano sui loro canali e nelle loro pubblicità.</p></div>
+      <div><p><b>Cosa serve</b>Un telefono e la capacità di raccontare un prodotto. Non servono tanti follower.</p></div>
+    </div>
+  </div>
+</section>
 
 <section id="come-usarla">
   <div class="wrap">
@@ -265,12 +382,30 @@ footer em { font-style: normal; font-weight: 500; }
   </div>
 </section>
 
+<section class="about" id="chi">
+  <div class="wrap">
+    <div class="agrid">
+      <div class="aph"><div class="ring"></div><img src="/assets/phone-crop.png" alt="Carlotta Spinelli" width="857" height="965" decoding="async"></div>
+      <div>
+        <p class="eyebrow">Chi c’è dietro la guida</p>
+        <h2>Ciao, sono <span class="mark" style="background:linear-gradient(transparent 56%,#fff 56%)">Carlotta</span></h2>
+        <p>Sono partita da zero, quando in Italia l’<strong>UGC</strong> non esisteva. Il mio <strong>primo video</strong> mi è stato pagato <strong>20$</strong> e non sapevo nemmeno quale fosse la <strong>struttura di un video efficace</strong>.</p>
+        <p>Oggi lavoro con brand come <strong>Sephora</strong> e <strong>Amazon</strong>. Faccio anche la <strong>recruiter</strong> e la <strong>campaign manager</strong>, quindi vedo ogni giorno cosa fa scegliere una creator e cosa la fa scartare.</p>
+        <p>Con <strong>UGC Level Up</strong> ho aiutato <strong>150+ ragazze</strong> e le affianco una per una. Quello che ho imparato sulla mia pelle lo passo a te prima che tu debba sbagliare.</p>
+        <p>Dentro ci sono più di 70 lezioni video, ma non è tutto lì. Guarda cosa trovi oltre.</p>
+      </div>
+    </div>
+    <p class="eyebrow teasers-head">Dentro il percorso, oltre alle lezioni</p>
+    <div class="teasers"><div class="teaser"><h3>Collab pagate ogni mese</h3><p>Ti arrivano proposte di collaborazione pagate, più eventi e fiere a cui partecipare.</p></div><div class="teaser"><h3>Una sfida al mese, con premi</h3><p>In palio c’è anche l’attrezzatura per i tuoi video.</p></div><div class="teaser"><h3>Una call 1:1 con me</h3><p>Mi parli direttamente, senza intermediari.</p></div><div class="teaser"><h3>Un percorso su misura</h3><p>Parti da dove sei: ci sono percorsi diversi in base alle tue necessità.</p></div><div class="teaser"><h3>Campus e community</h3><p>Un campus virtuale con altre creator con cui confrontarti.</p></div><div class="teaser"><h3>Un esercizio dopo ogni lezione</h3><p>Metti subito in pratica quello che hai visto, senza lasciarlo in sospeso.</p></div></div>
+  </div>
+</section>
+
 <section class="cta-sec" id="whatsapp">
   <div class="wrap">
     <div class="cta">
-      <p class="eyebrow">Il passo dopo la lista</p>
-      <h2>Vuoi sapere come funziona <span class="mark" style="background:linear-gradient(transparent 56%,var(--pink) 56%)">UGC Level Up</span>?</h2>
-      <p>Il corso è 100% online e si fa solo con il telefono. Scrivici su WhatsApp: ti spieghiamo il percorso e vediamo insieme se fa per te.</p>
+      <p class="eyebrow">Il passo dopo la guida</p>
+      <h2>Pronta a fare il <span class="mark" style="background:linear-gradient(transparent 56%,var(--pink) 56%)">level up</span>?</h2>
+      <p>Scrivici su WhatsApp per prenotare una call gratuita: ne parliamo insieme, senza impegno.</p>
       <div class="msg"><small>Messaggio già pronto</small><span id="msg-text"></span></div>
       <a class="btn" id="wa-link" href="https://wa.me/393287276998" target="_blank" rel="noopener">Scrivici su WhatsApp
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -289,7 +424,7 @@ footer em { font-style: normal; font-weight: 500; }
 <script>
 /* Numero WhatsApp in formato internazionale, senza + e senza spazi (es. "393331234567"). */
 var WA_NUMBER = "393287276998";
-var WA_MESSAGE = "Ciao! Ho letto la guida sui contatti brand e vorrei sapere come funziona il percorso UGC Level Up.";
+var WA_MESSAGE = "Ciao! Ho letto la guida con i contatti dei brand e vorrei prenotare la call gratuita per capire come funziona UGC Level Up.";
 
 var EMAILS = [
   { cat: "Fashion", items: [
