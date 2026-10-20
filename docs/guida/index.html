@@ -285,6 +285,44 @@ a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; tex
   .step-body h3 { font-size: 1.2rem; }
   .example .ex { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* tutto centrato, desktop e mobile (questo blocco sta in fondo di proposito) */
+body { text-align: center; }
+p { margin-inline: auto; }
+nav .wrap { justify-content: center; gap: 22px; }
+.jump, .chips, .plat, .cta-list, .facts, .kws, .topics { justify-content: center; }
+.big, .lead, .sub, .note { margin-inline: auto; }
+.note { border-left: 0; padding-left: 0; }
+.tip, .tpl, .example, .msg, .steps { margin-inline: auto; }
+.tpl { align-items: center; }
+.tpl .copy { align-self: center; }
+.example .ex { grid-template-columns: 1fr; gap: 2px; justify-items: center; }
+.what-grid > div, .rule, .teaser { text-align: center; }
+
+/* passi: un blocco sotto l'altro, centrati */
+.steps::before { display: none; }
+.step { grid-template-columns: 1fr; justify-items: center; gap: 14px; }
+.step-body { align-items: center; padding-top: 0; }
+.dot { margin-inline: auto; }
+
+/* schede con liste */
+.cat-head, .niche-head { flex-direction: column; justify-content: center; align-items: center; gap: 4px; }
+.row { grid-template-columns: minmax(0, 1fr); justify-items: center; row-gap: 6px; padding: 16px 22px; }
+.row .name, .row .mail, .row .copy { grid-column: 1; grid-row: auto; }
+.niche li { grid-template-columns: minmax(0, 1fr); gap: 2px; justify-items: center; }
+.niche li i { padding-top: 0; }
+.dm-groups { align-items: center; }
+
+/* altre sezioni */
+.pitch { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+.pitch .text { align-items: center; }
+.wins { width: 100%; max-width: 460px; margin-inline: auto; }
+.agrid { grid-template-columns: minmax(0, 1fr); gap: 32px; justify-items: center; }
+.aph { max-width: 340px; }
+a.more-card { align-items: center; }
+.cta { align-items: center; }
+.cta h2 { margin-inline: auto; }
+footer .wrap { flex-direction: column; align-items: center; justify-content: center; }
 </style>
 </head>
 <body>
