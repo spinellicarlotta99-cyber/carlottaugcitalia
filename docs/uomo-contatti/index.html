@@ -348,9 +348,9 @@ footer .wrap { flex-direction: column; align-items: center; justify-content: cen
     <p class="eyebrow">Guida gratuita</p>
     <p class="eyebrow">Versione per ragazzi</p>
     <h1>Contatti brand per <span class="acc">UGC creator</span></h1>
-    <p class="lead">Brand neutri o da uomo che lavorano con creator UGC, e il metodo per trovare i loro contatti. Qualche profilo da cui partire oggi.</p>
+    <p class="lead">Brand neutri o da uomo che lavorano con creator UGC, e il metodo per trovare i loro contatti. Email e profili da cui partire oggi.</p>
     <div class="facts">
-      <span class="chip"><b id="n-mail">1</b> email diretta</span>
+      <span class="chip"><b id="n-mail">14</b> email diretta</span>
       <span class="chip"><b id="n-dm">34</b> profili per i DM</span>
     </div>
   </div>
@@ -422,7 +422,7 @@ footer .wrap { flex-direction: column; align-items: center; justify-content: cen
   <div class="wrap">
     <p class="eyebrow">Contatti email</p>
     <h2>Scrivi <span class="mark y">direttamente</span> al brand</h2>
-    <p class="lead">Indirizzi diretti da cui partire. Tocca “Copia” e incolla nella tua mail. Le altre email le trovi col metodo qui sopra.</p>
+    <p class="lead">Brand della lista di Carlotta adatti anche a un pubblico maschile, gay o neutro. Prima di scrivere guarda sul loro sito o su Instagram se hanno una linea o una clientela uomo, e adatta il pitching. Tocca “Copia” e incolla nella tua mail.</p>
     <div class="cats" id="emails"></div>
     <p class="note">Gli indirizzi possono cambiare nel tempo. Se una mail rimbalza, prova a scrivere al brand su Instagram.</p>
   </div>
@@ -503,13 +503,34 @@ var WA_NUMBER = "393287276998";
 var WA_MESSAGE = "Ciao! Sono un ragazzo, ho letto la guida con i contatti dei brand e vorrei prenotare la call gratuita per capire come funziona UGC Level Up.";
 
 var EMAILS = [
-  { cat: "Outdoor e accessori (neutro)", items: [
+  { cat: "Haircare e cura dei capelli", items: [
+    ["Wella", "giovana.oliveira@wella.com"],
+    ["Aussie", "jenny.schnell@tulaforlife.com"],
+    ["Kérastase", "marisa.ferrara@loreal.com"],
+    ["Maaii Hair", "info@maaiihair.com"]
+  ]},
+  { cat: "Skincare e cura della pelle", items: [
+    ["Shiseido", "doreen.chia@tr.shiseido.com"],
+    ["Collistar", "customercare@collistar.it"],
+    ["Erborian", "josephine.rougeot@loccitane.com"],
+    ["Comfort Zone", "s.doherty@comfortzone.it"],
+    ["Dermaluci", "info@dermalucilab.com"]
+  ]},
+  { cat: "Makeup (per chi lo usa)", items: [
+    ["Clio Makeup", "federica.scolari@cliomakeup.com"],
+    ["Nabla", "info@nablacosmetics.com"],
+    ["Diego Dalla Palma", "demiri@diegodallapalma.com"]
+  ]},
+  { cat: "Wellness e outdoor", items: [
+    ["Frais Monde", "info@fraismonde.com"],
     ["Polarwise", "hello@polarwise.com"]
   ]}
 ];
 
 var DMS = [
-  { cat: "Neutri: lifestyle, app e nutrizione", items: ["elsenutrition","hypnozio.app","flibco","wondercompanyofficial","sto.puzzle","ecobioboutique_it","doncactus_apulia"] }
+  { cat: "Skincare e body care", items: ["skinproofcosmetics","clovecosmetics","nuud.care","nerrabody","rimadacqua","kosmerabeauty","fraismonde","polarwise"] },
+  { cat: "Gioielli e accessori", items: ["giordijewels","byvalenti","fruitsandjewels"] },
+  { cat: "Lifestyle, app e nutrizione", items: ["elsenutrition","hypnozio.app","flibco","wondercompanyofficial","sto.puzzle","ecobioboutique_it","doncactus_apulia"] }
 ];
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
