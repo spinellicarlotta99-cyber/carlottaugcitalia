@@ -311,12 +311,12 @@ legend{padding:0}
 </main>
 
 <script>
-/* ---- COLLEGAMENTO A GOOGLE FORM ----
-   action: l'indirizzo del modulo che finisce con /formResponse
-   fields: i codici entry.XXXX di Nome, Cognome e Disponibilità */
-const GOOGLE_FORM = {
-  action: "",
-  fields: { nome: "", cognome: "", date: "" }
+/* ---- COLLEGAMENTO A JOTFORM ----
+   Le risposte arrivano nel form "Brunch natalizio UGC Level Up - Disponibilità" */
+const JOTFORM = {
+  id: "263013972077054",
+  action: "https://submit.jotform.com/submit/263013972077054",
+  fields: { nome: "q2_textbox0", cognome: "q3_textbox1", date: "q4_checkbox2[]" }
 };
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -378,20 +378,28 @@ form.addEventListener('submit', async (e) => {
   const date = [...form.querySelectorAll('input[name="date"]:checked')].map(i => i.value);
   if (!nome || !cognome){ msg.textContent = 'Scrivi il tuo nome e il tuo cognome.'; msg.classList.add('err'); (nome ? form.cognome : form.nome).focus(); return; }
   if (!date.length){ msg.textContent = 'Scegli almeno una data.'; msg.classList.add('err'); return; }
-  if (!GOOGLE_FORM.action){ msg.textContent = 'Il modulo non è ancora collegato a Google Form.'; msg.classList.add('err'); return; }
   btn.disabled = true; btn.textContent = 'Invio in corso…';
-  try {
-    const body = new URLSearchParams();
-    body.append(GOOGLE_FORM.fields.nome, nome);
-    body.append(GOOGLE_FORM.fields.cognome, cognome);
-    date.forEach(d => body.append(GOOGLE_FORM.fields.date, d));
-    await fetch(GOOGLE_FORM.action, { method: 'POST', mode: 'no-cors', body });
-    form.hidden = true; $('#done').hidden = false;
-  } catch (err) {
-    btn.disabled = false; btn.textContent = 'Invia la mia disponibilità';
-    msg.textContent = 'Invio non riuscito. Controlla la connessione e riprova.'; msg.classList.add('err');
-  }
+  sendToJotform({ nome, cognome, date });
 });
+
+/* invio con un modulo nascosto: funziona da qualsiasi sito, senza server */
+function sendToJotform(data){
+  const frame = document.createElement('iframe');
+  frame.name = 'jf-' + Date.now(); frame.hidden = true; frame.title = 'Invio';
+  const f = document.createElement('form');
+  f.method = 'POST'; f.action = JOTFORM.action; f.target = frame.name; f.acceptCharset = 'utf-8'; f.hidden = true;
+  const add = (n, v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; f.appendChild(i); };
+  add('formID', JOTFORM.id); add('simple_spc', JOTFORM.id + '-' + JOTFORM.id);
+  add(JOTFORM.fields.nome, data.nome); add(JOTFORM.fields.cognome, data.cognome);
+  data.date.forEach(d => add(JOTFORM.fields.date, d));
+  let finished = false;
+  const ok = () => { if (finished) return; finished = true; form.hidden = true; $('#done').hidden = false; setTimeout(() => { frame.remove(); f.remove(); }, 500); };
+  const ko = () => { if (finished) return; finished = true; btn.disabled = false; btn.textContent = 'Invia la mia disponibilità'; msg.textContent = 'Invio non riuscito. Controlla la connessione e riprova.'; msg.classList.add('err'); frame.remove(); f.remove(); };
+  frame.addEventListener('load', ok);
+  document.body.append(frame, f);
+  setTimeout(ko, 15000);
+  f.submit();
+}
 </script>
 </body>
 </html>
