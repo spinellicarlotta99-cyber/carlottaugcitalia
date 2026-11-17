@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>100 hook per video UGC e Reel organici | Carlotta Spinelli</title>
+<meta name="description" content="Guida gratuita di Carlotta Spinelli: 100 hook pronti per video UGC e Reel organici, divisi in 5 tipologie.">
+<meta property="og:title" content="100 hook per video UGC e Reel organici | Carlotta Spinelli">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<style>
+/* Stessa grafica del sito UGC Level Up: Montserrat, giallo/rosa/nero, bordi neri 2.5px, ombre dure, pulsanti a pillola.
+   Look unico e chiaro, come il sito: nessuna variante scura. */
+:root {
+  --yellow: #fcfcc6;
+  --pink: #fcbce1;
+  --hot: #f58ec3;
+  --black: #0b0b0b;
+  --white: #ffffff;
+  --soft: #fff4fa;
+  --muted: #4a4a4a;
+  --f: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--soft);
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--soft); z-index: 60; }
+img { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; border-radius: 6px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: 84px; position: relative; }
+.eyebrow { font-size: .74rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+h1, h2, h3 { letter-spacing: -.035em; line-height: 1.02; font-weight: 800; text-wrap: balance; }
+h1 { font-size: clamp(2.3rem, 7vw, 4.6rem); }
+h2 { font-size: clamp(1.9rem, 4.8vw, 3.2rem); margin: 10px 0 16px; }
+h3 { font-size: 1.2rem; letter-spacing: -.02em; line-height: 1.15; }
+.mark { background: linear-gradient(transparent 56%, var(--pink) 56%); padding: 0 .1em; }
+.mark.y { background: linear-gradient(transparent 56%, var(--yellow) 56%); }
+.lead { font-size: 1.08rem; color: var(--muted); max-width: 56ch; font-weight: 500; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px; border-radius: 999px;
+  border: 2.5px solid var(--black); background: var(--black); color: #fff;
+  font: 800 .92rem var(--f); letter-spacing: .02em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+  transition: transform .25s cubic-bezier(.2, .9, .3, 1.4), background .2s, color .2s, box-shadow .2s;
+}
+.btn:hover { transform: translateY(-4px) rotate(-1deg); background: var(--pink); color: var(--black); box-shadow: 0 8px 0 var(--black); }
+.btn svg { width: 18px; height: 18px; transition: transform .25s; flex: none; }
+.btn:hover svg { transform: translateX(4px); }
+.chip { display: inline-block; padding: 8px 14px; background: #fff; border: 2.5px solid var(--black); border-radius: 999px; font-size: .78rem; font-weight: 800; }
+
+/* nav */
+nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(255, 244, 250, .92);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(11, 11, 11, .12);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; text-decoration: none; white-space: nowrap; flex: none; }
+.logo em { font-style: normal; font-weight: 500; }
+nav .btn { padding: 10px 20px; font-size: .78rem; white-space: nowrap; }
+@media (max-width: 600px) { .logo { font-size: 1.4rem; } nav .wrap { gap: 10px; } nav .btn { padding: 9px 14px; font-size: .7rem; } }
+@media (max-width: 400px) { .logo { font-size: 1.25rem; } nav .btn { padding: 8px 11px; font-size: .62rem; } }
+
+/* hero */
+.hero {
+  position: relative; padding-block: 72px 70px; overflow: hidden; text-align: center;
+  background: linear-gradient(180deg, var(--pink) 0%, #fde3f1 60%, var(--soft) 100%);
+}
+.blob { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; }
+.b1 { width: 380px; height: 380px; background: var(--yellow); left: -120px; top: 20%; opacity: .75; }
+.b2 { width: 300px; height: 300px; background: var(--hot); right: -90px; top: 6%; opacity: .55; }
+.hero .wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.hero h1 { max-width: 14ch; }
+.hero h1 .acc {
+  display: inline-block; background: var(--yellow); border: 2.5px solid var(--black); border-radius: 14px;
+  padding: 0 .18em; transform: rotate(-2deg); box-shadow: 5px 6px 0 var(--black);
+}
+.hero .lead { color: #2b2b2b; margin-inline: auto; }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.facts .chip { font-size: .85rem; padding: 10px 18px; }
+.facts b { font-weight: 800; font-size: 1.05em; font-variant-numeric: tabular-nums; }
+
+/* come usare */
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 38px; }
+.rule { border: 2.5px solid var(--black); border-radius: 26px; padding: 26px 24px; background: #fff; transition: transform .3s; }
+.rule:nth-child(1) { background: var(--yellow); }
+.rule:nth-child(3) { background: var(--pink); }
+.rule:hover { transform: translateY(-8px) rotate(-1deg); }
+.rule p { font-size: .95rem; font-weight: 500; color: #333; margin-top: 8px; }
+
+/* email */
+.sec-white { background: #fff; border-block: 2.5px solid var(--black); }
+.cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 38px; align-items: start; }
+.cat { border: 2.5px solid var(--black); border-radius: 26px; background: #fff; overflow: hidden; box-shadow: 6px 8px 0 var(--black); }
+.cat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 2.5px solid var(--black); }
+.cat:nth-child(odd) .cat-head { background: var(--yellow); }
+.cat:nth-child(even) .cat-head { background: var(--pink); }
+.cat-head h3 { font-size: 1.1rem; }
+.cat-head span { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 14px; align-items: center; padding: 14px 22px; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); }
+.row:last-child { border-bottom: 0; }
+.row .name { font-weight: 800; font-size: .98rem; grid-column: 1; }
+.row .mail { font-weight: 500; font-size: .86rem; color: var(--muted); overflow-wrap: anywhere; grid-column: 1; }
+.row .copy { grid-column: 2; grid-row: 1 / span 2; }
+.copy {
+  font: 800 .72rem var(--f); letter-spacing: .06em; text-transform: uppercase;
+  background: #fff; color: var(--black); border: 2.5px solid var(--black); border-radius: 999px;
+  padding: 8px 14px; min-width: 6.6rem; cursor: pointer;
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+.copy:hover { background: var(--pink); transform: translateY(-2px); box-shadow: 0 4px 0 var(--black); }
+.note { margin-top: 30px; font-size: .92rem; font-weight: 600; max-width: 64ch; }
+
+/* DM */
+.dark { background: var(--black); color: #fff; }
+.dark .lead { color: #cfcfcf; }
+.dm-groups { display: flex; flex-direction: column; gap: 34px; margin-top: 38px; }
+.dm-group h3 { font-size: 1.05rem; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.dark .chip { background: transparent; color: #fff; border-color: #fff; text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+.dark .chip:hover { background: var(--pink); color: var(--black); transform: translateY(-3px) rotate(-2deg); }
+
+/* pitching */
+.pitch { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px 56px; align-items: start; margin-top: 30px; }
+.pitch .text { display: flex; flex-direction: column; gap: 16px; font-weight: 500; color: #2b2b2b; }
+.pitch .cap { margin-bottom: 14px; }
+.wins { display: flex; flex-direction: column; gap: 12px; }
+.win { border: 2.5px solid var(--black); border-radius: 22px; padding: 16px 20px; font-weight: 800; letter-spacing: -.02em; background: #fff; transition: transform .3s; }
+.win:nth-child(1) { background: var(--yellow); }
+.win:nth-child(3) { background: var(--pink); }
+.win:hover { transform: translateY(-4px) rotate(-1deg); }
+
+/* CTA */
+.cta-sec { background: var(--pink); border-top: 2.5px solid var(--black); }
+.cta {
+  background: var(--yellow); border: 3px solid var(--black); border-radius: 24px; box-shadow: 8px 10px 0 var(--black);
+  padding: clamp(28px, 6vw, 56px); display: flex; flex-direction: column; align-items: flex-start; gap: 22px;
+}
+.cta h2 { margin: 0; max-width: 18ch; }
+.cta p { font-weight: 500; max-width: 52ch; color: #2b2b2b; }
+.msg { background: #fff; border: 2.5px solid var(--black); border-radius: 18px; padding: 14px 18px; font-weight: 600; font-size: .95rem; max-width: 52ch; }
+.msg small { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
+
+footer { background: var(--black); color: #fff; padding-block: 26px calc(26px + env(safe-area-inset-bottom, 0px)); font-size: .85rem; font-weight: 600; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; }
+footer em { font-style: normal; font-weight: 500; }
+
+@media (max-width: 860px) {
+  .cats { grid-template-columns: 1fr; }
+  .pitch { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  section { padding-block: 64px; }
+  .rules { grid-template-columns: 1fr; }
+  .hero { padding-block: 52px 56px; }
+  .cta .btn { align-self: stretch; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+
+html { scroll-padding-top: 84px; }
+.big { font-size: clamp(1.8rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; max-width: 22ch; text-wrap: balance; }
+
+/* cos'è l'UGC */
+.what { background: #fff; border-bottom: 2.5px solid var(--black); padding-block: 40px; }
+.what-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 18px; }
+.what-grid > div { border-top: 3px solid var(--hot); padding-top: 12px; }
+.what-grid p { font-weight: 500; font-size: .98rem; color: #2b2b2b; }
+.what-grid b { display: block; font-weight: 800; color: var(--black); font-size: 1.02rem; margin-bottom: 4px; letter-spacing: -.01em; }
+
+/* passi (sequenza reale, quindi numerati) */
+.steps { position: relative; display: flex; flex-direction: column; gap: 38px; margin-top: 44px; max-width: 900px; }
+.steps::before { content: ""; position: absolute; left: 27px; top: 28px; bottom: 28px; border-left: 3px dashed rgba(11, 11, 11, .35); }
+.step { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 22px; }
+.dot { width: 56px; height: 56px; border-radius: 50%; background: var(--pink); border: 2.5px solid var(--black); display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; position: relative; z-index: 1; }
+.step:nth-child(even) .dot { background: var(--yellow); }
+.step-body { display: flex; flex-direction: column; gap: 12px; padding-top: 10px; min-width: 0; }
+.step-body h3 { font-size: 1.4rem; }
+.step-body p { font-weight: 500; color: #2b2b2b; max-width: 62ch; }
+.tip { background: var(--yellow); border: 2.5px solid var(--black); border-radius: 18px; padding: 12px 16px; font-size: .92rem; font-weight: 600; max-width: 62ch; }
+.tip b { font-weight: 800; }
+.tip a { font-weight: 800; }
+.tip .ph { background: #fff; }
+
+/* hook + corpo + cta */
+.anat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.anat > div { border: 2.5px solid var(--black); border-radius: 22px; padding: 16px 16px 18px; background: #fff; display: flex; flex-direction: column; gap: 6px; }
+.anat > div:nth-child(1) { background: var(--pink); }
+.anat > div:nth-child(3) { background: var(--yellow); }
+.anat small { font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.anat h4 { font-size: 1.3rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
+.anat p { font-size: .9rem !important; font-weight: 500; }
+.example { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; max-width: 62ch; }
+.example .ex { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 12px; font-weight: 500; font-size: .95rem; }
+.example .ex b { font-weight: 800; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; padding-top: 3px; }
+.cta-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+
+.tpl { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; box-shadow: 6px 8px 0 var(--black); padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
+.tpl .text { white-space: pre-line; font-weight: 500; font-size: .95rem; }
+.ph { background: var(--pink); border-radius: 6px; padding: 0 .25em; font-weight: 600; }
+.tpl .copy { align-self: flex-start; min-width: 9rem; }
+.plat { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* hook per nicchia */
+.jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+a.chip { text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+a.chip:hover { background: var(--pink); transform: translateY(-3px) rotate(-2deg); box-shadow: 3px 4px 0 var(--black); }
+.niches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; margin-top: 38px; align-items: start; }
+.niche { border: 2.5px solid var(--black); border-radius: 26px; background: #fff; overflow: hidden; box-shadow: 6px 8px 0 var(--black); }
+.niche-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 2.5px solid var(--black); }
+.niche:nth-child(odd) .niche-head { background: var(--yellow); }
+.niche:nth-child(even) .niche-head { background: var(--pink); }
+.niche-head h3 { font-size: 1.15rem; }
+.niche-head span { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.niche-brands { padding: 12px 22px; background: var(--soft); border-bottom: 2.5px solid var(--black); font-size: .82rem; font-weight: 600; }
+.niche ol { list-style: none; margin: 0; padding: 4px 22px 8px; }
+.niche li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 10px; padding: 13px 0; border-bottom: 1.5px dashed rgba(11, 11, 11, .25); }
+.niche li:last-child { border-bottom: 0; }
+.niche li i { font-style: normal; font-weight: 800; font-size: .8rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.niche .hook { display: block; font-weight: 800; font-size: 1rem; line-height: 1.3; letter-spacing: -.01em; }
+.niche .body { display: block; margin-top: 4px; font-weight: 500; font-size: .88rem; line-height: 1.45; color: var(--muted); }
+
+/* altre guide */
+.more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
+a.more-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; border: 2.5px solid var(--black); border-radius: 26px; padding: 24px; background: #fff; transition: transform .3s; }
+a.more-card:nth-child(1) { background: var(--yellow); }
+a.more-card:nth-child(2) { background: var(--pink); }
+a.more-card:hover { transform: translateY(-8px) rotate(-1deg); }
+a.more-card p { font-size: .95rem; font-weight: 500; color: #2b2b2b; }
+a.more-card .go { font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+
+/* chi sono */
+.about { background: var(--yellow); border-top: 2.5px solid var(--black); overflow: hidden; }
+.agrid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
+.aph { position: relative; max-width: 420px; margin-inline: auto; width: 100%; }
+.aph .ring { position: absolute; inset: 8% 4% 0; border-radius: 50%; background: var(--pink); border: 3px solid var(--black); }
+.aph img { position: relative; display: block; width: 100%; height: auto; }
+.about p { font-size: 1.04rem; font-weight: 500; margin-bottom: 14px; max-width: 52ch; }
+.about strong { font-weight: 800; }
+.teasers-head { margin-top: 56px; }
+.teasers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+.teaser { background: #fff; border: 2.5px solid var(--black); border-radius: 22px; padding: 18px 20px; }
+.teaser:nth-child(2), .teaser:nth-child(4), .teaser:nth-child(6) { background: var(--pink); }
+.teaser h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.about .teaser p { font-size: .9rem; font-weight: 500; color: #333; margin: 0; }
+
+@media (max-width: 960px) {
+  .teasers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .niches { grid-template-columns: 1fr; }
+  .agrid { grid-template-columns: 1fr; gap: 32px; }
+  .aph { max-width: 340px; }
+}
+@media (max-width: 700px) {
+  .more { grid-template-columns: 1fr; }
+  .what-grid { grid-template-columns: 1fr; gap: 18px; }
+  .anat { grid-template-columns: 1fr; }
+  .teasers { grid-template-columns: 1fr; }
+  .step { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
+  .dot { width: 44px; height: 44px; font-size: 1rem; }
+  .steps::before { left: 21px; }
+  .step-body h3 { font-size: 1.2rem; }
+  .example .ex { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* tutto centrato, desktop e mobile (questo blocco sta in fondo di proposito) */
+body { text-align: center; }
+p { margin-inline: auto; }
+nav .wrap { justify-content: center; gap: 22px; }
+.jump, .chips, .plat, .cta-list, .facts, .kws, .topics { justify-content: center; }
+.big, .lead, .sub, .note { margin-inline: auto; }
+.note { border-left: 0; padding-left: 0; }
+.tip, .tpl, .example, .msg, .steps { margin-inline: auto; }
+.tpl { align-items: center; }
+.tpl .copy { align-self: center; }
+.example .ex { grid-template-columns: 1fr; gap: 2px; justify-items: center; }
+.what-grid > div, .rule, .teaser { text-align: center; }
+
+/* passi: un blocco sotto l'altro, centrati */
+.steps::before { display: none; }
+.step { grid-template-columns: 1fr; justify-items: center; gap: 14px; }
+.step-body { align-items: center; padding-top: 0; }
+.dot { margin-inline: auto; }
+
+/* schede con liste */
+.cat-head, .niche-head { flex-direction: column; justify-content: center; align-items: center; gap: 4px; }
+.row { grid-template-columns: minmax(0, 1fr); justify-items: center; row-gap: 6px; padding: 16px 22px; }
+.row .name, .row .mail, .row .copy { grid-column: 1; grid-row: auto; }
+.niche li { grid-template-columns: minmax(0, 1fr); gap: 2px; justify-items: center; }
+.niche li i { padding-top: 0; }
+.dm-groups { align-items: center; }
+
+/* altre sezioni */
+.pitch { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+.pitch .text { align-items: center; }
+.wins { width: 100%; max-width: 460px; margin-inline: auto; }
+.agrid { grid-template-columns: minmax(0, 1fr); gap: 32px; justify-items: center; }
+.aph { max-width: 340px; }
+a.more-card { align-items: center; }
+.cta { align-items: center; }
+.cta h2 { margin-inline: auto; }
+footer .wrap { flex-direction: column; align-items: center; justify-content: center; }
+
+
+/* nicchie a scomparsa */
+details.niche > summary.niche-head { cursor: pointer; list-style: none; position: relative; padding-right: 56px; padding-left: 56px; transition: filter .2s; user-select: none; }
+details.niche > summary.niche-head::-webkit-details-marker { display: none; }
+details.niche > summary.niche-head:hover { filter: brightness(.97); }
+details.niche > summary.niche-head::after { content: "+"; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border: 2.5px solid var(--black); border-radius: 50%; background: #fff; display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; line-height: 1; padding-bottom: 2px; }
+details.niche[open] > summary.niche-head::after { content: "\2212"; background: var(--black); color: #fff; }
+details.niche:not([open]) > summary.niche-head { border-bottom: 0; }
+details.niche { scroll-margin-top: 90px; }
+
+/* guida hook */
+.niches.one { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin-inline: auto; }
+.niche .tag { display: inline-block; font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: var(--pink); border: 1.5px solid var(--black); border-radius: 999px; padding: 2px 10px; margin-bottom: 6px; }
+.niche-head span { white-space: normal !important; text-align: center; line-height: 1.35; }
+details.niche > summary.niche-head { padding-left: 52px; padding-right: 52px; }
+.niche li.pr { grid-template-columns: minmax(0, 1fr); }
+.niche li.pr .hook { font-size: 1.02rem; }
+.niche li.pr .body { font-size: .92rem; }
+.niche .body em { font-style: italic; }
+.lead strong, .niche .body strong { font-weight: 800; color: var(--black); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">UGC <em>Level Up</em></a>
+    <a class="btn" id="wa-nav" href="https://wa.me/393287276998" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <p class="eyebrow">Guida gratuita</p>
+    <h1>100 hook per <span class="acc">video UGC</span> e Reel organici</h1>
+    <p class="lead">Per quando sai cosa vuoi filmare, ma continui a rifare la prima frase. Scegli un hook, cambia il dettaglio tra parentesi e dillo come lo diresti in un vocale a un’amica.</p>
+    <div class="facts"><span class="chip">100 hook</span><span class="chip">5 tipologie</span></div>
+  </div>
+</header>
+
+<section id="idee">
+  <div class="wrap">
+    <p class="eyebrow">5 tipologie, 100 hook</p>
+    <h2>Scegli la <span class="mark y">tipologia</span></h2>
+    <p class="lead">Tocca una tipologia e si apre la lista. Ogni hook ha l’etichetta della nicchia, così trovi subito l’esempio più vicino al tuo video. Lo stesso hook può funzionare in più nicchie.</p>
+    <div class="jump"><a class="chip" href="#tipo-before-after">Before &amp; after</a><a class="chip" href="#tipo-storytelling-hook">Storytelling hook</a><a class="chip" href="#tipo-curiosity-hook">Curiosity hook</a><a class="chip" href="#tipo-problema-a-soluzione">Problema → soluzione</a><a class="chip" href="#tipo-test-confronto-e-reazioni">Test, confronto e reazioni</a></div>
+    <div class="niches one"><details class="niche" id="tipo-before-after"><summary class="niche-head"><h3>Before &amp; after</h3><span>Fai vedere cosa cambia · 1-20</span></summary><div class="niche-brands">Puoi partire dal risultato o dalla situazione iniziale. Quando il confronto è visivo, inquadra i due momenti nello stesso modo per rendere il cambiamento facile da vedere.</div><ol><li><i>1</i><div><span class="tag">Makeup</span><span class="hook">“Ho messo il blush in due punti diversi. Guardate come cambia la guancia da una parte e dall’altra.”</span></div></li><li><i>2</i><div><span class="tag">Haircare</span><span class="hook">“Questi sono i miei capelli appena sveglia. Vi faccio vedere cosa riesco a fare in dieci minuti prima di uscire.”</span></div></li><li><i>3</i><div><span class="tag">Skincare</span><span class="hook">“Da questa parte ho aspettato cinque minuti tra skincare e trucco. Da questa sono andata subito di fondotinta. Guardate da vicino.”</span></div></li><li><i>4</i><div><span class="tag">Fashion</span><span class="hook">“Stessi jeans, due giacche. Una la metterei in ufficio e l’altra per uscire a cena.”</span></div></li><li><i>5</i><div><span class="tag">Food</span><span class="hook">“Ieri era il risotto avanzato. Oggi lo apriamo così.”</span><span class="body">Apri l’arancino in camera.</span></div></li><li><i>6</i><div><span class="tag">App e servizi</span><span class="hook">“Prima cercavo i riferimenti nei vocali e nelle chat. Vi faccio vedere dove li ritrovo adesso quando devo girare.”</span></div></li><li><i>7</i><div><span class="tag">Beauty</span><span class="hook">“Vi faccio vedere queste unghie appena fatte e come sono dopo [giorni] di vita normale.”</span></div></li><li><i>8</i><div><span class="tag">Makeup</span><span class="hook">“Questa era la base alle otto del mattino. Adesso sono appena rientrata e vi faccio vedere dove ha retto e dove no.”</span></div></li><li><i>9</i><div><span class="tag">Haircare</span><span class="hook">“Stesso ferro, due modi di arrotolare la ciocca. Adesso le spazzolo entrambe così vedete la differenza.”</span></div></li><li><i>10</i><div><span class="tag">Vlog</span><span class="hook">“Alle 17 il tavolo era ancora la mia scrivania. Alle 19 ci mangiavamo in sei.”</span></div></li><li><i>11</i><div><span class="tag">Fashion</span><span class="hook">“Ho provato questi pantaloni con due altezze di scarpa. Guardate come cambia la lunghezza quando cammino.”</span></div></li><li><i>12</i><div><span class="tag">Food</span><span class="hook">“Questo è lo stesso aperitivo prima e dopo che ho iniziato a impiattare. Ho usato quello che c’era già in frigo.”</span></div></li><li><i>13</i><div><span class="tag">Makeup</span><span class="hook">“Metà viso con il pennello e metà con la spugnetta. Vi faccio vedere la base alla luce della finestra.”</span></div></li><li><i>14</i><div><span class="tag">Skincare</span><span class="hook">“Vi faccio vedere come si stendono queste due creme sotto lo stesso SPF. Da questa parte si vede già una differenza.”</span></div></li><li><i>15</i><div><span class="tag">App e servizi</span><span class="hook">“Questa era la mia prenotazione tra screenshot, mail e note. Vi faccio vedere come la ritrovo adesso dal telefono.”</span></div></li><li><i>16</i><div><span class="tag">Beauty</span><span class="hook">“Ho usato lo stesso smalto su entrambe le mani. Solo su una ho messo il top coat. Eccole dopo [giorni].”</span></div></li><li><i>17</i><div><span class="tag">Haircare</span><span class="hook">“Questa è la piega quando esco di casa. Vi faccio vedere cosa ne resta dopo [tempo] fuori.”</span></div></li><li><i>18</i><div><span class="tag">Reel organico</span><span class="hook">“Questo era l’hook che avevo scritto. Questo è quello che ho tenuto dopo aver visto tutte le riprese.”</span></div></li><li><i>19</i><div><span class="tag">Reel organico</span><span class="hook">“Vi faccio sentire lo stesso voiceover con due montaggi. Ascoltate cosa cambia quando sposto il primo taglio.”</span></div></li><li><i>20</i><div><span class="tag">Reel organico</span><span class="hook">“Questa era la mia inquadratura prima di spostare il cavalletto. Guardate come cambia lo sfondo con mezzo metro di differenza.”</span></div></li></ol></details><details class="niche" id="tipo-storytelling-hook"><summary class="niche-head"><h3>Storytelling hook</h3><span>Entra in una scena già iniziata · 21-40</span></summary><div class="niche-brands">Apri con una decisione, un imprevisto o un dettaglio che fa capire subito dove siamo. Da lì puoi far entrare il prodotto, il servizio o il tema del Reel.</div><ol><li><i>21</i><div><span class="tag">Vlog</span><span class="hook">“Come si inaugura casa nuova? Noi partiamo dall’aperitivo.”</span></div></li><li><i>22</i><div><span class="tag">Fashion</span><span class="hook">“Ero uscita per comprare un regalo e sono tornata con l’unica cosa che mancava al mio outfit per sabato.”</span></div></li><li><i>23</i><div><span class="tag">Food</span><span class="hook">“Avevo detto “passate pure per un aperitivo”. Poi ho aperto il frigo e mi sono ricordata che era giovedì.”</span></div></li><li><i>24</i><div><span class="tag">Haircare</span><span class="hook">“Avevo già il cappotto addosso quando mi sono guardata allo specchio e ho deciso di rifare la frangia.”</span></div></li><li><i>25</i><div><span class="tag">Beauty</span><span class="hook">“Ho iniziato a tenere questo nella borsa il giorno in cui mi sono truccata interamente sul sedile del passeggero.”</span></div></li><li><i>26</i><div><span class="tag">Makeup</span><span class="hook">“Avevo promesso che sarei stata pronta in dieci minuti. Poi mi sono ricordata che volevo provare anche l’eyeliner.”</span></div></li><li><i>27</i><div><span class="tag">Skincare</span><span class="hook">“Mi sono accorta di quante cose portavo per la skincare quando ho provato a farle stare tutte nel beauty del bagaglio a mano.”</span></div></li><li><i>28</i><div><span class="tag">App e servizi</span><span class="hook">“Avevo appena chiuso il computer quando mi sono ricordata che dovevo ancora mandare [documento] entro sera.”</span></div></li><li><i>29</i><div><span class="tag">Vlog</span><span class="hook">“Pensavo che sabato avrei finalmente sistemato quest’angolo di casa. Sono finita fuori a cercare [oggetto] alle nove del mattino.”</span></div></li><li><i>30</i><div><span class="tag">Fashion</span><span class="hook">“Ho tenuto questo vestito nell’armadio per [tempo] aspettando l’occasione giusta. Poi l’ho messo per andare a fare colazione.”</span></div></li><li><i>31</i><div><span class="tag">Food</span><span class="hook">“Mia [mamma/nonna/amica] mi ha detto “fai a occhio”. Vi faccio vedere cosa è successo quando ho provato la sua ricetta da sola.”</span></div></li><li><i>32</i><div><span class="tag">Haircare</span><span class="hook">“Per anni prendevo appuntamento per la piega prima di ogni evento. Questa è la prima volta che ho provato a ricrearla a casa.”</span></div></li><li><i>33</i><div><span class="tag">Makeup</span><span class="hook">“La mia amica aveva portato un solo prodotto per ritoccare il trucco dopo cena. Alla fine l’abbiamo usato tutte.”</span></div></li><li><i>34</i><div><span class="tag">App e servizi</span><span class="hook">“Avevo salvato il locale in tre posti diversi. Quando è arrivato il momento di prenotare, non ricordavo nemmeno come si chiamasse.”</span></div></li><li><i>35</i><div><span class="tag">Beauty</span><span class="hook">“Stavo per mettere questo profumo nel cassetto dei regali da fare. Poi l’ho spruzzato sulla felpa che mettevo tutti i giorni.”</span></div></li><li><i>36</i><div><span class="tag">Vlog</span><span class="hook">“Oggi volevo farvi vedere la mia nuova routine prima delle nove. Alle [ora] ero ancora in pigiama a cercare il caricatore.”</span></div></li><li><i>37</i><div><span class="tag">Fashion</span><span class="hook">“Mi hanno detto “vestiti comoda, camminiamo un po’”. A fine giornata il telefono segnava [passi]. E queste erano le scarpe che avevo scelto.”</span></div></li><li><i>38</i><div><span class="tag">Reel organico</span><span class="hook">“Il cliente mi ha approvato lo script. Poi ho iniziato a girare e mi sono accorta che la prima frase funzionava meglio a metà video.”</span></div></li><li><i>39</i><div><span class="tag">Reel organico</span><span class="hook">“La prima volta che ho girato in negozio avevo una lista di riprese lunghissima. Dopo cinque minuti avevo già cambiato l’ordine.”</span></div></li><li><i>40</i><div><span class="tag">Reel organico</span><span class="hook">“Avevo pianificato di registrare tre video dopo il lavoro. Alle sette avevo girato una sola clip, ed era quella da cui ho aperto il Reel.”</span></div></li></ol></details><details class="niche" id="tipo-curiosity-hook"><summary class="niche-head"><h3>Curiosity hook</h3><span>Dai un dettaglio che fa venire una domanda · 41-60</span></summary><div class="niche-brands">Dai abbastanza contesto per far capire perché vale la pena guardare. Poi fai vedere il dettaglio, il motivo o il risultato che hai anticipato.</div><ol><li><i>41</i><div><span class="tag">Makeup</span><span class="hook">“Questo rossetto sembra [colore] appena lo metto. Aspettate di vederlo alla luce del giorno.”</span></div></li><li><i>42</i><div><span class="tag">Haircare</span><span class="hook">“Il risultato della piega è cambiato quando ho iniziato a fare una cosa prima ancora di accendere il phon.”</span></div></li><li><i>43</i><div><span class="tag">Skincare</span><span class="hook">“Ho applicato i miei soliti prodotti nello stesso ordine. L’unica cosa che ho cambiato è quanto ho aspettato prima del trucco.”</span></div></li><li><i>44</i><div><span class="tag">Fashion</span><span class="hook">“Ho provato questa camicia in tre taglie. Indovinate quale ho tenuto per farla cadere così.”</span></div></li><li><i>45</i><div><span class="tag">Food</span><span class="hook">“Questo è l’ingrediente che tutti hanno cercato di indovinare dopo il primo morso.”</span></div></li><li><i>46</i><div><span class="tag">App e servizi</span><span class="hook">“Ho scaricato quest’app per [funzione]. La schermata che apro tutti i giorni, però, è questa.”</span></div></li><li><i>47</i><div><span class="tag">Beauty</span><span class="hook">“Questi due colori sembravano uguali in negozio. Li ho messi uno accanto all’altro vicino alla finestra.”</span></div></li><li><i>48</i><div><span class="tag">Vlog</span><span class="hook">“Ho chiesto a [persona] di scegliere una cosa per casa senza dirmi cosa fosse. È arrivato questo pacco.”</span></div></li><li><i>49</i><div><span class="tag">Makeup</span><span class="hook">“Ho fatto gli occhi con [numero] prodotti. Quello che ho usato come ombretto di solito sta nel mio porta-rossetti.”</span></div></li><li><i>50</i><div><span class="tag">Haircare</span><span class="hook">“Vi faccio vedere come ho dormito con i capelli ieri sera. Poi apriamo insieme la piega.”</span></div></li><li><i>51</i><div><span class="tag">Fashion</span><span class="hook">“Questo è il capo che stavo per rimettere sullo scaffale. Poi l’ho provato con qualcosa che avevo già addosso.”</span></div></li><li><i>52</i><div><span class="tag">Food</span><span class="hook">“A prima vista sembra un normalissimo [piatto]. Guardate cosa c’è dentro quando lo taglio.”</span></div></li><li><i>53</i><div><span class="tag">App e servizi</span><span class="hook">“Ho usato [servizio] per [tempo]. Questa è la funzione che ho trovato solo quando stavo per smettere di usarlo.”</span></div></li><li><i>54</i><div><span class="tag">Skincare</span><span class="hook">“Ho provato la stessa routine su due giorni diversi. Indovinate quale passaggio mi ha fatto cambiare come preparo la pelle prima del makeup.”</span></div></li><li><i>55</i><div><span class="tag">Beauty</span><span class="hook">“Nella borsa per il weekend ho messo solo [numero] prodotti beauty. Uno lo uso in tre modi diversi.”</span></div></li><li><i>56</i><div><span class="tag">Vlog</span><span class="hook">“Avevo fatto un programma per tutta la giornata. La cosa che mi è piaciuta di più è successa prima ancora di arrivare alla prima tappa.”</span></div></li><li><i>57</i><div><span class="tag">Fashion</span><span class="hook">“Tutti mi chiedono da dove viene questo outfit. Il pezzo che sembra comprato per ultimo è quello che ho nell’armadio da più tempo.”</span></div></li><li><i>58</i><div><span class="tag">Reel organico</span><span class="hook">“Questa ripresa dura due secondi. Se la tolgo, la prima frase del video cambia completamente senso.”</span></div></li><li><i>59</i><div><span class="tag">Reel organico</span><span class="hook">“Ho scritto tre hook per lo stesso brief. Vi faccio vedere quale sceglierei per un video organico e che cosa mi ha fatto decidere.”</span></div></li><li><i>60</i><div><span class="tag">Reel organico</span><span class="hook">“Questa è la clip che apro sempre quando un video mi sembra lento. Vi faccio vedere il punto preciso in cui di solito taglio.”</span></div></li></ol></details><details class="niche" id="tipo-problema-a-soluzione"><summary class="niche-head"><h3>Problema → soluzione</h3><span>Fai riconoscere subito chi guarda · 61-80</span></summary><div class="niche-brands">Parti da un fastidio concreto e da un momento in cui succede. Il corpo del video mostra cosa fai, cosa provi o cosa cambi.</div><ol><li><i>61</i><div><span class="tag">Makeup</span><span class="hook">“Se il correttore ti si accumula sotto l’occhio appena finisci di truccarti, guarda dove metto meno prodotto.”</span></div></li><li><i>62</i><div><span class="tag">Haircare</span><span class="hook">“Se hai i capelli mossi e dormendo schiacci sempre lo stesso lato, ti faccio vedere come sistemo solo quella parte al mattino.”</span></div></li><li><i>63</i><div><span class="tag">Skincare</span><span class="hook">“Se ogni volta che metti il trucco sopra l’SPF ti si formano i pallini, guarda quale passaggio ho provato a cambiare nella mia routine.”</span></div></li><li><i>64</i><div><span class="tag">Fashion</span><span class="hook">“Se col freddo finisci per coprire tutto l’outfit con lo stesso cappotto, partiamo proprio da quello per vestirci.”</span></div></li><li><i>65</i><div><span class="tag">Food</span><span class="hook">“Se arrivi a casa tardi e hai solo [ingrediente] e [ingrediente] in frigo, questa è la cena che farei.”</span></div></li><li><i>66</i><div><span class="tag">App e servizi</span><span class="hook">“Se salvi i posti da provare su Instagram e poi non riesci mai a ritrovarli quando sei in zona, ti faccio vedere come li organizzo.”</span></div></li><li><i>67</i><div><span class="tag">Vlog</span><span class="hook">“Se lavori fino alle cinque e appena arrivi a casa ti passa la voglia di fare qualsiasi cosa, ti porto con me nella prima mezz’ora dopo il lavoro.”</span></div></li><li><i>68</i><div><span class="tag">Beauty</span><span class="hook">“Se quando viaggi il profumo è la prima cosa che togli dal beauty perché occupa spazio, guarda cosa mi porto dietro adesso.”</span></div></li><li><i>69</i><div><span class="tag">Makeup</span><span class="hook">“Se il blush sparisce mentre stai ancora finendo il resto del trucco, ti faccio vedere in che ordine lo applico io.”</span></div></li><li><i>70</i><div><span class="tag">Haircare</span><span class="hook">“Se asciughi sempre prima tutte le lunghezze e poi la frangia fa quello che vuole, ti faccio vedere da dove parto io.”</span></div></li><li><i>71</i><div><span class="tag">Skincare</span><span class="hook">“Se in viaggio la tua routine finisce sempre a metà, prepara il beauty con me per [numero] giorni.”</span></div></li><li><i>72</i><div><span class="tag">Fashion</span><span class="hook">“Se hai un matrimonio e vuoi rimettere lo stesso abito anche dopo, ti faccio vedere come lo abbinerei per due occasioni.”</span></div></li><li><i>73</i><div><span class="tag">Food</span><span class="hook">“Se ogni volta compri le verdure e a fine settimana ne ritrovi metà in frigo, guarda cosa preparo con quelle che mi sono rimaste.”</span></div></li><li><i>74</i><div><span class="tag">App e servizi</span><span class="hook">“Se siete in due a organizzare un viaggio e le informazioni finiscono in quattro chat diverse, vi faccio vedere come teniamo tutto nello stesso posto.”</span></div></li><li><i>75</i><div><span class="tag">Beauty</span><span class="hook">“Se devi uscire subito dopo il lavoro, questo è il ritocco che riesco a fare con quello che ho già in borsa.”</span></div></li><li><i>76</i><div><span class="tag">Vlog</span><span class="hook">“Se hai amici a cena e mezz’ora per sistemare casa, ti faccio vedere in che ordine faccio le cose.”</span></div></li><li><i>77</i><div><span class="tag">Reel organico</span><span class="hook">“Se il tuo hook ti sembra lungo, leggi solo la seconda frase. Ti faccio vedere perché nel mio script ho iniziato da lì.”</span></div></li><li><i>78</i><div><span class="tag">Reel organico</span><span class="hook">“Se apri sempre i Reel con “oggi vi faccio vedere”, prendi questo mio esempio e prova a partire dalla scena che viene dopo.”</span></div></li><li><i>79</i><div><span class="tag">Reel organico</span><span class="hook">“Se quando registri il voiceover sembri leggere, guarda cosa lascio scritto sullo schermo mentre parlo.”</span></div></li><li><i>80</i><div><span class="tag">Reel organico</span><span class="hook">“Se monti un Reel e ti accorgi che nei primi tre secondi non succede ancora niente, ti faccio vedere quale clip sposterei all’inizio.”</span></div></li></ol></details><details class="niche" id="tipo-test-confronto-e-reazioni"><summary class="niche-head"><h3>Test, confronto e reazioni</h3><span>Mostra la prova · 81-100</span></summary><div class="niche-brands">Fai una domanda a cui il video può rispondere. Puoi confrontare due opzioni, provare qualcosa nella vita reale o partire da una reazione autentica.</div><ol><li><i>81</i><div><span class="tag">Makeup</span><span class="hook">“Ho messo due mascara diversi, uno per occhio. Vi faccio vedere quale com’è dopo [ore].”</span></div></li><li><i>82</i><div><span class="tag">Haircare</span><span class="hook">“Ho fatto la piega con [strumento] prima di uscire. La prossima volta che accendo la fotocamera sarà appena torno a casa.”</span></div></li><li><i>83</i><div><span class="tag">Skincare</span><span class="hook">“Provo [prodotto] sotto il trucco che uso tutti i giorni. Voglio vedere come si stende il fondotinta qui, intorno al naso.”</span></div></li><li><i>84</i><div><span class="tag">Fashion</span><span class="hook">“Queste scarpe mi piacciono da ferma. Adesso le metto per [tragitto] e vi dico come sono da portare davvero.”</span></div></li><li><i>85</i><div><span class="tag">Food</span><span class="hook">“Ho fatto la stessa ricetta in forno e in friggitrice ad aria. Le apro entrambe mentre sono ancora calde.”</span></div></li><li><i>86</i><div><span class="tag">App e servizi</span><span class="hook">“Dicono che posso fare [azione] dal telefono. Parto da zero e vi faccio vedere tutti i passaggi che mi chiede.”</span></div></li><li><i>87</i><div><span class="tag">Beauty</span><span class="hook">“Ho spruzzato [profumo] prima di uscire. A fine giornata chiedo a [persona] se lo sente ancora sulla felpa.”</span></div></li><li><i>88</i><div><span class="tag">Vlog</span><span class="hook">“Per una settimana ho provato a preparare [cosa] la sera prima. Questa è la mattina in cui mi è servito davvero.”</span></div></li><li><i>89</i><div><span class="tag">Makeup</span><span class="hook">“Ho messo un rossetto diverso a destra e a sinistra. Ora beviamo il caffè e guardiamo cosa è rimasto sulla tazza.”</span></div></li><li><i>90</i><div><span class="tag">Haircare</span><span class="hook">“Ho chiesto alla mia parrucchiera quale lato avevo fatto da sola. Vi faccio vedere i due lati prima di dirvi cosa ha risposto.”</span></div></li><li><i>91</i><div><span class="tag">Skincare</span><span class="hook">“Ho messo due SPF, uno per lato. Aspetto che si asciughino e poi vi faccio vedere come appaiono sulla mia pelle alla finestra.”</span></div></li><li><i>92</i><div><span class="tag">Fashion</span><span class="hook">“La mia amica ha scelto il look dalle foto. Io l’ho scelto dopo averli provati tutti. Vediamo se abbiamo scelto lo stesso.”</span></div></li><li><i>93</i><div><span class="tag">Food</span><span class="hook">“Ho fatto assaggiare a [persona] la versione classica e quella con [ingrediente]. Le ho chiesto quale vorrebbe rifare.”</span></div></li><li><i>94</i><div><span class="tag">App e servizi</span><span class="hook">“Ho fatto la stessa cosa come la facevo prima e poi con [app]. Vi faccio vedere quanto ci ho messo in entrambi i casi.”</span></div></li><li><i>95</i><div><span class="tag">Beauty</span><span class="hook">“Ho messo due kit da viaggio sul tavolo. Vediamo quale riesce a contenere davvero tutto quello che porto per un weekend.”</span></div></li><li><i>96</i><div><span class="tag">Vlog</span><span class="hook">“Ho lasciato scegliere a [persona] tutte le tappe di sabato. La prima mi ha fatto capire quanto sarebbe stata diversa dalla giornata che avevo in mente.”</span></div></li><li><i>97</i><div><span class="tag">Fashion</span><span class="hook">“Nella foto sembrava perfetta. Adesso vi faccio vedere come cade quando mi siedo, alzo le braccia e ci cammino.”</span></div></li><li><i>98</i><div><span class="tag">Reel organico</span><span class="hook">“Ho girato lo stesso hook prima alla scrivania e poi in piedi. Vi faccio sentire perché ho tenuto la seconda versione.”</span></div></li><li><i>99</i><div><span class="tag">Reel organico</span><span class="hook">“Ho dato lo stesso script a due persone e ho chiesto dove avrebbero smesso di guardare. Entrambe mi hanno indicato la stessa frase.”</span></div></li><li><i>100</i><div><span class="tag">Reel organico</span><span class="hook">“Per lo stesso brief ho scritto un hook che parte dal prodotto e uno che parte da una situazione. Ti faccio vedere come decido quale usare.”</span></div></li></ol></details><details class="niche" id="come-costruisco"><summary class="niche-head"><h3>Come costruisco un hook</h3><span>5 passaggi</span></summary><ol><li class="pr"><div><span class="hook">1. Parto da un momento che il pubblico riconosce</span><span class="body">Prima di scrivere, mi chiedo chi voglio che si fermi e in quale situazione si trova. “Se la tua frangia perde la piega appena esci di casa…” mi dice subito per chi è il video. Puoi chiamare il tuo pubblico in modo esplicito oppure descrivere una situazione in cui si riconosce.</span></div></li><li class="pr"><div><span class="hook">2. Rendo il problema abbastanza preciso da poterlo filmare</span><span class="body">“Il trucco mi dura poco” è un punto di partenza. “Alle due il correttore è già tutto qui, nelle pieghette sotto l’occhio” mi dà anche la prima inquadratura. Poi faccio vedere cosa cambio e com’è venuto. Questa è la struttura <strong>problema → soluzione</strong>.</span></div></li><li class="pr"><div><span class="hook">3. Nomino il prodotto quando aiuta a capire la scena</span><span class="body">“Provo questo blush prima di uscire e vi faccio vedere com’è dopo cena” funziona perché so subito cosa guardare. Se la scena è più forte del nome, parto da quella. “Ho 15 minuti prima che arrivino gli ospiti” apre già una storia. Il prodotto può entrare appena inizio a preparare l’aperitivo.</span></div></li><li class="pr"><div><span class="hook">4. Apro una domanda e mostro la risposta</span><span class="body">“Ho provato questo pantalone con tre scarpe diverse. Una cambia completamente come cade” fa venire voglia di vedere <em>quale</em>. Se apro con un risultato, una prova o la reazione di qualcuno, costruisco il resto del video intorno a quello che ho promesso.</span></div></li><li class="pr"><div><span class="hook">5. Per un Reel organico faccio vedere come lavoro</span><span class="body">Se voglio insegnare a scrivere un hook, apro con una frase che ho davvero riscritto. Se parlo di editing, faccio vedere la clip prima e dopo il taglio. La mia struttura è <strong>esempio → scelta → perché l’ho fatta</strong>. Così chi guarda può prendere quel passaggio e provarlo subito sul proprio video.</span></div></li></ol><div class="niche-brands" style="border-top:2.5px solid var(--black);border-bottom:0">Per usare la lista, sostituisci tempi, risultati e reazioni con quelli che puoi raccontare o mostrare davvero. Le etichette servono per trovare un esempio al volo. Lo stesso hook può funzionare in più nicchie.</div></details></div>
+  </div>
+</section>
+
+<section id="altre-guide"><div class="wrap"><p class="eyebrow">Continua con</p><h2>Le altre <span class="mark y">guide</span></h2><div class="more"><a class="more-card" href="/guida-100-idee/"><h3>100 idee di video</h3><p>Dieci nicchie, dieci video ciascuna, con l’hook pronto da dire.</p><span class="go">Apri la guida →</span></a><a class="more-card" href="/guida/"><h3>Contatti brand</h3><p>Email e profili Instagram di brand che collaborano con creator UGC.</p><span class="go">Apri la guida →</span></a></div></div></section>
+
+<section class="about" id="chi">
+  <div class="wrap">
+    <div class="agrid">
+      <div class="aph"><div class="ring"></div><img src="/assets/phone-crop.png" alt="Carlotta Spinelli" width="857" height="965" decoding="async"></div>
+      <div>
+        <p class="eyebrow">Chi c’è dietro la guida</p>
+        <h2>Ciao, sono <span class="mark" style="background:linear-gradient(transparent 56%,#fff 56%)">Carlotta</span></h2>
+        <p>Sono partita da zero, quando in Italia l’<strong>UGC</strong> non esisteva. Il mio <strong>primo video</strong> mi è stato pagato <strong>20$</strong> e non sapevo nemmeno quale fosse la <strong>struttura di un video efficace</strong>.</p>
+        <p>Oggi lavoro con brand come <strong>Sephora</strong> e <strong>Amazon</strong>. Faccio anche la <strong>recruiter</strong> e la <strong>campaign manager</strong>, quindi vedo ogni giorno cosa fa scegliere una creator e cosa la fa scartare.</p>
+        <p>Con <strong>UGC Level Up</strong> ho aiutato <strong>150+ ragazze</strong> e le affianco una per una. Quello che ho imparato sulla mia pelle lo passo a te prima che tu debba sbagliare.</p>
+        <p>Dentro ci sono più di 70 lezioni video, ma non è tutto lì. Guarda cosa trovi oltre.</p>
+      </div>
+    </div>
+    <p class="eyebrow teasers-head">Dentro il percorso, oltre alle lezioni</p>
+    <div class="teasers"><div class="teaser"><h3>Collab pagate ogni mese</h3><p>Ti arrivano proposte di collaborazione pagate, più eventi e fiere a cui partecipare.</p></div><div class="teaser"><h3>Una sfida al mese, con premi</h3><p>In palio c’è anche l’attrezzatura per i tuoi video.</p></div><div class="teaser"><h3>Una call 1:1 con me</h3><p>Mi parli direttamente, senza intermediari.</p></div><div class="teaser"><h3>Un percorso su misura</h3><p>Parti da dove sei: ci sono percorsi diversi in base alle tue necessità.</p></div><div class="teaser"><h3>Campus e community</h3><p>Un campus virtuale con altre creator con cui confrontarti.</p></div><div class="teaser"><h3>Un esercizio dopo ogni lezione</h3><p>Metti subito in pratica quello che hai visto, senza lasciarlo in sospeso.</p></div></div>
+  </div>
+</section>
+
+
+<section class="cta-sec" id="whatsapp">
+  <div class="wrap">
+    <div class="cta">
+      <p class="eyebrow">Il passo dopo la guida</p>
+      <h2>Pronta a fare il <span class="mark" style="background:linear-gradient(transparent 56%,var(--pink) 56%)">level up</span>?</h2>
+      <p>Scrivici su WhatsApp per prenotare una call gratuita: ne parliamo insieme, senza impegno.</p>
+      <div class="msg"><small>Messaggio già pronto</small><span id="msg-text"></span></div>
+      <a class="btn" id="wa-link" href="https://wa.me/393287276998" target="_blank" rel="noopener">Scrivici su WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>UGC <em>Level Up</em> · Carlotta Spinelli</span>
+    <span>Guida gratuita</span>
+  </div>
+</footer>
+
+<script>
+var WA_NUMBER = "393287276998";
+var WA_MESSAGE = "Ciao! Ho letto la guida con i 100 hook per video UGC e Reel organici e vorrei prenotare la call gratuita per capire come funziona UGC Level Up.";
+var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
+document.getElementById("msg-text").textContent = WA_MESSAGE;
+document.getElementById("wa-link").href = waHref;
+document.getElementById("wa-nav").href = waHref;
+
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest("[data-copy-target]");
+  if (!btn) return;
+  var node = document.getElementById(btn.getAttribute("data-copy-target"));
+  var text = node.innerText;
+  var done = function (label) {
+    btn.textContent = label;
+    setTimeout(function () { btn.textContent = "Copia messaggio"; }, 1800);
+  };
+  var select = function () {
+    var range = document.createRange();
+    range.selectNodeContents(node);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    done("Selezionato");
+  };
+  try {
+    navigator.clipboard.writeText(text).then(function () { done("Copiato"); }, select);
+  } catch (err) { select(); }
+});
+
+(function () {
+  function openFromHash() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && document.getElementById(id);
+    if (el && el.tagName === "DETAILS") el.open = true;
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest(".jump a[href^='#']");
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute("href").slice(1));
+    if (el && el.tagName === "DETAILS") el.open = true;
+  });
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
+})();
+</script>
+</body>
+</html>
