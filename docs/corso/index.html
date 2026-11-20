@@ -343,6 +343,7 @@ footer a{color:var(--black);margin-right:16px}
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=988821777146088&ev=PageView&noscript=1"></noscript>
 <div class="progress" id="prog"></div>
 <nav><div class="wrap">
   <a class="logo" href="#top">UGC <em>Level Up</em></a>
@@ -505,7 +506,7 @@ var WA_NUMBER = "393287276998";   // numero di riserva: usato se il portale non 
 var SHIFT_WA = { 1: "" /* Georgia */, 2: "" /* Martina */, 3: "" /* Komal */ };
 /* Form al 50% del video: il lead entra nella coda dei turni del portale */
 var LEAD_API = "https://imprendig-internaltool.onrender.com/public/landing-lead";
-var META_PIXEL_ID = "";   // Meta Pixel: PageView all'apertura, Lead all'invio del form
+var META_PIXEL_ID = "988821777146088";   // Meta Pixel: solo PageView. Il Lead lo manda il portale (Conversions API), dal browser no: sarebbe contato due volte
 var VIDEO_SRC = "/assets/vsl-presentazione.mp4";   // fallback: usato solo se BUNNY_LIBRARY_ID è vuoto
 /* VSL da Bunny Stream: dagli annunci Meta si arriva su /corso/?src=adv&videoID=1 (2, 3...) */
 var BUNNY_LIBRARY_ID = "812583";   // Bunny > Stream > Library > API > Library ID
@@ -575,6 +576,8 @@ document.documentElement.classList.add("js");
   var SRC="";try{var q=new URLSearchParams(location.search).get("src");if(q){SRC=q.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,20);sessionStorage.setItem("ulu_src",SRC)}else{SRC=sessionStorage.getItem("ulu_src")||""}}catch(e){}
   var VID=DEFAULT_VIDEO_ID,FROM_AD=false;try{var qv=new URLSearchParams(location.search).get("videoID"),sv=localStorage.getItem("ulu_vid");if(qv&&BUNNY_VIDEOS.hasOwnProperty(qv)){VID=qv;FROM_AD=true;localStorage.setItem("ulu_vid",VID)}else if(sv&&BUNNY_VIDEOS.hasOwnProperty(sv)){VID=sv;FROM_AD=true}}catch(e){}
   var GUID=BUNNY_LIBRARY_ID&&BUNNY_VIDEOS[VID];
+  // click id dell'annuncio: lo teniamo anche se la lead cambia pagina o torna prima del form
+  var FBC="";try{var fc=new URLSearchParams(location.search).get("fbclid");if(fc){FBC="fb.1."+Date.now()+"."+fc.slice(0,500);localStorage.setItem("ulu_fbc",FBC)}else{FBC=localStorage.getItem("ulu_fbc")||""}}catch(e){}
   var link="";
   var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
   var cv=document.getElementById("campusVid");
@@ -588,6 +591,10 @@ document.documentElement.classList.add("js");
   var seen=!!lead;
   var books=[].slice.call(document.querySelectorAll(".book")),gate=document.getElementById("gate");
   books.forEach(function(a){a.dataset.label=a.firstChild.textContent});
+  function cookie(n){var m=document.cookie.match("(^|;)\\s*"+n+"=([^;]*)");return m?decodeURIComponent(m[2]):""}
+  // turno in corso, ora di Roma (come il portale): 6–11 → 1, 11–16 → 2, 16–19 → 3, 19–23 → 1, 23–6 → 2
+  function romeSlot(){var h=12;try{h=parseInt(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Rome",hour:"2-digit",hourCycle:"h23"}).format(new Date()),10)}catch(e){}
+    return h>=6&&h<11?1:h>=11&&h<16?2:h>=16&&h<19?3:h>=19&&h<23?1:2}
   function digits(x){x=String(x||"").replace(/\D/g,"");return x.length>=8&&x.length<=15?x:""}
   function waLink(){var n=(lead&&(digits(lead.whatsapp)||digits(SHIFT_WA[lead.slot])))||digits(WA_NUMBER);if(!n)return FALLBACK;
     var nome=lead&&lead.name?lead.name.split(/\s+/)[0]:"";
@@ -601,7 +608,7 @@ document.documentElement.classList.add("js");
     [gate,document.getElementById("vnote")].forEach(function(el){if(el){el.classList.toggle("ok",seen);el.textContent=seen?ok:MSG_LOCK}})}
   books.forEach(function(a){a.addEventListener("click",function(e){if(!seen){e.preventDefault();vf.scrollIntoView({behavior:"smooth",block:"center"});vf.classList.remove("shake");void vf.offsetWidth;vf.classList.add("shake")}})});
   paint();
-  /* Meta Pixel */
+  /* Meta Pixel: codice base + PageView (nessun banner cookie sul sito) */
   if(META_PIXEL_ID&&!window.fbq){
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
     fbq("init",META_PIXEL_ID);fbq("track","PageView")}
@@ -625,16 +632,26 @@ document.documentElement.classList.add("js");
     if(!val("extraIncome")||!val("aware")||!val("age")||!val("budget"))return bad("Rispondi a tutte le domande.");
     var body={name:val("name"),email:val("email"),phone:phone,extraIncome:val("extraIncome"),aware:val("aware"),age:val("age"),budget:val("budget"),website:val("website")};
     if(FROM_AD)body.video=VID;if(SRC)body.src=SRC;
+    // dati per la Conversions API del portale; i campi vuoti non si mandano
+    var fbp=cookie("_fbp"),fbc=cookie("_fbc")||FBC,eid="";try{eid=crypto.randomUUID()}catch(e){}
+    if(fbp)body.fbp=fbp;if(fbc)body.fbc=fbc;body.pageUrl=location.href;if(eid)body.eventId=eid;
     lsend.disabled=true;lsend.textContent="Invio in corso…";lerr.textContent="";
     fetch(LEAD_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
-      .then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})
+      .then(function(r){
+        if(r.status===400)return r.json().catch(function(){return{}}).then(function(j){var m=String([].concat(j&&j.message||"").join(" ")).toLowerCase();
+          bad(/phone|telefono/.test(m)?"Controlla il numero di telefono.":/email/.test(m)?"Controlla l'indirizzo email.":/name|nome/.test(m)?"Scrivi nome e cognome.":"Controlla i dati inseriti e riprova.");return null});
+        if(!r.ok)throw new Error(r.status);return r.json()})
       .then(function(res){
+        if(res===null)return;   // 400: messaggio sul campo, si resta sul form
         res=res&&typeof res==="object"?res:{};
         lead={slot:res.slot,setter:typeof res.setter==="string"?res.setter.slice(0,40):null,whatsapp:digits(res.whatsapp)||null,name:body.name,video:body.video||null};
         try{localStorage.setItem("ulu_lead",JSON.stringify(lead))}catch(e){}
-        if(window.fbq)fbq("track","Lead",{content_name:"ugc-level-up",content_category:"video-"+VID});
         seen=true;paint();closeLead();if(resume)resume()})
-      .catch(function(){bad("Non siamo riusciti a inviare i dati. Controlla la connessione e riprova.")})
+      .catch(function(){
+        // rete giù, 429 o errore del server: non blocchiamo la lead, WhatsApp va al numero del turno in corso.
+        // Non salviamo nulla: alla prossima visita il form ricompare e si riprova l'invio
+        lead={slot:romeSlot(),setter:null,whatsapp:null,name:body.name,video:body.video||null};
+        seen=true;paint();closeLead();if(resume)resume()})
       .then(function(){lsend.disabled=false;lsend.textContent="Continua a guardare"})});
   // il server può essere in pausa: lo svegliamo mentre guardano il video
   function wake(){try{fetch(LEAD_API.replace(/\/public\/.*$/,"/"),{mode:"no-cors"}).catch(function(){})}catch(e){}}
