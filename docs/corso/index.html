@@ -64,6 +64,7 @@ nav .btn{padding:10px 20px;font-size:.78rem;white-space:nowrap;width:auto}
 .vframe{position:relative;width:min(100%,900px);margin-inline:auto;aspect-ratio:var(--ar,16/9);border:3px solid var(--black);border-radius:24px;background:var(--black);box-shadow:8px 10px 0 var(--black);overflow:hidden;transform:none;transition:transform .4s}
 .vframe:hover{transform:rotate(0)}
 .vframe video{width:100%;height:100%;object-fit:cover;display:block}
+.vframe iframe{width:100%;height:100%;border:0;display:block}
 .vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--black);overflow:hidden;color:var(--black);font-weight:800;font-size:.9rem;text-align:center;padding:20px}
 .vph::before{content:"";position:absolute;inset:-14px;background:url(/assets/vsl-poster.jpg) center/cover;filter:blur(7px) saturate(1.15)}
 .vph::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(252,188,225,.22),rgba(245,142,195,.16))}
@@ -218,6 +219,35 @@ a.chip{text-decoration:none;color:inherit}.kws{display:flex;flex-wrap:wrap;gap:1
 .jn.end i{left:-48px;top:6px}
 .jn strong{font-weight:800}
 .ba{margin-bottom:12px;padding:12px 14px;border-radius:14px;background:#f4f4f4;font-size:.93rem;line-height:1.5}.ba span{display:inline-block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}.ba ul{margin:0;padding-left:18px;display:grid;gap:5px}.ba strong{font-weight:800}.q2 strong{font-weight:800}.ba.dopo{background:var(--pink)}
+.lbox{max-width:500px;padding:26px 26px 0;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain}
+.lbox::-webkit-scrollbar{display:none}
+.lbox .x{position:sticky;top:0;float:right;margin:-10px -10px 0 8px;z-index:2}
+.lbox .lhead{padding-bottom:18px;margin-bottom:18px;border-bottom:2px dashed rgba(11,11,11,.18)}
+.lbox h3{margin:0 0 6px;font-size:1.4rem;line-height:1.2}
+.lbox .ls{margin:0;color:var(--muted);font-weight:500;font-size:.93rem;line-height:1.45}
+#lform{display:grid;gap:16px}
+#lform label{display:grid;gap:6px;font-weight:700;font-size:.86rem}
+#lform input:not([type=radio]),#lform select{font:500 1rem var(--f);padding:12px 14px;border:2px solid var(--black);border-radius:14px;background:#fff;color:var(--black);width:100%;transition:box-shadow .15s,background .15s;-webkit-appearance:none;appearance:none}
+#lform input::placeholder{color:#9a9a9a}
+#lform input:not([type=radio]):focus,#lform select:focus{outline:none;background-color:var(--soft);box-shadow:0 4px 0 var(--black)}
+#lform select{padding-right:40px;cursor:pointer;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b0b0b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center/16px}
+#lform fieldset{border:0;padding:0;margin:0;min-width:0}
+#lform legend{font-weight:700;font-size:.86rem;margin-bottom:8px;padding:0;line-height:1.4}
+#lform .opts{display:flex;flex-wrap:wrap;gap:8px}
+#lform .opt{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:2px solid var(--black);border-radius:999px;cursor:pointer;font-weight:600;font-size:.9rem;background:#fff;transition:background .15s,transform .15s,box-shadow .15s}
+#lform .opt:hover{transform:translateY(-2px);box-shadow:0 3px 0 var(--black)}
+#lform .opt input{position:absolute;opacity:0;pointer-events:none}
+#lform .opt::before{content:"";width:14px;height:14px;border:2px solid var(--black);border-radius:50%;background:#fff;flex:0 0 auto;transition:background .15s,box-shadow .15s}
+#lform .opt:has(input:checked){background:var(--pink)}
+#lform .opt:has(input:checked)::before{background:var(--black);box-shadow:inset 0 0 0 2px #fff}
+#lform .opt:has(input:focus-visible){outline:3px solid var(--hot);outline-offset:2px}
+#lform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lfoot{position:sticky;bottom:0;margin:4px -26px 0;padding:22px 26px 20px;background:linear-gradient(rgba(255,255,255,0),#fff 26px);display:grid;gap:10px}
+#lform .btn{justify-content:center;width:100%}
+#lform .btn[disabled]{opacity:.6;cursor:wait}
+.lerr{color:#b3261e;font-weight:700;font-size:.86rem;margin:0;text-align:center}.lerr:empty{display:none}
+.lpriv{font-size:.76rem;color:var(--muted);margin:0;text-align:center}
+.lpriv a{color:inherit}
 .mbox .q2{font-size:1.05rem;font-weight:500;line-height:1.55}
 @media(max-width:600px){.bub{width:104px!important;height:104px!important;font-size:1.5rem}.bw:nth-child(3n) .bub{width:118px!important;height:118px!important}.bubbles{gap:52px 30px;padding:18px 0}.bw{width:42%;min-width:140px}.bw:nth-child(2n){margin-top:0}}
 
@@ -313,6 +343,7 @@ footer a{color:var(--black);margin-right:16px}
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=988821777146088&ev=PageView&noscript=1"></noscript>
 <div class="progress" id="prog"></div>
 <nav><div class="wrap">
   <a class="logo" href="#top">UGC <em>Level Up</em></a>
@@ -399,6 +430,29 @@ footer a{color:var(--black);margin-right:16px}
 </div></section>
 
 <div class="modal" id="modal"><div class="mbox" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Chiudi">×</button><div id="mc"></div><div class="mnav" id="mnav"><button id="mp" aria-label="Precedente">‹</button><div class="dots" id="mdots"></div><button id="mn" aria-label="Successiva">›</button></div></div></div>
+<div class="modal" id="leadm"><div class="mbox lbox" role="dialog" aria-modal="true" aria-labelledby="lt">
+  <button class="x" id="lx" type="button" aria-label="Chiudi">×</button>
+  <div class="lhead">
+  <h3 id="lt">Ti sta piacendo? Continua a guardare</h3>
+  <p class="ls">Lasciaci i tuoi dati per vedere il resto del video. Alla fine potrai scrivere direttamente al nostro team su WhatsApp.</p></div>
+  <form id="lform" novalidate>
+    <label>Nome e cognome<input name="name" autocomplete="name" required minlength="2" maxlength="120"></label>
+    <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200"></label>
+    <label>Telefono<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+39 333 123 4567" maxlength="20"></label>
+    <fieldset><legend>Vorresti avere un'entrata extra ogni mese dall'UGC?</legend><div class="opts">
+      <label class="opt"><input type="radio" name="extraIncome" value="si" required>Sì</label>
+      <label class="opt"><input type="radio" name="extraIncome" value="no">No</label></div></fieldset>
+    <fieldset><legend>Sei consapevole che Carlotta offre un percorso formativo che richiede un investimento economico?</legend><div class="opts">
+      <label class="opt"><input type="radio" name="aware" value="si, voglio investire su di me" required>Sì, voglio investire su di me</label>
+      <label class="opt"><input type="radio" name="aware" value="no">No</label></div></fieldset>
+    <label>Quanti anni hai?<select name="age" required><option value="">Seleziona</option><option>18-24</option><option>25-34</option><option>35-44</option><option>45+</option></select></label>
+    <label>Quanto saresti disposta ad investire per diventare una UGC creator?<select name="budget" required><option value="">Seleziona</option><option>Meno di 500€</option><option>500-1.000€</option><option>1.000-2.000€</option><option>Oltre 2.000€</option></select></label>
+    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="lfoot"><p class="lerr" id="lerr" role="alert"></p>
+    <button class="btn" type="submit" id="lsend">Continua a guardare</button>
+    <p class="lpriv">Inviando i dati accetti la <a href="https://www.carlottaspinelli.com/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p></div>
+  </form>
+</div></div>
 
 <section id="fit"><div class="wrap">
   <div class="eyebrow">Fa per te o no?</div>
@@ -436,16 +490,28 @@ footer a{color:var(--black);margin-right:16px}
   <h2 class="rv">Pronta a fare il <span class="mark y">level up</span>?</h2>
   <p class="lead rv d1">Scrivici su WhatsApp per prenotare una call gratuita: ne parliamo insieme, senza impegno.</p>
   <div class="row rv d2"><a class="btn book wa" href="#">Scrivici su WhatsApp</a></div>
-  <p class="gate rv d3" id="gate">🔒 Puoi scriverci su WhatsApp per prenotare una call gratuita: guarda prima il video di presentazione e il bottone si sblocca.</p>
+  <p class="gate rv d3" id="gate">🔒 Guarda il video di presentazione: a metà ti chiediamo due dati e il bottone WhatsApp si sblocca.</p>
 </div></section>
 
 <footer><div class="wrap"><div><a href="https://www.carlottaspinelli.com/privacy-policy">Privacy e Cookie</a><a href="https://www.carlottaspinelli.com/terms">Termini e condizioni</a><a href="https://www.carlottaspinelli.com/refund-policy">Rimborsi</a></div><div>© Carlotta Spinelli</div></div></footer>
 <div class="sticky" id="sticky"><a class="btn book wa" href="#">Scrivici su WhatsApp</a></div>
 
+<script src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"></script>
 <script>
 /* ===== DA COMPILARE ===== */
-var WA_NUMBER = "393287276998";   // numero WhatsApp internazionale senza +, es. "393331234567"
-var VIDEO_SRC = "/assets/vsl-presentazione.mp4";   // percorso o link del video di presentazione (mp4), es. "/assets/presentazione.mp4"
+var WA_NUMBER = "393287276998";   // numero di riserva: usato se il portale non restituisce un numero valido
+/* Il portale risponde { slot, setter, whatsapp }: la chat si apre col WhatsApp della setter del lead.
+   Se whatsapp manca, riserva per turno (8–11 → 1, 11–16 → 2, 16–19 → 3; 19–23 al 1° del giorno dopo, 23–6 al 2°),
+   poi WA_NUMBER. Internazionale senza + */
+var SHIFT_WA = { 1: "" /* Georgia */, 2: "" /* Martina */, 3: "" /* Komal */ };
+/* Form al 50% del video: il lead entra nella coda dei turni del portale */
+var LEAD_API = "https://imprendig-internaltool.onrender.com/public/landing-lead";
+var META_PIXEL_ID = "988821777146088";   // Meta Pixel: solo PageView. Il Lead lo manda il portale (Conversions API), dal browser no: sarebbe contato due volte
+var VIDEO_SRC = "/assets/vsl-presentazione.mp4";   // fallback: usato solo se BUNNY_LIBRARY_ID è vuoto
+/* VSL da Bunny Stream: dagli annunci Meta si arriva su /corso/?src=adv&videoID=1 (2, 3...) */
+var BUNNY_LIBRARY_ID = "812583";   // Bunny > Stream > Library > API > Library ID
+var BUNNY_VIDEOS = { "1": "db2aaf43-25a6-4715-9fa0-5bbb5abead6e", "2": "5c874f77-5703-4e2f-8ae8-2c6924d2a4cb", "3": "9c5659ef-6ba4-4a5e-987f-028373ae5783" };   // videoID -> GUID del video su Bunny
+var DEFAULT_VIDEO_ID = "1";  // video mostrato se videoID manca o non è valido
 /* RECENSIONI: aggiungi qui nome, foto (percorso), testo e, se c'è, video */
 var REVIEWS = [
   {name:"Lucia Ciciliani", big:"1.800€", bigl:"al mese", photo:"/assets/lucia-ciciliani.jpg", role:"UGC & Content Creator", tag:"Mamma di 2 bimbe",
@@ -498,24 +564,21 @@ var REVIEWS = [
    text:"Ho imparato a **non sottovalutare il mio lavoro**: prima non dicevo mai di no, oggi riconosco quando una proposta **non rispecchia il mio valore**.", video:""}
 ];
 var VIDEO_REVIEWS = [ /* {name:"Nome", src:"/assets/video.mp4", poster:""} */ ];
-var WATCH_PCT = 0.5; // quota di video da guardare per sbloccare la prenotazione
+var WATCH_PCT = 0.5; // a che punto del video compare il form
 var VIDEO_RATIO = "16/9"; // formato: "9/16" verticale, "16/9" orizzontale
-var WA_TEXT = " Ciao, ho visto il video! Vorrei saperne di più su UGC Level Up";   // dopo il video
-var WA_TEXT_PRE = "Ciao! Vorrei saperne di più su UGC Level Up";   // prima del video
+var WA_TEXT = "Ciao, sono {NOME}! Ho appena visto il video di presentazione di UGC Level Up e vorrei saperne di più sul percorso e sulla call gratuita.";   // {NOME} = nome dal form
 var CAMPUS_URL = "https://campus.imprendig.com";        // link per sbirciare il campus (accesso ospite). Se vuoto, il bottone porta alla prenotazione
 var CAMPUS_NOTE = "";       // es. "Accedi con email: ... e password: ..." se c'è un accesso ospite
-var BOOKING_URL = "https://www.carlottaspinelli.com/call-ugc-level-up";
-// Origine del contatto: dal link ?src=bio (Instagram/link in bio) oppure ?src=adv (video adv).
-// Se in Wix crei due servizi diversi, metti qui i due link e le prenotazioni si dividono da sole:
-var BOOKING_BY_SRC = { bio: "https://www.carlottaspinelli.com/call-ugc-level-up", adv: "https://www.carlottaspinelli.com/call-ugc-level-up1" };
-var SRC_LABEL = { bio: "Instagram (link in bio)", adv: "Video adv" };   // link pagina prenotazioni Wix (quando pronto). Se vuoto, il bottone apre WhatsApp
 var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Call gratuita UGC Level Up");
 /* ======================== */
 document.documentElement.classList.add("js");
 (function(){
   var SRC="";try{var q=new URLSearchParams(location.search).get("src");if(q){SRC=q.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,20);sessionStorage.setItem("ulu_src",SRC)}else{SRC=sessionStorage.getItem("ulu_src")||""}}catch(e){}
+  var VID=DEFAULT_VIDEO_ID,FROM_AD=false;try{var qv=new URLSearchParams(location.search).get("videoID"),sv=localStorage.getItem("ulu_vid");if(qv&&BUNNY_VIDEOS.hasOwnProperty(qv)){VID=qv;FROM_AD=true;localStorage.setItem("ulu_vid",VID)}else if(sv&&BUNNY_VIDEOS.hasOwnProperty(sv)){VID=sv;FROM_AD=true}}catch(e){}
+  var GUID=BUNNY_LIBRARY_ID&&BUNNY_VIDEOS[VID];
+  // click id dell'annuncio: lo teniamo anche se la lead cambia pagina o torna prima del form
+  var FBC="";try{var fc=new URLSearchParams(location.search).get("fbclid");if(fc){FBC="fb.1."+Date.now()+"."+fc.slice(0,500);localStorage.setItem("ulu_fbc",FBC)}else{FBC=localStorage.getItem("ulu_fbc")||""}}catch(e){}
   var link="";
-  [].forEach.call(document.querySelectorAll(".wa"),function(a){if(WA_NUMBER){a.target="_blank";a.rel="noopener"}});
   var vf=document.getElementById("vframe");vf.style.setProperty("--ar",VIDEO_RATIO);
   var cv=document.getElementById("campusVid");
   if(cv&&"IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var pr=cv.play();if(pr&&pr.catch)pr.catch(function(){})}else cv.pause()})},{threshold:.35}).observe(cv)}
@@ -523,29 +586,100 @@ document.documentElement.classList.add("js");
   var cb2=document.getElementById("campusBtn");
   if(CAMPUS_URL){cb2.href=CAMPUS_URL;cb2.target="_blank";cb2.rel="noopener"}else{cb2.textContent="Anteprima in arrivo"}
   if(CAMPUS_NOTE)document.getElementById("campusNote").textContent=CAMPUS_NOTE;
-  /* sblocco prenotazione dopo il video */
-  var seen=false;try{seen=localStorage.getItem("ulu_seen2")==="1"}catch(e){}
+  /* form a metà video: chi lo compila continua a guardare e sblocca WhatsApp */
+  var lead=null;try{lead=JSON.parse(localStorage.getItem("ulu_lead")||"null")}catch(e){}
+  var seen=!!lead;
   var books=[].slice.call(document.querySelectorAll(".book")),gate=document.getElementById("gate");
   books.forEach(function(a){a.dataset.label=a.firstChild.textContent});
-  function bookUrl(){var u=BOOKING_BY_SRC[SRC]||BOOKING_URL;if(SRC)u+=(u.indexOf("?")<0?"?":"&")+"utm_source="+encodeURIComponent(SRC)+"&utm_medium="+(SRC==="adv"?"paid":"organic")+"&utm_campaign=ugc-level-up";return u}
-  function waLink(){return WA_NUMBER?"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent((seen?WA_TEXT:WA_TEXT_PRE)+(SRC?" [Fonte: "+(SRC_LABEL[SRC]||SRC)+"]":"")):FALLBACK}
-  function paint(){link=waLink();[].forEach.call(document.querySelectorAll(".wa"),function(a){a.href=link});books.forEach(function(a){
-    if(seen){a.classList.remove("locked");a.firstChild.textContent=a.dataset.label;
-      a.href=link;if(WA_NUMBER){a.target="_blank";a.rel="noopener"}}
+  function cookie(n){var m=document.cookie.match("(^|;)\\s*"+n+"=([^;]*)");return m?decodeURIComponent(m[2]):""}
+  // turno in corso, ora di Roma (come il portale): 6–11 → 1, 11–16 → 2, 16–19 → 3, 19–23 → 1, 23–6 → 2
+  function romeSlot(){var h=12;try{h=parseInt(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Rome",hour:"2-digit",hourCycle:"h23"}).format(new Date()),10)}catch(e){}
+    return h>=6&&h<11?1:h>=11&&h<16?2:h>=16&&h<19?3:h>=19&&h<23?1:2}
+  function digits(x){x=String(x||"").replace(/\D/g,"");return x.length>=8&&x.length<=15?x:""}
+  function waLink(){var n=(lead&&(digits(lead.whatsapp)||digits(SHIFT_WA[lead.slot])))||digits(WA_NUMBER);if(!n)return FALLBACK;
+    var nome=lead&&lead.name?lead.name.split(/\s+/)[0]:"";
+    return "https://wa.me/"+n+"?text="+encodeURIComponent(nome?WA_TEXT.replace("{NOME}",nome):WA_TEXT.replace(", sono {NOME}",""))}
+  var MSG_OK="✓ Ora puoi scriverci su WhatsApp: ti risponde la persona del team che segue la tua richiesta.",
+      MSG_LOCK="🔒 Guarda il video di presentazione: a metà ti chiediamo due dati e il bottone WhatsApp si sblocca.";
+  function paint(){link=waLink();books.forEach(function(a){
+    if(seen){a.classList.remove("locked");a.firstChild.textContent=a.dataset.label;a.href=link;a.target="_blank";a.rel="noopener"}
     else{a.classList.add("locked");a.firstChild.textContent="🔒 Guarda prima il video ";a.href="#top";a.removeAttribute("target")}});
-    if(gate){gate.classList.toggle("ok",seen);gate.textContent=seen?"✓ Video visto: ora puoi scriverci su WhatsApp per prenotare la call gratuita.":"🔒 Puoi scriverci su WhatsApp per prenotare una call gratuita: guarda prima il video di presentazione e il bottone si sblocca."}
-    var vn=document.getElementById("vnote");if(vn){vn.classList.toggle("ok",seen);vn.textContent=seen?"✓ Video visto: ora puoi scriverci su WhatsApp per prenotare la call gratuita.":"🔒 Puoi scriverci su WhatsApp per prenotare una call gratuita: guarda prima il video di presentazione e il bottone si sblocca."}}
-  function unlock(){if(seen)return;seen=true;if(VIDEO_SRC){try{localStorage.setItem("ulu_seen2","1")}catch(e){}}paint()}
+    var ok=lead&&lead.setter&&lead.whatsapp?"✓ Ora puoi scriverci su WhatsApp: ti risponde "+lead.setter+", che segue la tua richiesta.":MSG_OK;
+    [gate,document.getElementById("vnote")].forEach(function(el){if(el){el.classList.toggle("ok",seen);el.textContent=seen?ok:MSG_LOCK}})}
   books.forEach(function(a){a.addEventListener("click",function(e){if(!seen){e.preventDefault();vf.scrollIntoView({behavior:"smooth",block:"center"});vf.classList.remove("shake");void vf.offsetWidth;vf.classList.add("shake")}})});
   paint();
+  /* Meta Pixel: codice base + PageView (nessun banner cookie sul sito) */
+  if(META_PIXEL_ID&&!window.fbq){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init",META_PIXEL_ID);fbq("track","PageView")}
+  /* modale del form */
+  var lm=document.getElementById("leadm"),lf=document.getElementById("lform"),lerr=document.getElementById("lerr"),lsend=document.getElementById("lsend");
+  var resume=null;   // riprende il video dopo l'invio
+  function exitFs(){var d=document;if(d.fullscreenElement&&d.exitFullscreen)d.exitFullscreen().catch(function(){});else if(d.webkitFullscreenElement&&d.webkitExitFullscreen)d.webkitExitFullscreen()}
+  function openLead(){if(seen||lm.classList.contains("on"))return;exitFs();lerr.textContent="";lm.classList.add("on");setTimeout(function(){var i=lf.querySelector("input");if(i)i.focus()},50)}
+  function closeLead(){lm.classList.remove("on")}
+  document.getElementById("lx").onclick=closeLead;
+  lf.addEventListener("input",function(){lerr.textContent=""});
+  lm.addEventListener("click",function(e){if(e.target===lm)closeLead()});
+  addEventListener("keydown",function(e){if(e.key==="Escape"&&lm.classList.contains("on"))closeLead()});
+  lf.addEventListener("submit",function(e){e.preventDefault();
+    var f=lf.elements,val=function(k){var x=f[k];return x?String(x.value||"").trim():""};
+    function bad(m){lerr.textContent=m}
+    var phone=val("phone").replace(/[^\d+]/g,"");
+    if(val("name").length<2)return bad("Scrivi nome e cognome.");
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val("email")))return bad("Controlla l'indirizzo email.");
+    if(phone.replace(/\D/g,"").length<8)return bad("Controlla il numero di telefono.");
+    if(!val("extraIncome")||!val("aware")||!val("age")||!val("budget"))return bad("Rispondi a tutte le domande.");
+    var body={name:val("name"),email:val("email"),phone:phone,extraIncome:val("extraIncome"),aware:val("aware"),age:val("age"),budget:val("budget"),website:val("website")};
+    if(FROM_AD)body.video=VID;if(SRC)body.src=SRC;
+    // dati per la Conversions API del portale; i campi vuoti non si mandano
+    var fbp=cookie("_fbp"),fbc=cookie("_fbc")||FBC,eid="";try{eid=crypto.randomUUID()}catch(e){}
+    if(fbp)body.fbp=fbp;if(fbc)body.fbc=fbc;body.pageUrl=location.href;if(eid)body.eventId=eid;
+    lsend.disabled=true;lsend.textContent="Invio in corso…";lerr.textContent="";
+    fetch(LEAD_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+      .then(function(r){
+        if(r.status===400)return r.json().catch(function(){return{}}).then(function(j){var m=String([].concat(j&&j.message||"").join(" ")).toLowerCase();
+          bad(/phone|telefono/.test(m)?"Controlla il numero di telefono.":/email/.test(m)?"Controlla l'indirizzo email.":/name|nome/.test(m)?"Scrivi nome e cognome.":"Controlla i dati inseriti e riprova.");return null});
+        if(!r.ok)throw new Error(r.status);return r.json()})
+      .then(function(res){
+        if(res===null)return;   // 400: messaggio sul campo, si resta sul form
+        res=res&&typeof res==="object"?res:{};
+        lead={slot:res.slot,setter:typeof res.setter==="string"?res.setter.slice(0,40):null,whatsapp:digits(res.whatsapp)||null,name:body.name,video:body.video||null};
+        try{localStorage.setItem("ulu_lead",JSON.stringify(lead))}catch(e){}
+        seen=true;paint();closeLead();if(resume)resume()})
+      .catch(function(){
+        // rete giù, 429 o errore del server: non blocchiamo la lead, WhatsApp va al numero del turno in corso.
+        // Non salviamo nulla: alla prossima visita il form ricompare e si riprova l'invio
+        lead={slot:romeSlot(),setter:null,whatsapp:null,name:body.name,video:body.video||null};
+        seen=true;paint();closeLead();if(resume)resume()})
+      .then(function(){lsend.disabled=false;lsend.textContent="Continua a guardare"})});
+  // il server può essere in pausa: lo svegliamo mentre guardano il video
+  function wake(){try{fetch(LEAD_API.replace(/\/public\/.*$/,"/"),{mode:"no-cors"}).catch(function(){})}catch(e){}}
+  /* player: al WATCH_PCT si ferma e chiede i dati; finché non li lascia non si va avanti */
   document.getElementById("play").addEventListener("click",function(){
-    if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo (anteprima: prenotazione sbloccata)";unlock();return}
+    if(!seen)wake();
+    if(GUID&&window.playerjs){
+      vf.innerHTML='<iframe src="https://iframe.mediadelivery.net/embed/'+encodeURIComponent(BUNNY_LIBRARY_ID)+'/'+encodeURIComponent(GUID)+'?autoplay=true&preload=true" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="Video di presentazione"></iframe>';
+      var p=new playerjs.Player(vf.querySelector("iframe")),maxB=0,gateAt=0;
+      p.on("ready",function(){
+        resume=function(){p.play()};
+        p.on("play",function(){if(!seen&&gateAt&&maxB>=gateAt){p.pause();openLead()}});
+        p.on("timeupdate",function(d){if(!d||!d.duration)return;gateAt=d.duration*WATCH_PCT;
+          if(seen)return;
+          if(d.seconds>maxB+1.5){p.setCurrentTime(maxB);return}
+          maxB=Math.max(maxB,d.seconds);
+          if(maxB>=gateAt){p.pause();openLead()}});
+        p.on("ended",function(){if(!seen)openLead()})});
+      return}
+    if(!VIDEO_SRC){var t=vf.querySelector("span");t.textContent="Video in arrivo";return}
     vf.innerHTML='<video src="'+VIDEO_SRC+'" controls autoplay playsinline></video>';
-    var v=vf.querySelector("video");
-    var maxT=0;
-    v.addEventListener("timeupdate",function(){if(!v.seeking&&v.currentTime<=maxT+1.5)maxT=Math.max(maxT,v.currentTime);if(!seen&&v.duration&&maxT>=v.duration*WATCH_PCT)unlock()});
+    var v=vf.querySelector("video"),maxT=0;
+    resume=function(){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})};
+    function atGate(){return v.duration&&maxT>=v.duration*WATCH_PCT}
+    v.addEventListener("timeupdate",function(){if(seen)return;if(!v.seeking&&v.currentTime<=maxT+1.5)maxT=Math.max(maxT,v.currentTime);if(atGate()){v.pause();openLead()}});
     v.addEventListener("seeking",function(){if(!seen&&v.currentTime>maxT+1.5)v.currentTime=maxT});
-    v.addEventListener("ended",unlock)});
+    v.addEventListener("play",function(){if(!seen&&atGate()){v.pause();openLead()}});
+    v.addEventListener("ended",function(){if(!seen)openLead()})});
   /* recensioni */
   var mbx=document.querySelector(".mbox"),md=document.getElementById("modal"),mc=document.getElementById("mc");
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
