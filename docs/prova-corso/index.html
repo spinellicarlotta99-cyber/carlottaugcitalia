@@ -39,8 +39,8 @@ header{display:grid;gap:14px}
 .facts span::before{content:"✓ ";color:var(--ok)}
 
 /* scelta del sistema */
-.os{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border:2px solid var(--ink);border-radius:16px;background:var(--surface);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
-.os b{font-family:var(--f-display);font-size:.9rem}
+.os{display:flex;align-items:baseline;gap:8px 12px;flex-wrap:wrap;padding:14px 16px;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+.os b{font-family:var(--f-display);font-size:.9rem}.os>span:not(.progress){flex:1 1 300px;font-size:.95rem}
 .seg{display:inline-flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden}
 .seg button{font:700 .9rem var(--f-body);color:var(--ink);background:transparent;border:0;padding:7px 18px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
@@ -64,6 +64,7 @@ ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:18px;counter-reset:
 .cmd code{flex:1;min-width:0;font:500 .92rem/1.5 var(--f-mono);padding:12px 14px;overflow-x:auto;white-space:pre}
 .cmd button{font:700 .8rem var(--f-body);border:0;border-left:1px solid rgba(255,255,255,.12);background:transparent;color:var(--code-ink);padding:0 16px;cursor:pointer}
 .cmd button:hover{background:rgba(255,255,255,.08)}
+.cmd.prompt{flex-direction:column}.cmd.prompt code{white-space:pre-wrap;font-family:var(--f-body);font-size:.98rem}.cmd.prompt button{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:12px}
 code.i{font:500 .88em var(--f-mono);background:var(--hot-soft);padding:1px 6px;border-radius:6px}
 kbd{font:600 .82rem var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;background:var(--bg)}
 .ui{font-weight:700;white-space:nowrap}
@@ -97,117 +98,93 @@ footer{color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
-<div class="wrap" id="root" data-os="mac">
+<div class="wrap" id="root">
   <header>
     <div class="eyebrow">UGC Level Up · pagina /corso</div>
     <h1>Provare la pagina del corso sul tuo computer</h1>
-    <p class="lede">Questa guida ti porta da zero a provare tutto il percorso della pagina: il video che si ferma a metà, il regalo, il form con le 4 domande e il bottone WhatsApp. Non serve saper programmare: si tratta di installare due programmi e copiare qualche comando.</p>
-    <div class="facts"><span>Circa 30 minuti la prima volta, 2 minuti le volte dopo</span><span>Non crea contatti veri nel portale</span><span>Non serve un account</span></div>
+    <p class="lede">Questa guida ti porta da zero a provare tutto il percorso della pagina: il video che si ferma a metà, il regalo, il form con le 4 domande e il bottone WhatsApp. Installi un solo programma con l'assistente Claude: il resto (scaricare il progetto, installare quello che serve, avviare la pagina) lo fa lui, tu gli dai il permesso.</p>
+    <div class="facts"><span>Circa 20 minuti la prima volta, 2 minuti le volte dopo</span><span>Non crea contatti veri nel portale</span><span>Non serve saper programmare</span></div>
   </header>
 
-  <div class="os" role="group" aria-label="Il tuo computer">
-    <b>Il tuo computer:</b>
-    <div class="seg"><button type="button" id="os-mac" data-os="mac" aria-pressed="true">Mac</button><button type="button" id="os-win" data-os="win" aria-pressed="false">Windows</button></div>
-    <span class="progress" id="progress">0 di 8 passi fatti</span>
+  <div class="os">
+    <b>Cosa ti serve:</b>
+    <span>un Mac o un PC Windows, Chrome, e un account Claude con Claude Code incluso (piano Pro o superiore).</span>
+    <span class="progress" id="progress">0 di 7 passi fatti</span>
   </div>
 
-  <p class="note">Visual Studio Code di solito è in inglese: nella guida trovi i nomi dei menu in inglese, con la traduzione tra parentesi.</p>
+  <p class="note">Visual Studio Code di solito è in inglese: nella guida trovi i nomi dei menu in inglese, con la traduzione tra parentesi. Dove c'è <kbd>Cmd</kbd> è per Mac, <kbd>Ctrl</kbd> per Windows.</p>
 
   <ol class="steps">
     <li class="step"><div class="body">
       <h2>Installa Visual Studio Code <span class="time">5 min</span></h2>
-      <p>È il programma da cui scaricherai il progetto e scriverai i comandi.</p>
       <ol>
         <li>Vai su <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">code.visualstudio.com</a> e clicca il grande bottone <span class="ui">Download</span>.</li>
-        <li data-os-show="mac">Apri il file scaricato e trascina <b>Visual Studio Code</b> nella cartella <b>Applicazioni</b>. Aprilo dal Launchpad; se il Mac chiede conferma, clicca <span class="ui">Apri</span>.</li>
-        <li data-os-show="win">Apri il file scaricato, accetta la licenza e clicca sempre <span class="ui">Next</span> lasciando le opzioni come sono, poi <span class="ui">Install</span>. Alla fine aprilo.</li>
-        <li>Se propone un tour iniziale, di accedere o di installare la lingua italiana, puoi chiudere tutto.</li>
+        <li><b>Mac:</b> apri il file scaricato e trascina <b>Visual Studio Code</b> nella cartella <b>Applicazioni</b>, poi aprilo dal Launchpad. Se il Mac chiede conferma, clicca <span class="ui">Apri</span>.</li>
+        <li><b>Windows:</b> apri il file scaricato, accetta la licenza e clicca sempre <span class="ui">Next</span> lasciando le opzioni come sono, poi <span class="ui">Install</span>. Alla fine aprilo.</li>
+        <li>Se propone un tour iniziale o di accedere, puoi chiudere tutto.</li>
       </ol>
       <label class="done-toggle"><input type="checkbox" id="done-1"> Fatto</label>
     </div></li>
 
     <li class="step"><div class="body">
-      <h2>Installa Git e Python <span class="time">5–15 min</span></h2>
-      <p><b>Git</b> serve a scaricare il progetto e a tenerlo aggiornato, <b>Python</b> a far partire la pagina sul tuo computer.</p>
-      <div data-os-show="mac">
-        <ol>
-          <li>In Visual Studio Code apri il menu <span class="ui">Terminal → New Terminal</span> <span class="it">(Terminale → Nuovo terminale)</span>. In basso si apre un riquadro con un cursore che lampeggia: è il terminale.</li>
-          <li>Incolla questo comando (<kbd>Cmd</kbd> + <kbd>V</kbd>) e premi <kbd>Invio</kbd>:</li>
-        </ol>
-        <div class="cmd"><code>git --version &amp;&amp; python3 --version</code><button type="button">Copia</button></div>
-        <ul>
-          <li><b>Se compaiono due righe</b> tipo <code class="i">git version 2.39…</code> e <code class="i">Python 3.9…</code>: hai già tutto, vai al passo 3.</li>
-          <li><b>Se si apre una finestra</b> che chiede di installare gli <i>strumenti per sviluppatori da riga di comando</i>: clicca <span class="ui">Installa</span>, accetta e aspetta la fine (anche 10 minuti). Installa sia Git sia Python. Poi incolla di nuovo il comando per controllare.</li>
-        </ul>
-      </div>
-      <div data-os-show="win">
-        <ol>
-          <li><b>Git</b>: vai su <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a>, scarica <b>Git for Windows</b> (versione «64-bit»), aprilo e clicca sempre <span class="ui">Next</span> senza cambiare nulla, poi <span class="ui">Install</span>. Sono tante schermate: vanno bene tutte così come sono.</li>
-          <li><b>Python</b>: vai su <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a> e scarica Python. Nella prima schermata dell'installazione <b>spunta «Add python.exe to PATH»</b> in basso, poi clicca <span class="ui">Install Now</span>.</li>
-          <li><b>Chiudi e riapri Visual Studio Code</b>, così vede i programmi appena installati.</li>
-        </ol>
-      </div>
+      <h2>Installa l'estensione Claude Code <span class="time">2 min</span></h2>
+      <ol>
+        <li>Nella barra a sinistra clicca l'icona dei quadratini <span class="ui">Extensions</span> <span class="it">(Estensioni)</span>, oppure premi <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>.</li>
+        <li>Nella ricerca scrivi <b>Claude Code</b>.</li>
+        <li>Scegli quella pubblicata da <b>Anthropic</b> (controlla il nome sotto il titolo) e clicca <span class="ui">Install</span> <span class="it">(Installa)</span>.</li>
+      </ol>
       <label class="done-toggle"><input type="checkbox" id="done-2"> Fatto</label>
     </div></li>
 
     <li class="step"><div class="body">
-      <h2>Scarica il progetto (clone) <span class="time">2 min</span></h2>
+      <h2>Apri una cartella di lavoro <span class="time">1 min</span></h2>
+      <p>Claude lavora dentro una cartella: è lì che scaricherà il progetto.</p>
       <ol>
-        <li>In Visual Studio Code premi <span data-os-show="mac"><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></span><span data-os-show="win"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></span>: in alto si apre una barra di ricerca.</li>
-        <li>Scrivi <b>Git: Clone</b> e premi <kbd>Invio</kbd>.</li>
-        <li>Incolla questo indirizzo e premi <kbd>Invio</kbd>:</li>
-      </ol>
-      <div class="cmd"><code>https://github.com/spinellicarlotta99-cyber/carlottaugcitalia.git</code><button type="button">Copia</button></div>
-      <ol start="4">
-        <li>Si apre una finestra per scegliere <b>dove</b> salvarlo: scegli per esempio la cartella <b>Documenti</b> e clicca <span class="ui">Select as Repository Destination</span> <span class="it">(Seleziona come destinazione)</span>.</li>
-        <li>Quando ha finito, in basso a destra chiede <i>«Would you like to open the cloned repository?»</i>: clicca <span class="ui">Open</span> <span class="it">(Apri)</span>.</li>
+        <li>Menu <span class="ui">File → Open Folder…</span> <span class="it">(Apri cartella)</span>. <b>Su Mac</b> può chiamarsi <span class="ui">File → Open…</span></li>
+        <li>Vai in <b>Documenti</b>, crea una cartella nuova chiamata <b>progetti</b> (bottone <span class="ui">Nuova cartella</span> nella finestra) e aprila.</li>
         <li>Se chiede <i>«Do you trust the authors of the files in this folder?»</i>, clicca <span class="ui">Yes, I trust the authors</span> <span class="it">(Sì, mi fido)</span>.</li>
       </ol>
-      <p>A sinistra ora vedi i file del progetto, tra cui <b>docs</b>, <b>scripts</b> e <b>TEST-CORSO.md</b>. Non serve un account GitHub: il progetto è pubblico.</p>
       <label class="done-toggle"><input type="checkbox" id="done-3"> Fatto</label>
     </div></li>
 
     <li class="step"><div class="body">
-      <h2>Apri il terminale nel progetto <span class="time">1 min</span></h2>
+      <h2>Apri Claude e accedi <span class="time">2 min</span></h2>
       <ol>
-        <li>Menu <span class="ui">Terminal → New Terminal</span> <span class="it">(Terminale → Nuovo terminale)</span>.</li>
-        <li>In basso si apre il terminale: la riga prima del cursore finisce con <b>carlottaugcitalia</b>. Vuol dire che sei nella cartella giusta.</li>
+        <li>Clicca l'icona di Claude (la stellina arancione) in alto a destra nella finestra, oppure premi <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, scrivi <b>Claude Code</b> e scegli il comando per aprirlo.</li>
+        <li>Si apre il pannello di Claude. La prima volta chiede di accedere: clicca il bottone di accesso, si apre il browser, entra con il tuo account Claude e conferma. Poi torna in Visual Studio Code.</li>
+        <li>Ora in basso nel pannello c'è un campo dove scrivere a Claude.</li>
       </ol>
-      <p class="note">Per incollare nel terminale usa <span data-os-show="mac"><kbd>Cmd</kbd> + <kbd>V</kbd></span><span data-os-show="win"><kbd>Ctrl</kbd> + <kbd>V</kbd> (o clic destro)</span>, poi premi <kbd>Invio</kbd>.</p>
       <label class="done-toggle"><input type="checkbox" id="done-4"> Fatto</label>
     </div></li>
 
     <li class="step"><div class="body">
-      <h2>Prendi l'ultima versione <span class="time">10 sec</span></h2>
-      <p>Da fare ogni volta prima di provare, così hai le ultime modifiche:</p>
-      <div class="cmd"><code>git pull</code><button type="button">Copia</button></div>
-      <p>Risponde <code class="i">Already up to date.</code> se avevi già tutto, altrimenti elenca i file aggiornati. In entrambi i casi va bene.</p>
+      <h2>Chiedi a Claude di preparare tutto <span class="time">5–15 min</span></h2>
+      <p>Copia questo messaggio, incollalo nel campo di Claude e invialo:</p>
+      <div class="cmd prompt"><code>Voglio provare in locale la pagina /corso del progetto https://github.com/spinellicarlotta99-cyber/carlottaugcitalia
+Non sono uno sviluppatore: spiegami ogni passo in parole semplici.
+
+1. Controlla se ho Git e Python 3.8 o più recente. Se mancano, installali o guidami a installarli.
+2. Clona il progetto in questa cartella.
+3. Leggi TEST-CORSO.md e avvia scripts/dev-corso.py in background.
+4. Dammi il link del "flusso veloce" da aprire in Chrome (deve contenere api=mock).
+
+Non modificare nessun file del progetto e non fare commit o push.</code><button type="button">Copia</button></div>
+      <ul>
+        <li><b>Claude chiede il permesso</b> prima di eseguire ogni comando: leggi cosa vuole fare e clicca <span class="ui">Yes</span> <span class="it">(Sì)</span>. Se un comando ti sembra estraneo alla prova, clicca <span class="ui">No</span> e chiedigli perché.</li>
+        <li><b>Su Mac</b> può aprirsi una finestra che chiede di installare gli <i>strumenti per sviluppatori</i>: clicca <span class="ui">Installa</span> e aspetta la fine (anche 10 minuti), poi scrivi a Claude «fatto».</li>
+        <li><b>Su Windows</b> Claude può farti scaricare degli installer (Git, Python): aprili e clicca sempre <span class="ui">Next</span>. Per Python spunta <b>«Add python.exe to PATH»</b> nella prima schermata. Poi scrivi a Claude «fatto».</li>
+      </ul>
+      <p>Alla fine Claude ti risponde con un link che inizia con <code class="i">http://localhost:8080/corso/</code>.</p>
       <label class="done-toggle"><input type="checkbox" id="done-5"> Fatto</label>
     </div></li>
 
     <li class="step"><div class="body">
-      <h2>Avvia la pagina <span class="time">1 min</span></h2>
-      <p>Incolla questo comando nel terminale:</p>
-      <div class="cmd" data-os-show="mac"><code>python3 scripts/dev-corso.py</code><button type="button">Copia</button></div>
-      <div class="cmd" data-os-show="win"><code>py scripts/dev-corso.py</code><button type="button">Copia</button></div>
-      <p>Se va tutto bene compare questo testo e il terminale resta occupato: è normale, deve restare aperto finché provi.</p>
-      <div class="cmd"><code>Finto portale in modalità 'ok'. Apri:
-
-  flusso veloce   http://localhost:8080/corso/?videoID=1&amp;src=adv&amp;api=mock&amp;pct=0.03&amp;end=9999&amp;reset=1
-  flusso reale    http://localhost:8080/corso/?videoID=1&amp;src=adv&amp;api=mock&amp;reset=1
-
-I dati del form compaiono qui sotto. Ctrl+C per fermare.</code></div>
-      <p class="note">Il programma fa finta di essere il portale delle setter: i dati che inserisci nei form non arrivano a nessuno, compaiono solo qui nel terminale.</p>
-      <label class="done-toggle"><input type="checkbox" id="done-6"> Fatto</label>
-    </div></li>
-
-    <li class="step"><div class="body">
       <h2>Apri la pagina in Chrome <span class="time">1 min</span></h2>
-      <p>Copia il link del <b>flusso veloce</b> e incollalo nella barra degli indirizzi di Chrome:</p>
+      <p>Copia il link che ti ha dato Claude nella barra degli indirizzi di Chrome. Deve essere così:</p>
       <div class="cmd"><code>http://localhost:8080/corso/?videoID=1&amp;src=adv&amp;api=mock&amp;pct=0.03&amp;end=9999&amp;reset=1</code><button type="button">Copia</button></div>
-      <p>Con questo link il video si ferma dopo pochi secondi invece che a metà, così non devi guardarne minuti ogni volta. Il link <b>flusso reale</b> invece si comporta come per le persone vere: si ferma a metà.</p>
-      <p class="warn"><span class="tag">Importante</span>Usa sempre i link che contengono <b>api=mock</b>. Senza, i dati vanno al portale vero e creano un contatto reale.</p>
-      <label class="done-toggle"><input type="checkbox" id="done-7"> Fatto</label>
+      <p>Con questo link il video si ferma dopo pochi secondi invece che a metà, così non devi guardarne minuti ogni volta.</p>
+      <p class="warn"><span class="tag">Importante</span>Usa sempre link che contengono <b>api=mock</b>. Senza, i dati vanno al portale vero e creano un contatto reale.</p>
+      <label class="done-toggle"><input type="checkbox" id="done-6"> Fatto</label>
     </div></li>
 
     <li class="step"><div class="body">
@@ -219,36 +196,30 @@ I dati del form compaiono qui sotto. Ctrl+C per fermare.</code></div>
         <li><label><input type="checkbox" id="c3"><span>Scrivi un'email sbagliata (per esempio <i>ciao</i>) e premi <b>Richiedi</b>: compare un messaggio che chiede di controllare l'email.</span></label></li>
         <li><label><input type="checkbox" id="c4"><span>Scrivi un'email di prova → <b>Richiedi</b> → il tuo nome → <b>Invia</b> → un numero di telefono → <b>Invia</b>.</span></label></li>
         <li><label><input type="checkbox" id="c5"><span>Il video riparte da dove si era fermato e sotto il video compare il riquadro rosa <b>«Pronta a fare il level up?»</b>.</span></label></li>
-        <li><label><input type="checkbox" id="c6"><span>Nel terminale di Visual Studio Code compare <b>«lead ricevuto»</b> con i dati che hai scritto e il numero con <b>+39</b> davanti.</span></label></li>
+        <li><label><input type="checkbox" id="c6"><span>Chiedi a Claude <i>«mostrami i lead ricevuti dallo script»</i>: deve elencare i dati che hai scritto, con il numero con <b>+39</b> davanti.</span></label></li>
         <li><label><input type="checkbox" id="c7"><span>Clicca <b>Scrivici su WhatsApp</b>: si apre WhatsApp con un messaggio già scritto che contiene il tuo nome. <b>Non inviarlo</b>: il numero è vero. Chiudi pure.</span></label></li>
-        <li><label><input type="checkbox" id="c8"><span>Clicca <b>Richiedi la call gratuita</b>: si apre un modulo con nome, email e telefono già compilati. Rispondi alle 4 domande e invia: compare <b>«Richiesta inviata!»</b> e nel terminale arriva un secondo «lead ricevuto», questa volta con le risposte.</span></label></li>
+        <li><label><input type="checkbox" id="c8"><span>Clicca <b>Richiedi la call gratuita</b>: si apre un modulo con nome, email e telefono già compilati. Rispondi alle 4 domande e invia: compare <b>«Richiesta inviata!»</b>. Chiedendo di nuovo a Claude i lead ricevuti, ora c'è anche quello con le risposte.</span></label></li>
         <li><label><input type="checkbox" id="c9"><span>Ricarica la pagina togliendo <b>&amp;reset=1</b> dalla fine del link: il video non si blocca più e il riquadro rosa è già visibile, perché la pagina si ricorda di te.</span></label></li>
         <li><label><input type="checkbox" id="c10"><span>Cambia <b>videoID=1</b> in <b>videoID=2</b> e poi <b>videoID=3</b>, rimettendo <b>&amp;reset=1</b>: parte ogni volta un video diverso.</span></label></li>
       </ul>
-      <label class="done-toggle"><input type="checkbox" id="done-8"> Prova completata</label>
+      <label class="done-toggle"><input type="checkbox" id="done-7"> Prova completata</label>
     </div></li>
   </ol>
 
   <section class="more" aria-labelledby="t-extra">
-    <h2 id="t-extra">Prove in più: quando il portale ha problemi</h2>
-    <p>Servono a vedere cosa succede alle persone se il portale non risponde. Nel terminale premi <kbd>Ctrl</kbd> + <kbd>C</kbd> per fermare la pagina, poi avviala con uno di questi comandi e rifai la prova dal link con <b>reset=1</b>.</p>
+    <h2 id="t-extra">Altre cose da chiedere a Claude</h2>
+    <p>Copia la frase che ti serve e incollala nel pannello di Claude.</p>
     <div class="tbl"><table>
-      <thead><tr><th>Comando</th><th>Cosa deve succedere</th></tr></thead>
+      <thead><tr><th>Per…</th><th>Scrivi a Claude</th></tr></thead>
       <tbody>
-        <tr><td><span data-os-show="mac">python3</span><span data-os-show="win">py</span> scripts/dev-corso.py --mode 400email</td><td>All'ultimo passo il regalo torna alla domanda dell'email con un messaggio di errore.</td></tr>
-        <tr><td><span data-os-show="mac">python3</span><span data-os-show="win">py</span> scripts/dev-corso.py --mode 400phone</td><td>Il regalo resta sulla domanda del telefono con un messaggio di errore.</td></tr>
-        <tr><td><span data-os-show="mac">python3</span><span data-os-show="win">py</span> scripts/dev-corso.py --mode down</td><td>Il portale non risponde: il video riparte lo stesso e WhatsApp si sblocca con il numero di riserva.</td></tr>
-        <tr><td><span data-os-show="mac">python3</span><span data-os-show="win">py</span> scripts/dev-corso.py --mode 429</td><td>Come sopra, per il caso di troppe richieste al portale.</td></tr>
+        <tr><td>Vedere cosa succede se il portale non risponde</td><td>«Riavvia lo script di prova con --mode down». Rifai la prova: il video deve ripartire lo stesso e WhatsApp sbloccarsi con il numero di riserva.</td></tr>
+        <tr><td>Vedere cosa succede se il portale rifiuta l'email</td><td>«Riavvia lo script di prova con --mode 400email». All'ultimo passo il regalo deve tornare alla domanda dell'email con un errore.</td></tr>
+        <tr><td>Tornare alla prova normale</td><td>«Riavvia lo script di prova in modalità normale».</td></tr>
+        <tr><td>Provare come una persona vera (stop a metà video)</td><td>«Dammi il link del flusso reale».</td></tr>
+        <tr><td>Fermare tutto</td><td>«Ferma lo script di prova». Oppure chiudi Visual Studio Code.</td></tr>
+        <tr><td>Le volte dopo</td><td>Apri Visual Studio Code e Claude, poi: «Aggiorna il progetto carlottaugcitalia con git pull e avvia la pagina di prova del corso. Dammi il link del flusso veloce».</td></tr>
       </tbody>
     </table></div>
-  </section>
-
-  <section class="more" aria-labelledby="t-fine">
-    <h2 id="t-fine">Quando hai finito, e le volte dopo</h2>
-    <ul>
-      <li>Per fermare la pagina: clicca nel terminale e premi <kbd>Ctrl</kbd> + <kbd>C</kbd> (anche su Mac è <kbd>Ctrl</kbd>, non <kbd>Cmd</kbd>).</li>
-      <li>Le volte dopo: apri Visual Studio Code (riapre da solo il progetto) e rifai i passi 4, 5, 6 e 7. Un paio di minuti.</li>
-    </ul>
   </section>
 
   <section class="more" aria-labelledby="t-prob">
@@ -256,15 +227,13 @@ I dati del form compaiono qui sotto. Ctrl+C per fermare.</code></div>
     <div class="tbl"><table>
       <thead><tr><th>Cosa vedi</th><th>Cosa fare</th></tr></thead>
       <tbody>
-        <tr><td>«command not found: git» / «git non è riconosciuto»</td><td>Git non è installato: rifai il passo 2. Su Windows, dopo l'installazione chiudi e riapri Visual Studio Code.</td></tr>
-        <tr><td>«command not found: python3» / «py non è riconosciuto»</td><td>Python non è installato: rifai il passo 2.</td></tr>
-        <tr><td>Scrivendo «Git: Clone» non compare nulla</td><td>Visual Studio Code non trova Git: rifai il passo 2 e riapri Visual Studio Code.</td></tr>
-        <tr><td>«can't open file … dev-corso.py» o «No such file»</td><td>Il terminale non è nella cartella del progetto. Menu <span class="ui">File → Open Recent</span> <span class="it">(Apri recenti)</span>, scegli <b>carlottaugcitalia</b> e rifai il passo 4.</td></tr>
-        <tr><td>«Address already in use»</td><td>La pagina è già avviata in un altro terminale. Chiudi gli altri terminali (icona del cestino nel riquadro) oppure avvia con <b>--port 8081</b> e nel link sostituisci 8080 con 8081.</td></tr>
-        <tr><td>Chrome dice «Impossibile raggiungere il sito»</td><td>La pagina non è avviata: controlla che il terminale mostri ancora il testo del passo 6.</td></tr>
+        <tr><td>Cercando «Claude Code» nelle estensioni non trovi quella di Anthropic</td><td>Controlla di aver scritto bene e di avere Visual Studio Code aggiornato (menu <span class="ui">Code/Help → Check for Updates</span>).</td></tr>
+        <tr><td>Claude dice che il tuo account non include Claude Code</td><td>Serve un piano Pro o superiore: avvisa chi ti ha mandato questa guida.</td></tr>
+        <tr><td>Claude si blocca o non capisce cosa fare</td><td>Scrivigli «leggi TEST-CORSO.md nel progetto e segui le istruzioni per avviare la prova».</td></tr>
+        <tr><td>Chrome dice «Impossibile raggiungere il sito»</td><td>Lo script non è avviato: chiedi a Claude «avvia di nuovo lo script di prova del corso».</td></tr>
         <tr><td>Il video resta nero</td><td>Il servizio dei video non accetta ancora il tuo computer. Avvisa chi ti ha mandato questa guida.</td></tr>
         <tr><td>Il video non si ferma mai</td><td>La pagina si ricorda che hai già lasciato i dati: usa il link con <b>&amp;reset=1</b> alla fine.</td></tr>
-        <tr><td>Dopo il form nel terminale non compare nulla</td><td>Nel link mancava <b>api=mock</b> e i dati sono andati al portale vero. Avvisa chi ti ha mandato la guida, così cancella il contatto.</td></tr>
+        <tr><td>Claude non trova nessun lead dopo che hai compilato il form</td><td>Nel link mancava <b>api=mock</b> e i dati sono andati al portale vero. Avvisa chi ti ha mandato la guida, così cancella il contatto.</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -275,18 +244,12 @@ I dati del form compaiono qui sotto. Ctrl+C per fermare.</code></div>
 <script>
 (function(){
   var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-  var root=document.getElementById("root");
-  // sistema operativo: scelta salvata, altrimenti indovinato dal browser
-  var btns=[].slice.call(document.querySelectorAll(".seg button"));
-  function setOs(v){root.dataset.os=v;btns.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.os===v)});store.set("bp-os",v)}
-  btns.forEach(function(b){b.addEventListener("click",function(){setOs(b.dataset.os)})});
-  setOs(store.get("bp-os")||(/Win/i.test(navigator.platform||navigator.userAgent)?"win":"mac"));
   // passi fatti e checklist: ricordati in questo browser
   var prog=document.getElementById("progress");
-  function paint(){var n=0;[].forEach.call(document.querySelectorAll(".done-toggle input"),function(i){i.closest(".step").classList.toggle("done",i.checked);if(i.checked)n++});prog.textContent=n+" di 8 passi fatti"}
-  [].forEach.call(document.querySelectorAll('.step input[type="checkbox"]'),function(i){i.checked=store.get("bp-"+i.id)==="1";i.addEventListener("change",function(){store.set("bp-"+i.id,i.checked?"1":"0");paint()})});
+  function paint(){var n=0;[].forEach.call(document.querySelectorAll(".done-toggle input"),function(i){i.closest(".step").classList.toggle("done",i.checked);if(i.checked)n++});prog.textContent=n+" di 7 passi fatti"}
+  [].forEach.call(document.querySelectorAll('.step input[type="checkbox"]'),function(i){i.checked=store.get("bp2-"+i.id)==="1";i.addEventListener("change",function(){store.set("bp2-"+i.id,i.checked?"1":"0");paint()})});
   paint();
-  // copia comandi
+  // copia comandi e messaggi
   [].forEach.call(document.querySelectorAll(".cmd button"),function(b){b.addEventListener("click",function(){
     var c=b.previousElementSibling;
     function ok(){b.textContent="Copiato";setTimeout(function(){b.textContent="Copia"},1500)}

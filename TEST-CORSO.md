@@ -2,7 +2,7 @@
 
 La pagina `docs/corso/` mostra la VSL da Bunny in base a `?videoID=`. A metà video la ferma e chiede email, nome e telefono per mandare un regalo. Poi invia il lead al portale e sblocca WhatsApp con il numero della setter. Il form completo, con le 4 domande, si apre da "Richiedi la call gratuita".
 
-Guida passo passo per chi non programma (da VS Code al clone): https://carlottaugcitalia.com/prova-corso/
+Guida passo passo per chi non programma (VS Code + Claude Code): https://carlottaugcitalia.com/prova-corso/
 
 Per provare tutto senza toccare il portale vero c'è `scripts/dev-corso.py`. Lo script serve il sito e fa finta di essere il portale: risponde al form e stampa nel terminale i dati ricevuti. Serve solo Python 3.8+, senza `npm install` e senza backend.
 
