@@ -581,6 +581,14 @@ var CAMPUS_URL = "https://campus.imprendig.com";        // link per sbirciare il
 var CAMPUS_NOTE = "";       // es. "Accedi con email: ... e password: ..." se c'è un accesso ospite
 var FALLBACK = "mailto:spinelli.carlotta99@gmail.com?subject=" + encodeURIComponent("Call gratuita UGC Level Up");
 /* ======================== */
+/* solo in locale (scripts/dev-corso.py): ?api=mock usa il finto portale, ?pct=0.03 ferma prima il video, ?end=5 mostra prima il blocco finale,
+   ?reset=1 dimentica il lead salvato, ?pixel=1 accende il Pixel (spento in locale per non sporcare i dati di Meta) */
+if(/^(localhost|127\.0\.0\.1)$/.test(location.hostname))(function(q){
+  if(!q.get("pixel"))META_PIXEL_ID="";
+  if(q.get("api"))LEAD_API=q.get("api")==="mock"?"/public/landing-lead":q.get("api");
+  if(+q.get("pct")>0)WATCH_PCT=+q.get("pct");if(+q.get("end")>0)END_SEC=+q.get("end");
+  if(q.get("reset"))try{["ulu_lead","ulu_end","ulu_vid","ulu_fbc"].forEach(function(k){localStorage.removeItem(k)})}catch(e){}
+})(new URLSearchParams(location.search));
 document.documentElement.classList.add("js");
 (function(){
   var SRC="";try{var q=new URLSearchParams(location.search).get("src");if(q){SRC=q.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,20);sessionStorage.setItem("ulu_src",SRC)}else{SRC=sessionStorage.getItem("ulu_src")||""}}catch(e){}
